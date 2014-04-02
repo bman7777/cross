@@ -1,9 +1,11 @@
-/*
- * Serial.h
- *
- *  Created on: Dec 17, 2013
- *      Author: brian
- */
+///==============================================================
+///	Cross::Serial
+/// Created on: Dec 17, 2013
+///
+/// \brief A series of values can be packed into this object and
+///			pulled from when a module is actually run.  This
+///			decouples params from their place in the flow.
+///==============================================================
 
 #ifndef SERIAL_H_
 #define SERIAL_H_

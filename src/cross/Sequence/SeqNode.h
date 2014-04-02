@@ -16,8 +16,6 @@ namespace Cross
 class Context;
 class Continuer;
 class IModuleWrapper;
-class SeqStream;
-class SequenceIterator;
 class SequenceFactory;
 
 class SeqNode : protected SeqConnect

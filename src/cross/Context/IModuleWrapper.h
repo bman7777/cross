@@ -1,9 +1,11 @@
-/*
- * IModuleWrapper.h
- *
- *  Created on: Oct 3, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::IModuleWrapper
+/// Created on: Oct 3, 2013
+///
+/// \brief A wrapper for runtime modules that can perform some
+///			task or service according to their function.
+///			context can be used for dependencies.
+///==============================================================
 
 #ifndef FLOW_IMODULEWRAPPER_H_
 #define FLOW_IMODULEWRAPPER_H_

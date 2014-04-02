@@ -1,9 +1,10 @@
-/*
- * Module.h
- *
- *  Created on: Oct 3, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::Module
+/// Created on: Oct 3, 2013
+///
+/// \brief A base class for modules that allows allocations to
+///			always draw from services.
+///==============================================================
 
 #ifndef FLOW_MODULE_H_
 #define FLOW_MODULE_H_

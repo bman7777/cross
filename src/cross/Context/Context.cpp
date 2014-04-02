@@ -1,9 +1,11 @@
-/*
- * Context.cpp
- *
- *  Created on: Oct 4, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::Context
+/// Created on: Oct 4, 2013
+///
+/// \brief Context holds details about location of flow that are
+///			hidden to concrete implementation.  Context is also
+///			a container for services.
+///==============================================================
 
 #include "cross/Context/Context.h"
 

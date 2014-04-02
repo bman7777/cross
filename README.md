@@ -1,4 +1,4 @@
-cross (Contextual Reliance on Sequences/Services)
+Contextual Reliance on Sequences/Services (Cross)
 =======
 
 The challenge of most large software systems is-

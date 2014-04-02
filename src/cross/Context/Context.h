@@ -1,9 +1,11 @@
-/*
- * Context.h
- *
- *  Created on: Oct 4, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::Context
+/// Created on: Oct 4, 2013
+///
+/// \brief Context holds details about location of flow that are
+///			hidden to concrete implementation.  Context is also
+///			a container for services.
+///==============================================================
 
 #ifndef CONTEXT_H_
 #define CONTEXT_H_
@@ -16,7 +18,6 @@
 namespace Cross
 {
 
-// used to retrieve Services
 class Context
 {
 public:
@@ -24,13 +25,10 @@ public:
 	Context(Context* parent) : mParentContext(parent) {}
 	virtual ~Context() {}
 
-	//Context* GetParentContext() const { return mParentContext; }
-
 	void RegisterService(Service::Key key, Service* serv);
 
 	bool EnsureService(Service::Key key, Service* serv);
 
-	// note: a given service requested *may not* exist
 	Service* GetService(Service::Key key) const;
 
 	bool HasService(Service::Key key) const;
@@ -47,6 +45,3 @@ private:
 }
 
 #endif /* CONTEXT_H_ */
-
-
-

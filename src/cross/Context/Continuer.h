@@ -1,9 +1,12 @@
-/*
- * Continuer.h
- *
- *  Created on: Oct 4, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::Continuer
+/// Created on: Oct 4, 2013
+///
+/// \brief Continuer triggers the next part of a flow with an
+///			error, if applicable.  Various classes can implement
+///			this api to be themselves a continuer.
+///==============================================================
+
 
 #ifndef CONTINUER_H_
 #define CONTINUER_H_

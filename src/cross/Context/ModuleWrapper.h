@@ -1,9 +1,12 @@
-/*
- * ModuleWrapper.h
- *
- *  Created on: Oct 4, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::ModuleWrapper
+/// Created on: Oct 4, 2013
+///
+/// \brief A functional wrapper for runtime modules that can
+///			perform some task or service according to their
+///			function.  ModuleWrappers also contain a UUID that
+///			can uniquely identify them as a module.
+///==============================================================
 
 #ifndef MODULE_WRAPPER_H_
 #define MODULE_WRAPPER_H_

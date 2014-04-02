@@ -1,9 +1,10 @@
-/*
- * FlowDefine.h
- *
- *  Created on: Oct 4, 2013
- *      Author: bmanson
- */
+///==============================================================
+///	Cross::FlowDefine
+/// Created on: Oct 4, 2013
+///
+/// \brief FlowDefine is a container for all definitions that
+///			do not have a home and are global to the system.
+///==============================================================
 
 #ifndef FLOWDEFINE_H_
 #define FLOWDEFINE_H_
