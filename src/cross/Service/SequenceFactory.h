@@ -1,9 +1,12 @@
-/*
- * SequenceFactory.h
- *
- *  Created on: Mar 25, 2014
- *      Author: brian
- */
+/****************************************************************/
+/// \class Cross::SequenceFactory
+/// \ingroup Service
+/// \date Mar 25, 2013
+/// \brief A service that provides creation for sequences and
+///         nodes while building up a sequence stream.  This
+///         class is specifically friended to be able to
+///         perform these functions.
+/****************************************************************/
 
 #ifndef SEQUENCEFACTORY_H_
 #define SEQUENCEFACTORY_H_
@@ -21,21 +24,21 @@ class SeqNode;
 class SequenceFactory : public Service
 {
 public:
-	static const Service::Key KEY = 0x5e71ce;
+    static const Service::Key KEY = 0x5e71ce;
 
-	SequenceFactory(Context* ctx) : mContext(ctx) {}
-	virtual ~SequenceFactory() {}
+    SequenceFactory(Context* ctx) : mContext(ctx) {}
+    virtual ~SequenceFactory() {}
 
-	Sequence* CreateSequence();
-	SeqNode* CreateSeqNode(IModuleWrapper* m = NULL);
+    Sequence* CreateSequence();
+    SeqNode* CreateSeqNode(IModuleWrapper* m = NULL);
 
-	static SequenceFactory* Get(Context* ctx)
-	{
-		return static_cast<SequenceFactory*>(Service::Get(KEY, ctx));
-	}
+    static SequenceFactory* Get(Context* ctx)
+    {
+        return static_cast<SequenceFactory*>(Service::Get(KEY, ctx));
+    }
 
 private:
-	Context* mContext;
+    Context* mContext;
 };
 
 }

@@ -18,4 +18,12 @@ System Services
 
 A given flow's module can use its location in the system to request a registered service that can provide functionality or utility.
 
+TODOs
+-------
+* Write more unit tests
+* Flesh out the serial functionality
+* Add more documentation
+* Fill out allocator service
+* Use google test features to detect memory leaks
+* Run doxygen on project
 
