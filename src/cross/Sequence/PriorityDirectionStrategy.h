@@ -1,9 +1,12 @@
-/*
- * PriorityDirectionStrategy.h
- *
- *  Created on: Feb 9, 2014
- *      Author: brian
- */
+/****************************************************************/
+/// \class Cross::PriorityDirectionStrategy
+/// \ingroup Sequence
+/// \date Feb 9, 2014
+/// \brief Sibling to the automatic strategy- this is able to
+///         select from a prioritized list of direction/module
+///         pairs and push the flow of the sequence in a pre-
+///         defined direction.
+/****************************************************************/
 
 #ifndef PRIORITYDIRECTIONSTRATEGY_H_
 #define PRIORITYDIRECTIONSTRATEGY_H_
@@ -22,23 +25,22 @@ class SeqNode;
 class PriorityDirectionStrategy : public IDirectionStrategy
 {
 public:
-	PriorityDirectionStrategy() { }
-	virtual ~PriorityDirectionStrategy() {}
+    PriorityDirectionStrategy() { }
+    virtual ~PriorityDirectionStrategy() {}
 
-	void AddNextHighestPriority(IModuleWrapper* module, Direction dir);
-	virtual SeqNode* GetNextNode(SeqConnect* current, ErrorCode e);
+    void AddNextHighestPriority(IModuleWrapper* module, Direction dir);
+    virtual SeqNode* GetNextNode(SeqConnect* current, ErrorCode e);
 
 private:
 
-	SeqNode* GetNextForwardNode(SeqNode* current);
-	SeqNode* GetNextBackwardNode(SeqNode* current);
+    SeqNode* GetNextForwardNode(SeqNode* current);
+    SeqNode* GetNextBackwardNode(SeqNode* current);
 
-	typedef std::pair<IModuleWrapper*, Direction> PriorityPair;
-	typedef std::vector<PriorityPair> PriorityList;
-	PriorityList mPriorities;
+    typedef std::pair<IModuleWrapper*, Direction> PriorityPair;
+    typedef std::vector<PriorityPair> PriorityList;
+    PriorityList mPriorities;
 };
 
 }
-
 
 #endif /* PRIORITYDIRECTIONSTRATEGY_H_ */

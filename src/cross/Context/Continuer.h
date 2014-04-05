@@ -1,12 +1,3 @@
-/****************************************************************/
-/// \class Cross::Continuer
-/// \ingroup Context
-/// \date Oct 4, 2013
-/// \brief Continuer triggers the next part of a flow with an
-///         error, if applicable.  Various classes can implement
-///         this api to be themselves a continuer.
-/****************************************************************/
-
 
 #ifndef CONTINUER_H_
 #define CONTINUER_H_
@@ -18,6 +9,14 @@ namespace Cross
 
 class Context;
 
+/****************************************************************/
+/// \class Cross::Continuer
+/// \ingroup Context
+/// \date Oct 4, 2013
+/// \brief Continuer triggers the next part of a flow with an
+///         error, if applicable.  Various classes can implement
+///         this api to be themselves a continuer.
+/****************************************************************/
 // causes a transition
 class Continuer
 {
@@ -27,6 +26,14 @@ public:
     virtual void Continue(Context* ctx, ErrorCode e = ERR_NONE) {}
 };
 
+/****************************************************************/
+/// \class Cross::CallbackContinuer
+/// \ingroup Context
+/// \date Oct 4, 2013
+/// \brief Since commonly continuers are just pass-through
+///         callbacks- this serves as a helper utility for
+///         simple continuers.
+/****************************************************************/
 class CallbackContinuer : public Continuer
 {
 public:

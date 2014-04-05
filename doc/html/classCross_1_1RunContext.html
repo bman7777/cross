@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -93,16 +93,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cross::RunContext Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A surrogate for running a node with a strategy. This would be duplicated in several places if not for this class which manages the running context and continuer.  
+ <a href="classCross_1_1RunContext.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="RunContext_8h_source.html">RunContext.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Cross::RunContext:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classCross_1_1RunContext.png" usemap="#Cross::RunContext_map" alt=""/>
-  <map id="Cross::RunContext_map" name="Cross::RunContext_map">
-<area href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="Cross::Context" shape="rect" coords="0,0,115,24"/>
-<area href="classCross_1_1Continuer.html" title="Continuer triggers the next part of a flow with an error, if applicable. Various classes can implemen..." alt="Cross::Continuer" shape="rect" coords="125,0,240,24"/>
-</map>
- </div></div>
+<div class="center"><img src="classCross_1_1RunContext__inherit__graph.png" border="0" usemap="#Cross_1_1RunContext_inherit__map" alt="Inheritance graph"/></div>
+<map name="Cross_1_1RunContext_inherit__map" id="Cross_1_1RunContext_inherit__map">
+<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="5,5,115,35"/><area shape="rect" id="node4" href="classCross_1_1Continuer.html" title="Continuer triggers the next part of a flow with an error, if applicable. Various classes can implemen..." alt="" coords="139,5,259,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Cross::RunContext:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCross_1_1RunContext__coll__graph.png" border="0" usemap="#Cross_1_1RunContext_coll__map" alt="Collaboration graph"/></div>
+<map name="Cross_1_1RunContext_coll__map" id="Cross_1_1RunContext_coll__map">
+<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="5,5,115,35"/><area shape="rect" id="node4" href="classCross_1_1Continuer.html" title="Continuer triggers the next part of a flow with an error, if applicable. Various classes can implemen..." alt="" coords="139,5,259,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -144,14 +153,17 @@ Protected Member Functions</h2></td></tr>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Continue</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, ErrorCode e=ERR_NONE)</td></tr>
 <tr class="separator:aef1e977ea7082e3707351b01fce23608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A surrogate for running a node with a strategy. This would be duplicated in several places if not for this class which manages the running context and continuer. </p>
+<dl class="section date"><dt>Date</dt><dd>Feb 14, 2014 </dd></dl>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="RunContext_8h_source.html">RunContext.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/RunContext.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 22:26:50 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

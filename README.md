@@ -26,4 +26,5 @@ TODOs
 * Fill out allocator service
 * Use google test features to detect memory leaks
 * Run doxygen on project
-
+* make sure context/services can be customized per module/sequence/junction
+* analyze performance

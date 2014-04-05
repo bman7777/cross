@@ -1,9 +1,12 @@
-/*
- * UpdateDirSeqNode.cpp
- *
- *  Created on: Feb 4, 2014
- *      Author: brian
- */
+/****************************************************************/
+/// \class Cross::DirectionModuleDecorator
+/// \ingroup Sequence
+/// \date Feb 4, 2014
+/// \brief A module that can force a direction change in a flow
+///         in a specific way.  This depends heavily on
+///         directional strategies that ultimately determine
+///         flow.
+/****************************************************************/
 
 #include "cross/Context/Continuer.h"
 #include "cross/Context/IModuleWrapper.h"

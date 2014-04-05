@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -93,17 +93,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cross::SeqNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers for running the module process.  
+ <a href="classCross_1_1SeqNode.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SeqNode_8h_source.html">SeqNode.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Cross::SeqNode:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classCross_1_1SeqNode.png" usemap="#Cross::SeqNode_map" alt=""/>
-  <map id="Cross::SeqNode_map" name="Cross::SeqNode_map">
-<area href="classCross_1_1SeqConnect.html" alt="Cross::SeqConnect" shape="rect" coords="64,0,183,24"/>
-<area href="classCross_1_1Junction.html" alt="Cross::Junction" shape="rect" coords="0,112,119,136"/>
-<area href="classCross_1_1Sequence.html" alt="Cross::Sequence" shape="rect" coords="129,112,248,136"/>
-</map>
- </div></div>
+<div class="center"><img src="classCross_1_1SeqNode__inherit__graph.png" border="0" usemap="#Cross_1_1SeqNode_inherit__map" alt="Inheritance graph"/></div>
+<map name="Cross_1_1SeqNode_inherit__map" id="Cross_1_1SeqNode_inherit__map">
+<area shape="rect" id="node5" href="classCross_1_1Junction.html" title="A junction is a point in a sequence that contains several routes to new sequences. The chosen route will rely on direction strategies. A junction is definable by a user, and can be streamed from like a standard sequence stream. " alt="" coords="5,160,120,189"/><area shape="rect" id="node7" href="classCross_1_1Sequence.html" title="Sequences are networks of nodes. They carry an isolated context that allows sequences to operate sepa..." alt="" coords="144,160,267,189"/><area shape="rect" id="node2" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="65,5,201,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Cross::SeqNode:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCross_1_1SeqNode__coll__graph.png" border="0" usemap="#Cross_1_1SeqNode_coll__map" alt="Collaboration graph"/></div>
+<map name="Cross_1_1SeqNode_coll__map" id="Cross_1_1SeqNode_coll__map">
+<area shape="rect" id="node2" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -174,14 +182,17 @@ typedef std::pair&lt; <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a
 typedef std::vector&lt; SeqPair &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Connection</b></td></tr>
 <tr class="separator:a7bac2a6417c92c44bda653db3e2284fa inherit pro_types_classCross_1_1SeqConnect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers for running the module process. </p>
+<dl class="section date"><dt>Date</dt><dd>Jan 31, 2014 </dd></dl>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="SeqNode_8h_source.html">SeqNode.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/SeqNode.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 3 2014 22:26:50 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
