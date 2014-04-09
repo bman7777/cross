@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -120,15 +121,23 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8df1d55c34eb9a3a3337733c9b0e21d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8df1d55c34eb9a3a3337733c9b0e21d8"></a>
-virtual ModuleKey&#160;</td><td class="memItemRight" valign="bottom"><b>GetKey</b> () const </td></tr>
-<tr class="separator:a8df1d55c34eb9a3a3337733c9b0e21d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b691a7572fae3a8a5d22e6de8c6d061"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b691a7572fae3a8a5d22e6de8c6d061"></a>
+virtual IModuleWrapper::Key&#160;</td><td class="memItemRight" valign="bottom"><b>GetKey</b> () const </td></tr>
+<tr class="separator:a2b691a7572fae3a8a5d22e6de8c6d061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbcbfe7b95ead372888b2898cf7a8025"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbcbfe7b95ead372888b2898cf7a8025"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL)</td></tr>
 <tr class="separator:abbcbfe7b95ead372888b2898cf7a8025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a5e150182bcc4dcb628a52fdab44fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15a5e150182bcc4dcb628a52fdab44fe"></a>
-<a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetContext</b> () const </td></tr>
-<tr class="separator:a15a5e150182bcc4dcb628a52fdab44fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_classCross_1_1IModuleWrapper"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1IModuleWrapper')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></td></tr>
+<tr class="memitem:ab836dec3a9e4f2e00bef6e7e0109d44a inherit pub_types_classCross_1_1IModuleWrapper"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab836dec3a9e4f2e00bef6e7e0109d44a"></a>
+typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
+<tr class="separator:ab836dec3a9e4f2e00bef6e7e0109d44a inherit pub_types_classCross_1_1IModuleWrapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_methods_classCross_1_1IModuleWrapper"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classCross_1_1IModuleWrapper')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></td></tr>
+<tr class="memitem:a5b0d7babfba94b48600e22be4fd7518e inherit pro_static_methods_classCross_1_1IModuleWrapper"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b0d7babfba94b48600e22be4fd7518e"></a>
+static Key&#160;</td><td class="memItemRight" valign="bottom"><b>MakeKey</b> ()</td></tr>
+<tr class="separator:a5b0d7babfba94b48600e22be4fd7518e inherit pro_static_methods_classCross_1_1IModuleWrapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br/>
@@ -142,7 +151,7 @@ class Cross::ModuleWrapper&lt; T &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

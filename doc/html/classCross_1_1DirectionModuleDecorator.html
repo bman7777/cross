@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,38 +115,180 @@ Collaboration diagram for Cross::DirectionModuleDecorator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae843401a7bf92ea4df687d611506f6a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae843401a7bf92ea4df687d611506f6a8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DirectionModuleDecorator</b> (<a class="el" href="classCross_1_1AutoDirectionStrategy.html">AutoDirectionStrategy</a> *strat, Direction newDir, <a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *mod)</td></tr>
+<tr class="memitem:ae843401a7bf92ea4df687d611506f6a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1DirectionModuleDecorator.html#ae843401a7bf92ea4df687d611506f6a8">DirectionModuleDecorator</a> (<a class="el" href="classCross_1_1AutoDirectionStrategy.html">AutoDirectionStrategy</a> *strat, Direction newDir, <a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *mod)</td></tr>
+<tr class="memdesc:ae843401a7bf92ea4df687d611506f6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the decorator with all dependencies  <a href="#ae843401a7bf92ea4df687d611506f6a8">More...</a><br/></td></tr>
 <tr class="separator:ae843401a7bf92ea4df687d611506f6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4bb4a326f0d1640a7c06b997de5e7e9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bb4a326f0d1640a7c06b997de5e7e9a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt)</td></tr>
+<tr class="memitem:a4bb4a326f0d1640a7c06b997de5e7e9a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1DirectionModuleDecorator.html#a4bb4a326f0d1640a7c06b997de5e7e9a">Run</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt)</td></tr>
+<tr class="memdesc:a4bb4a326f0d1640a7c06b997de5e7e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">run the decorated module if one has been given  <a href="#a4bb4a326f0d1640a7c06b997de5e7e9a">More...</a><br/></td></tr>
 <tr class="separator:a4bb4a326f0d1640a7c06b997de5e7e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87c0cf941e3ca8d027afb2e8cf847e31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87c0cf941e3ca8d027afb2e8cf847e31"></a>
-virtual <a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetContext</b> () const </td></tr>
-<tr class="separator:a87c0cf941e3ca8d027afb2e8cf847e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada36372611a6a7ec7b8382697230bf32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada36372611a6a7ec7b8382697230bf32"></a>
-virtual ModuleKey&#160;</td><td class="memItemRight" valign="bottom"><b>GetKey</b> () const </td></tr>
-<tr class="separator:ada36372611a6a7ec7b8382697230bf32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8df5be29327559862571f20743d75a02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8df5be29327559862571f20743d75a02"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Continue</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, ErrorCode e=ERR_NONE)</td></tr>
+<tr class="memitem:a3be83fe497950b4d48c10c637faebe9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3be83fe497950b4d48c10c637faebe9d"></a>
+virtual IModuleWrapper::Key&#160;</td><td class="memItemRight" valign="bottom"><b>GetKey</b> () const </td></tr>
+<tr class="separator:a3be83fe497950b4d48c10c637faebe9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8df5be29327559862571f20743d75a02"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1DirectionModuleDecorator.html#a8df5be29327559862571f20743d75a02">Continue</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, ErrorCode e=ERR_NONE)</td></tr>
+<tr class="memdesc:a8df5be29327559862571f20743d75a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">continue the run process and interface with the strategy so the next strategy pick is influenced  <a href="#a8df5be29327559862571f20743d75a02">More...</a><br/></td></tr>
 <tr class="separator:a8df5be29327559862571f20743d75a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_classCross_1_1IModuleWrapper"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1IModuleWrapper')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></td></tr>
+<tr class="memitem:ab836dec3a9e4f2e00bef6e7e0109d44a inherit pub_types_classCross_1_1IModuleWrapper"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab836dec3a9e4f2e00bef6e7e0109d44a"></a>
+typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
+<tr class="separator:ab836dec3a9e4f2e00bef6e7e0109d44a inherit pub_types_classCross_1_1IModuleWrapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_methods_classCross_1_1IModuleWrapper"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classCross_1_1IModuleWrapper')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></td></tr>
+<tr class="memitem:a5b0d7babfba94b48600e22be4fd7518e inherit pro_static_methods_classCross_1_1IModuleWrapper"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b0d7babfba94b48600e22be4fd7518e"></a>
+static Key&#160;</td><td class="memItemRight" valign="bottom"><b>MakeKey</b> ()</td></tr>
+<tr class="separator:a5b0d7babfba94b48600e22be4fd7518e inherit pro_static_methods_classCross_1_1IModuleWrapper"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A module that can force a direction change in a flow in a specific way. This depends heavily on directional strategies that ultimately determine flow. </p>
 <dl class="section date"><dt>Date</dt><dd>Feb 4, 2014</dd>
 <dd>
 Feb 1, 2014 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae843401a7bf92ea4df687d611506f6a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cross::DirectionModuleDecorator::DirectionModuleDecorator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1AutoDirectionStrategy.html">AutoDirectionStrategy</a> *&#160;</td>
+          <td class="paramname"><em>strat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>newDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td>
+          <td class="paramname"><em>mod</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>construct the decorator with all dependencies </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strategy</td><td>- this contains algorithm for determining the next direction to proceed. </td></tr>
+    <tr><td class="paramname">newDir</td><td>- the new direction to trigger when a <a class="el" href="classCross_1_1DirectionModuleDecorator.html#a8df5be29327559862571f20743d75a02" title="continue the run process and interface with the strategy so the next strategy pick is influenced ...">Continue()</a> occurs </td></tr>
+    <tr><td class="paramname">module</td><td>- the module to run (this is what we are ultimately decorating) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8df5be29327559862571f20743d75a02"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::DirectionModuleDecorator::Continue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrorCode&#160;</td>
+          <td class="paramname"><em>e</em> = <code>ERR_NONE</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>continue the run process and interface with the strategy so the next strategy pick is influenced </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the context for the run </td></tr>
+    <tr><td class="paramname">error</td><td>- any error that occurred in the run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1Continuer.html">Cross::Continuer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bb4a326f0d1640a7c06b997de5e7e9a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::DirectionModuleDecorator::Run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Continuer.html">Continuer</a> *&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>run the decorated module if one has been given </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- context for the run </td></tr>
+    <tr><td class="paramname">cnt</td><td>- continuer after the run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="DirectionModuleDecorator_8h_source.html">DirectionModuleDecorator.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/DirectionModuleDecorator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

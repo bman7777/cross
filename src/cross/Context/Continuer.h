@@ -2,6 +2,7 @@
 #ifndef CONTINUER_H_
 #define CONTINUER_H_
 
+#include <boost/function.hpp>
 #include "cross/Context/FlowDefine.h"
 
 namespace Cross
@@ -37,7 +38,7 @@ public:
 class CallbackContinuer : public Continuer
 {
 public:
-    typedef void (*CallbackType)(ErrorCode e);
+    typedef boost::function<void (ErrorCode e)> CallbackType;
 
     CallbackContinuer(CallbackType callback) : mCallback(callback) {}
     virtual void Continue(Context* ctx, ErrorCode e = ERR_NONE)

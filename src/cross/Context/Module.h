@@ -9,6 +9,8 @@
 #ifndef FLOW_MODULE_H_
 #define FLOW_MODULE_H_
 
+#include <stddef.h>
+
 namespace Cross
 {
 
@@ -20,15 +22,20 @@ class Context;
 class Module
 {
 public:
-    Module(Context* cxt, Continuer* cnt=NULL, Serial* s=NULL) {}
+    Module(Context* ctx, Continuer* cnt=NULL, Serial* s=NULL) : mContext(ctx) {}
 
     virtual ~Module() {}
 
-    void* operator new (size_t size, Context& ctx);
+    void* operator new (size_t size, Context* ctx);
 
     void operator delete (void* module);
 
-    void operator delete (void* module, Context& ctx);
+    void operator delete (void* module, Context* ctx);
+
+    Context* GetContext() const { return mContext; }
+
+private:
+    Context* mContext;
 };
 
 }

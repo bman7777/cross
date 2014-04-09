@@ -28,8 +28,7 @@ class ModuleWrapper : public IModuleWrapper
 public:
     ModuleWrapper(Serial* s=NULL) :
         mFlow(NULL),
-        mContext(NULL),
-        mKey(MakeFlowKey()),
+        mKey(MakeKey()),
         mSerial(s)
     {}
 
@@ -43,23 +42,19 @@ public:
     }
 
 protected:
-    virtual ModuleKey GetKey() const { return mKey; }
+    virtual IModuleWrapper::Key GetKey() const { return mKey; }
 
     void Run(Context* ctx, Continuer* cnt=NULL)
     {
         // make sure we never run a module twice!
         assert(!mFlow);
 
-        mContext = ctx;
-        mFlow = new(*ctx) T(ctx, cnt, mSerial);
+        mFlow = new(ctx) T(ctx, cnt, mSerial);
     }
-
-    Context* GetContext() const { return mContext; }
 
 private:
     T* mFlow;
-    Context* mContext;
-    ModuleKey mKey;
+    IModuleWrapper::Key mKey;
     Serial* mSerial;
 };
 

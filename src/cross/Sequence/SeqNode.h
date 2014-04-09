@@ -10,6 +10,7 @@
 #ifndef SEQNODE_H_
 #define SEQNODE_H_
 
+#include <stddef.h>
 #include "cross/Sequence/SeqConnect.h"
 
 namespace Cross

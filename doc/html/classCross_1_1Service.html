@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,27 +108,101 @@ Inheritance diagram for Cross::Service:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a87ba8b25a7a5260c6e1fc38bbd171f17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87ba8b25a7a5260c6e1fc38bbd171f17"></a>
-typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
-<tr class="separator:a87ba8b25a7a5260c6e1fc38bbd171f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d62f9589d735c9a7c169164c4106d3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d62f9589d735c9a7c169164c4106d3f"></a>
+typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
+<tr class="separator:a1d62f9589d735c9a7c169164c4106d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae1e69d95471f3d61db92223462e8aeff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1e69d95471f3d61db92223462e8aeff"></a>
-static <a class="el" href="classCross_1_1Service.html">Service</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (Key k, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memitem:a81feecc7eef2cf7be6a9ae060f73d051"><td class="memItemLeft" align="right" valign="top">static Key&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Service.html#a81feecc7eef2cf7be6a9ae060f73d051">MakeKey</a> ()</td></tr>
+<tr class="memdesc:a81feecc7eef2cf7be6a9ae060f73d051"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a new key using a UUID to identify the service uniquely. This can be used to hash the service.  <a href="#a81feecc7eef2cf7be6a9ae060f73d051">More...</a><br/></td></tr>
+<tr class="separator:a81feecc7eef2cf7be6a9ae060f73d051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e69d95471f3d61db92223462e8aeff"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCross_1_1Service.html">Service</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Get</a> (Key k, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:ae1e69d95471f3d61db92223462e8aeff"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a service using its key and context  <a href="#ae1e69d95471f3d61db92223462e8aeff">More...</a><br/></td></tr>
 <tr class="separator:ae1e69d95471f3d61db92223462e8aeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base class for services that provides support for service keys that index into contexts. </p>
 <dl class="section date"><dt>Date</dt><dd>Oct 4, 2013 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae1e69d95471f3d61db92223462e8aeff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1Service.html">Service</a> * Cross::Service::Get </td>
+          <td>(</td>
+          <td class="paramtype">Service::Key&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get a service using its key and context </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- this comes from <a class="el" href="classCross_1_1Service.html#a81feecc7eef2cf7be6a9ae060f73d051" title="create a new key using a UUID to identify the service uniquely. This can be used to hash the service...">MakeKey()</a> and is a unique ID for all services of its kind </td></tr>
+    <tr><td class="paramname">context-</td><td>where are you asking from? </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ptr to service (or NULL if there is none.) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a81feecc7eef2cf7be6a9ae060f73d051"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Service::Key Cross::Service::MakeKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create a new key using a UUID to identify the service uniquely. This can be used to hash the service. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID that identifies the service </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Service/<a class="el" href="Service_8h_source.html">Service.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Service/Service.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

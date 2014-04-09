@@ -24,7 +24,7 @@ class SeqNode;
 class SequenceFactory : public Service
 {
 public:
-    static const Service::Key KEY = 0x5e71ce;
+    static const Service::Key KEY;
 
     SequenceFactory(Context* ctx) : mContext(ctx) {}
     virtual ~SequenceFactory() {}

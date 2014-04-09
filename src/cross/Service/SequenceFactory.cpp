@@ -14,12 +14,21 @@
 
 namespace Cross
 {
+const Service::Key SequenceFactory::KEY = Service::MakeKey();
 
+/// \brief create a sequence using friendship to constructor
+///         and passing along our local context (likely
+///         genesis context.)
+/// \return ptr to new sequence
 Sequence* SequenceFactory::CreateSequence()
 {
     return new Sequence(mContext);
 }
 
+/// \brief create a sequence node using friendship to
+///         constructor and passing along our local context
+///         (likely genesis context.)
+/// \return ptr to new sequence node
 SeqNode* SequenceFactory::CreateSeqNode(IModuleWrapper* m)
 {
     return new SeqNode(mContext, m);

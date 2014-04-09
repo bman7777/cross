@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,21 +100,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6fcc032bc9410a6baeffa857d44259d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fcc032bc9410a6baeffa857d44259d7"></a>
-static <a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> ()</td></tr>
+<tr class="memitem:a6fcc032bc9410a6baeffa857d44259d7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1GenesisContext.html#a6fcc032bc9410a6baeffa857d44259d7">Get</a> ()</td></tr>
+<tr class="memdesc:a6fcc032bc9410a6baeffa857d44259d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the genesis context. This should only be used in creation of sequences and nodes. This will be propagated into other nodes eventually. If it doesn't exist yet, it will be lazy instantiated.  <a href="#a6fcc032bc9410a6baeffa857d44259d7">More...</a><br/></td></tr>
 <tr class="separator:a6fcc032bc9410a6baeffa857d44259d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The context used for generating the construction of sequences. This is then forked and split as sequences are run throughout an iterator. </p>
 <dl class="section date"><dt>Date</dt><dd>Mar 28, 2014 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6fcc032bc9410a6baeffa857d44259d7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1Context.html">Context</a> * Cross::GenesisContext::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the genesis context. This should only be used in creation of sequences and nodes. This will be propagated into other nodes eventually. If it doesn't exist yet, it will be lazy instantiated. </p>
+<dl class="section return"><dt>Returns</dt><dd>ptr to the context </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="GenesisContext_8h_source.html">GenesisContext.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/GenesisContext.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

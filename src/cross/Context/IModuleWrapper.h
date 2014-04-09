@@ -10,6 +10,8 @@
 #ifndef FLOW_IMODULEWRAPPER_H_
 #define FLOW_IMODULEWRAPPER_H_
 
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid.hpp>
 #include "cross/Context/FlowDefine.h"
 
 namespace Cross
@@ -21,10 +23,17 @@ class Continuer;
 class IModuleWrapper
 {
 public:
+    typedef boost::uuids::uuid Key;
+
     virtual ~IModuleWrapper() {}
-    virtual ModuleKey GetKey() const = 0;
+    virtual Key GetKey() const = 0;
     virtual void Run(Context* ctx, Continuer* cnt) = 0;
-    virtual Context* GetContext() const = 0;
+
+protected:
+    static Key MakeKey()
+    {
+        return boost::uuids::random_generator()();
+    }
 };
 
 }

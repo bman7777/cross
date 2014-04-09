@@ -9,9 +9,6 @@
 #ifndef FLOWDEFINE_H_
 #define FLOWDEFINE_H_
 
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-
 namespace Cross
 {
     typedef int ErrorCode;
@@ -25,13 +22,6 @@ namespace Cross
     static const Direction DIR_BACKWARD	= 0x02;
     static const Direction DIR_JUMP 	= 0x03;
     static const Direction DIR_UNKNOWN 	= 0xff;
-
-    typedef boost::uuids::uuid ModuleKey;
-    static ModuleKey MakeFlowKey()
-    {
-        return boost::uuids::random_generator()();
-    }
-    static const ModuleKey INVALID_MODULE_KEY = MakeFlowKey();
 }
 
 #endif /* FLOWDEFINE_H_ */

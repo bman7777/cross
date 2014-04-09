@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,17 +105,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classCross_1_1SequenceFactory.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a> : <span class="keyword">public</span> <a class="code" href="classCross_1_1Service.html">Service</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> Service::Key KEY = 0x5e71ce;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> Service::Key KEY;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx) : mContext(ctx) {}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a>() {}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classCross_1_1Sequence.html">Sequence</a>* CreateSequence();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>* CreateSeqNode(<a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* m = NULL);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classCross_1_1Sequence.html">Sequence</a>* <a class="code" href="classCross_1_1SequenceFactory.html#a3c2c0bcfdfd02f8b54e458653dd1692d">CreateSequence</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>* <a class="code" href="classCross_1_1SequenceFactory.html#a130d8f177452cbd0f37adeaac593d9d3">CreateSeqNode</a>(<a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* m = NULL);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a>* Get(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a>*<span class="keyword">&gt;</span>(Service::Get(KEY, ctx));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classCross_1_1SequenceFactory.html">SequenceFactory</a>*<span class="keyword">&gt;</span>(<a class="code" href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Service::Get</a>(KEY, ctx));</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
@@ -127,15 +127,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SEQUENCEFACTORY_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classCross_1_1SequenceFactory_html"><div class="ttname"><a href="classCross_1_1SequenceFactory.html">Cross::SequenceFactory</a></div><div class="ttdoc">A service that provides creation for sequences and nodes while building up a sequence stream...</div><div class="ttdef"><b>Definition:</b> SequenceFactory.h:24</div></div>
-<div class="ttc" id="classCross_1_1SeqNode_html"><div class="ttname"><a href="classCross_1_1SeqNode.html">Cross::SeqNode</a></div><div class="ttdoc">Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...</div><div class="ttdef"><b>Definition:</b> SeqNode.h:23</div></div>
+<div class="ttc" id="classCross_1_1Service_html_ae1e69d95471f3d61db92223462e8aeff"><div class="ttname"><a href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Cross::Service::Get</a></div><div class="ttdeci">static Service * Get(Key k, Context *ctx)</div><div class="ttdoc">get a service using its key and context </div><div class="ttdef"><b>Definition:</b> Service.cpp:29</div></div>
+<div class="ttc" id="classCross_1_1SeqNode_html"><div class="ttname"><a href="classCross_1_1SeqNode.html">Cross::SeqNode</a></div><div class="ttdoc">Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...</div><div class="ttdef"><b>Definition:</b> SeqNode.h:24</div></div>
+<div class="ttc" id="classCross_1_1SequenceFactory_html_a130d8f177452cbd0f37adeaac593d9d3"><div class="ttname"><a href="classCross_1_1SequenceFactory.html#a130d8f177452cbd0f37adeaac593d9d3">Cross::SequenceFactory::CreateSeqNode</a></div><div class="ttdeci">SeqNode * CreateSeqNode(IModuleWrapper *m=NULL)</div><div class="ttdoc">create a sequence node using friendship to constructor and passing along our local context (likely ge...</div><div class="ttdef"><b>Definition:</b> SequenceFactory.cpp:32</div></div>
 <div class="ttc" id="classCross_1_1Sequence_html"><div class="ttname"><a href="classCross_1_1Sequence.html">Cross::Sequence</a></div><div class="ttdoc">Sequences are networks of nodes. They carry an isolated context that allows sequences to operate sepa...</div><div class="ttdef"><b>Definition:</b> Sequence.h:21</div></div>
-<div class="ttc" id="classCross_1_1IModuleWrapper_html"><div class="ttname"><a href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></div><div class="ttdoc">A wrapper for runtime modules that can perform some task or service according to their function...</div><div class="ttdef"><b>Definition:</b> IModuleWrapper.h:21</div></div>
-<div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:17</div></div>
+<div class="ttc" id="classCross_1_1SequenceFactory_html_a3c2c0bcfdfd02f8b54e458653dd1692d"><div class="ttname"><a href="classCross_1_1SequenceFactory.html#a3c2c0bcfdfd02f8b54e458653dd1692d">Cross::SequenceFactory::CreateSequence</a></div><div class="ttdeci">Sequence * CreateSequence()</div><div class="ttdoc">create a sequence using friendship to constructor and passing along our local context (likely genesis...</div><div class="ttdef"><b>Definition:</b> SequenceFactory.cpp:23</div></div>
+<div class="ttc" id="classCross_1_1IModuleWrapper_html"><div class="ttname"><a href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></div><div class="ttdoc">A wrapper for runtime modules that can perform some task or service according to their function...</div><div class="ttdef"><b>Definition:</b> IModuleWrapper.h:23</div></div>
+<div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:19</div></div>
 <div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

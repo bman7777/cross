@@ -20,6 +20,7 @@ A given flow's module can use its location in the system to request a registered
 
 TODOs
 -------
+* Service keys probably shouldn't be manual like that
 * Write more unit tests
 * Flesh out the serial functionality
 * Add more documentation
@@ -28,3 +29,4 @@ TODOs
 * Run doxygen on project
 * make sure context/services can be customized per module/sequence/junction
 * analyze performance
+

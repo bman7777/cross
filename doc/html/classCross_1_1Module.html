@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,30 +100,129 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5dbe918d0c1b9e065418f373e7308e65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dbe918d0c1b9e065418f373e7308e65"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Module</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *cxt, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL, <a class="el" href="classCross_1_1Serial.html">Serial</a> *s=NULL)</td></tr>
-<tr class="separator:a5dbe918d0c1b9e065418f373e7308e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d91843392bd37a00dfd0216326e16c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d91843392bd37a00dfd0216326e16c7"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>operator new</b> (size_t size, <a class="el" href="classCross_1_1Context.html">Context</a> &amp;ctx)</td></tr>
-<tr class="separator:a8d91843392bd37a00dfd0216326e16c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6edb9d61108c08fb4b50c4e28f3df8c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6edb9d61108c08fb4b50c4e28f3df8c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator delete</b> (void *module)</td></tr>
+<tr class="memitem:ade5e556d3c00a1cc6e6cfee3d4e057c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade5e556d3c00a1cc6e6cfee3d4e057c0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Module</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL, <a class="el" href="classCross_1_1Serial.html">Serial</a> *s=NULL)</td></tr>
+<tr class="separator:ade5e556d3c00a1cc6e6cfee3d4e057c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa5f9633fea61f9b998d824b175793e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Module.html#adaa5f9633fea61f9b998d824b175793e">operator new</a> (size_t size, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:adaa5f9633fea61f9b998d824b175793e"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate a new module  <a href="#adaa5f9633fea61f9b998d824b175793e">More...</a><br/></td></tr>
+<tr class="separator:adaa5f9633fea61f9b998d824b175793e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6edb9d61108c08fb4b50c4e28f3df8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Module.html#a6edb9d61108c08fb4b50c4e28f3df8c0">operator delete</a> (void *module)</td></tr>
+<tr class="memdesc:a6edb9d61108c08fb4b50c4e28f3df8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the more common case of destruction  <a href="#a6edb9d61108c08fb4b50c4e28f3df8c0">More...</a><br/></td></tr>
 <tr class="separator:a6edb9d61108c08fb4b50c4e28f3df8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f316840ba32ae656b805f708da6414f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f316840ba32ae656b805f708da6414f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator delete</b> (void *module, <a class="el" href="classCross_1_1Context.html">Context</a> &amp;ctx)</td></tr>
-<tr class="separator:a9f316840ba32ae656b805f708da6414f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad707adc8486a9ae7b7a557cfac8f4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Module.html#a5ad707adc8486a9ae7b7a557cfac8f4c">operator delete</a> (void *module, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:a5ad707adc8486a9ae7b7a557cfac8f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will only be called if the module constructor throws an exception on construction of the module  <a href="#a5ad707adc8486a9ae7b7a557cfac8f4c">More...</a><br/></td></tr>
+<tr class="separator:a5ad707adc8486a9ae7b7a557cfac8f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7229da58359ba53e428b9dfdb2dc88ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7229da58359ba53e428b9dfdb2dc88ce"></a>
+<a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetContext</b> () const </td></tr>
+<tr class="separator:a7229da58359ba53e428b9dfdb2dc88ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base class for modules that allows allocations to always draw from services. </p>
 <dl class="section date"><dt>Date</dt><dd>Oct 4, 2013 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6edb9d61108c08fb4b50c4e28f3df8c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::Module::operator delete </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>module</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this is the more common case of destruction </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>- the module to be deleted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5ad707adc8486a9ae7b7a557cfac8f4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::Module::operator delete </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this will only be called if the module constructor throws an exception on construction of the module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>- the module to be deleted </td></tr>
+    <tr><td class="paramname">ctx</td><td>- the context to use for the deallocation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="adaa5f9633fea61f9b998d824b175793e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * Cross::Module::operator new </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>allocate a new module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>- the size of the module to be allocated </td></tr>
+    <tr><td class="paramname">ctx</td><td>- the context to use for the allocation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>memory that can be used for the new module </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Context/<a class="el" href="Module_8h_source.html">Module.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Context/Module.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 13:24:33 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 8 2014 22:08:12 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

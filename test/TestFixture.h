@@ -17,7 +17,27 @@
 #include "cross/Context/Serial.h"
 #include "cross/Sequence/GenesisContext.h"
 #include "cross/Sequence/Junction.h"
-#include "cross/Sequence/Sequence.h"
+#include "cross/Service/Service.h"
+
+class SpecialChar : public Cross::Service
+{
+public:
+    static const Cross::Service::Key KEY;
+
+    SpecialChar(Cross::Context* ctx, char c) : mContext(ctx), mChar(c) {}
+    virtual ~SpecialChar() {}
+
+    char GetExtraChar() const { return mChar; }
+
+    static SpecialChar* Get(Cross::Context* ctx)
+    {
+        return static_cast<SpecialChar*>(Cross::Service::Get(KEY, ctx));
+    }
+
+private:
+    Cross::Context* mContext;
+    char mChar;
+};
 
 class AppendChar : public Cross::Module
 {
@@ -25,24 +45,7 @@ public:
 	static const Cross::Serial::Key APPENDER = 0xd00d;
 	static const Cross::Serial::Key CHAR = 0xd11d;
 
-	AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL) :
-		Cross::Module(cxt, cnt)
-	{
-		char c;
-		std::string* str;
-
-		if(s &&
-		   s->GetData<char>(CHAR, c) &&
-		   s->GetData<std::string>(APPENDER, str))
-		{
-			*str += c;
-		}
-
-		if(cnt)
-		{
-			cnt->Continue(cxt);
-		}
-	}
+	AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
 
     virtual ~AppendChar() {}
 };
@@ -60,22 +63,17 @@ private:
 	int mCurrLap;
 };
 
-static Cross::ErrorCode sTestError = Cross::ERR_NONE;
-
-class ModuleTest : public ::testing::Test, public Cross::Continuer
+class ModuleTest : public ::testing::Test
 {
+public:
+	void ErrorStorage(Cross::ErrorCode e)
+	{
+		mTestError = e;
+	}
+
 protected:
-	static void ErrorStorage(Cross::ErrorCode e)
-	{
-		sTestError = e;
-	}
 
-	virtual void Continue(Cross::Context* ctx, Cross::ErrorCode e = Cross::ERR_NONE)
-	{
-		sTestError = e;
-	}
-
-	ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD)
+	ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
 	{
 		mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
 		mParamA.AddData(AppendChar::CHAR, 'a');
@@ -90,8 +88,19 @@ protected:
 		mParamD.AddData(AppendChar::CHAR, 'd');
 	}
 
+	void SetUp()
+	{
+	    mTestError = Cross::ERR_UNKNOWN;
+	    mCtx = new Cross::Context(Cross::GenesisContext::Get());
+	}
+
+	void TearDown()
+	{
+	    delete mCtx;
+	}
+
 	std::string mTestString;
-	Cross::Context mCtx;
+	Cross::Context* mCtx;
 
 	Cross::Serial mParamA;
 	Cross::ModuleWrapper<AppendChar> mA;
@@ -104,6 +113,8 @@ protected:
 
 	Cross::Serial mParamD;
 	Cross::ModuleWrapper<AppendChar> mD;
+
+	Cross::ErrorCode mTestError;
 };
 
 #endif /* TESTFIXTURE_H_ */

@@ -9,6 +9,8 @@
 #ifndef SERVICE_H_
 #define SERVICE_H_
 
+#include <boost/uuid/uuid.hpp>
+
 namespace Cross
 {
 
@@ -17,7 +19,8 @@ class Context;
 class Service
 {
 public:
-    typedef int Key;
+    typedef boost::uuids::uuid Key;
+    static Key MakeKey();
 
     static Service* Get(Key k, Context* ctx);
 };

@@ -13,7 +13,6 @@
 
 #include "cross/Context/Continuer.h"
 #include "cross/Context/IModuleWrapper.h"
-#include "cross/Context/FlowDefine.h"
 
 namespace Cross
 {
@@ -27,17 +26,15 @@ public:
 
 protected:
     virtual void Run(Context* ctx, Continuer* cnt);
-    virtual Context* GetContext() const { return mContext; }
-    virtual ModuleKey GetKey() const { return mKey; }
+    virtual IModuleWrapper::Key GetKey() const { return mKey; }
     virtual void Continue(Context* ctx, ErrorCode e = ERR_NONE);
 
 private:
     AutoDirectionStrategy* mStrategy;
     Direction mNewDir;
     IModuleWrapper* mModule;
+    IModuleWrapper::Key mKey;
     Continuer* mContinue;
-    Context* mContext;
-    ModuleKey mKey;
 };
 }
 

@@ -20,13 +20,13 @@ namespace Cross
 class Allocation : public Service
 {
 public:
-    static const Service::Key KEY = 0xa110cc;
+    static const Service::Key KEY;
 
-    Allocation(Context& ctx) : mContext(ctx) {}
+    Allocation(Context* ctx) : mContext(ctx) {}
     virtual ~Allocation() {}
 
-    virtual void* Allocate();
-    virtual void DeAllocate();
+    virtual void* Allocate(size_t size);
+    virtual void DeAllocate(void* ptr);
 
     static Allocation* Get(Context* ctx)
     {
@@ -34,7 +34,7 @@ public:
     }
 
 private:
-    Context mContext;
+    Context* mContext;
 };
 
 } //end namespace

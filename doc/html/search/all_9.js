@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runcontext',['RunContext',['../classCross_1_1RunContext.html',1,'Cross']]]
+  ['prioritydirectionstrategy',['PriorityDirectionStrategy',['../classCross_1_1PriorityDirectionStrategy.html',1,'Cross']]]
 ];
