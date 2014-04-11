@@ -16,7 +16,7 @@
 
 /// \brief General test to confirm that forward directional paths run and in proper order
 ///         (a) -> (b) -> (c)
-TEST_F(ModuleTest, ForwardSimpleTree)
+TEST_F(ModuleTest, ForwardSimpleSequence)
 {
     using namespace Cross;
 
@@ -34,7 +34,7 @@ TEST_F(ModuleTest, ForwardSimpleTree)
 
 /// \brief General test to confirm that backward directional paths run and in proper order
 ///         (a) <- (b) <- (c)
-TEST_F(ModuleTest, BackwardSimpleTree)
+TEST_F(ModuleTest, BackwardSimpleSequence)
 {
     using namespace Cross;
 
@@ -52,7 +52,7 @@ TEST_F(ModuleTest, BackwardSimpleTree)
 
 /// \brief General test to confirm that a tiny tree runs as expected
 ///         (a)
-TEST_F(ModuleTest, MinimalTree)
+TEST_F(ModuleTest, MinimalSequence)
 {
     using namespace Cross;
 
@@ -69,7 +69,7 @@ TEST_F(ModuleTest, MinimalTree)
 
 /// \brief General test to confirm that multi directional paths run and in proper order
 ///         (a) <-> (b) <-> (c)
-TEST_F(ModuleTest, DynamicTree)
+TEST_F(ModuleTest, MultiDirectSequence)
 {
     using namespace Cross;
 
@@ -94,7 +94,7 @@ TEST_F(ModuleTest, DynamicTree)
      v   \
     (b)->(c)
 */
-TEST_F(ModuleTest, CycleTree)
+TEST_F(ModuleTest, CycleSequence)
 {
     using namespace Cross;
 
@@ -119,7 +119,7 @@ TEST_F(ModuleTest, CycleTree)
     / | \
   (b)(c)(d)
 */
-TEST_F(ModuleTest, ForkTree)
+TEST_F(ModuleTest, ForkSequence)
 {
     using namespace Cross;
 
@@ -154,7 +154,7 @@ TEST_F(ModuleTest, ForkTree)
                                        |
                                       (c)
 */
-TEST_F(ModuleTest, TreeOfTrees)
+TEST_F(ModuleTest, SeqOfSequence)
 {
     using namespace Cross;
 
@@ -179,7 +179,7 @@ TEST_F(ModuleTest, TreeOfTrees)
 }
 
 /// \brief build up a stream with smaller streams constructed out of order
-TEST_F(ModuleTest, UnorderedInsertion)
+TEST_F(ModuleTest, UnorderedAppendedSequence)
 {
     using namespace Cross;
 

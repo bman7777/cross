@@ -42,79 +42,96 @@ private:
 class AppendChar : public Cross::Module
 {
 public:
-	static const Cross::Serial::Key APPENDER = 0xd00d;
-	static const Cross::Serial::Key CHAR = 0xd11d;
+    static const Cross::Serial::Key APPENDER = 0xd00d;
+    static const Cross::Serial::Key CHAR = 0xd11d;
 
-	AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
-
+    AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
     virtual ~AppendChar() {}
+};
+
+class AdjustSpecialChar : public Cross::Module
+{
+public:
+    static const Cross::Serial::Key CHAR = 0xd11d;
+
+    AdjustSpecialChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
+    virtual ~AdjustSpecialChar();
+
+private:
+    SpecialChar* mCharService;
 };
 
 class LapCountJunction : public Cross::Junction
 {
 public:
-	LapCountJunction(int numLaps, Cross::Context* ctx = Cross::GenesisContext::Get());
-	virtual ~LapCountJunction() {}
+    LapCountJunction(int numLaps, Cross::Context* ctx = Cross::GenesisContext::Get());
+    virtual ~LapCountJunction() {}
 
-	void Run(Cross::Context* ctx, Cross::Continuer* cnt);
+    void Run(Cross::Context* ctx, Cross::Continuer* cnt);
 
 private:
-	int mNumLaps;
-	int mCurrLap;
+    int mNumLaps;
+    int mCurrLap;
 };
 
 class ModuleTest : public ::testing::Test
 {
 public:
-	void ErrorStorage(Cross::ErrorCode e)
-	{
-		mTestError = e;
-	}
+    void ErrorStorage(Cross::ErrorCode e)
+    {
+        mTestError = e;
+    }
 
 protected:
 
-	ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
-	{
-		mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-		mParamA.AddData(AppendChar::CHAR, 'a');
+    ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD),
+        mAdj(&mParamAdj), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
+    {
+        mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+        mParamA.AddData(AppendChar::CHAR, 'a');
 
-		mParamB.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-		mParamB.AddData(AppendChar::CHAR, 'b');
+        mParamB.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+        mParamB.AddData(AppendChar::CHAR, 'b');
 
-		mParamC.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-		mParamC.AddData(AppendChar::CHAR, 'c');
+        mParamC.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+        mParamC.AddData(AppendChar::CHAR, 'c');
 
-		mParamD.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-		mParamD.AddData(AppendChar::CHAR, 'd');
-	}
+        mParamD.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+        mParamD.AddData(AppendChar::CHAR, 'd');
 
-	void SetUp()
-	{
-	    mTestError = Cross::ERR_UNKNOWN;
-	    mCtx = new Cross::Context(Cross::GenesisContext::Get());
-	}
+        mParamAdj.AddData(AppendChar::CHAR, '-');
+    }
 
-	void TearDown()
-	{
-	    delete mCtx;
-	}
+    void SetUp()
+    {
+        mTestError = Cross::ERR_UNKNOWN;
+        mCtx = new Cross::Context(Cross::GenesisContext::Get());
+    }
 
-	std::string mTestString;
-	Cross::Context* mCtx;
+    void TearDown()
+    {
+        delete mCtx;
+    }
 
-	Cross::Serial mParamA;
-	Cross::ModuleWrapper<AppendChar> mA;
+    std::string mTestString;
+    Cross::Context* mCtx;
 
-	Cross::Serial mParamB;
-	Cross::ModuleWrapper<AppendChar> mB;
+    Cross::Serial mParamA;
+    Cross::ModuleWrapper<AppendChar> mA;
 
-	Cross::Serial mParamC;
-	Cross::ModuleWrapper<AppendChar> mC;
+    Cross::Serial mParamB;
+    Cross::ModuleWrapper<AppendChar> mB;
 
-	Cross::Serial mParamD;
-	Cross::ModuleWrapper<AppendChar> mD;
+    Cross::Serial mParamC;
+    Cross::ModuleWrapper<AppendChar> mC;
 
-	Cross::ErrorCode mTestError;
+    Cross::Serial mParamD;
+    Cross::ModuleWrapper<AppendChar> mD;
+
+    Cross::Serial mParamAdj;
+    Cross::ModuleWrapper<AdjustSpecialChar> mAdj;
+
+    Cross::ErrorCode mTestError;
 };
 
 #endif /* TESTFIXTURE_H_ */

@@ -32,7 +32,7 @@ public:
     SeqStream(const SeqStream& other);
     SeqStream& operator=(const SeqStream& other);
 
-    virtual ~SeqStream();
+    virtual ~SeqStream() {}
 
     Context* GetContext() const { return mContext; }
     SeqNode* GetCurrent() const { return mCurrentNode; }

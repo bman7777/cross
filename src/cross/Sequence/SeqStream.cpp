@@ -18,6 +18,11 @@
 namespace Cross
 {
 
+/// \brief constructor for a stream that is capable of appending
+///         sequenes, nodes, or modules in ordered fashion to
+///         achieve a network of functionality
+/// \param ctx - a context to use in creating new nodes for the
+///         network.
 SeqStream::SeqStream(Context* ctx) :
     mContext(ctx),
     mHead(NULL),
@@ -25,6 +30,12 @@ SeqStream::SeqStream(Context* ctx) :
 {
 }
 
+/// \brief constructor for a stream that is capable of appending
+///         sequenes, nodes, or modules in ordered fashion to
+///         achieve a network of functionality
+/// \param node - a node is given as root to the stream
+/// \param ctx - a context to use in creating new nodes for the
+///         network.
 SeqStream::SeqStream(SeqNode* node, Context* ctx) :
     mContext(ctx),
     mHead(node),
@@ -32,6 +43,12 @@ SeqStream::SeqStream(SeqNode* node, Context* ctx) :
 {
 }
 
+/// \brief constructor for a stream that is capable of appending
+///         sequenes, nodes, or modules in ordered fashion to
+///         achieve a network of functionality
+/// \param module - a module is given as root to the stream
+/// \param ctx - a context to use in creating new nodes for the
+///               network.
 SeqStream::SeqStream(IModuleWrapper* module, Context* ctx) :
     mContext(ctx)
 {
@@ -39,10 +56,10 @@ SeqStream::SeqStream(IModuleWrapper* module, Context* ctx) :
     mCurrentNode = mHead;
 }
 
-SeqStream::~SeqStream()
-{
-}
-
+/// \brief copy constructor for stream.  This duplicates the
+///         stream structure and variables into a new class.
+/// \param other - the other stream which will not be modified
+///         in the copy
 SeqStream::SeqStream(const SeqStream& other) :
     mHead(other.GetHead()),
     mCurrentNode(other.GetCurrent()),
@@ -51,6 +68,10 @@ SeqStream::SeqStream(const SeqStream& other) :
 {
 }
 
+/// \brief equals operator for stream.  Functions much like the
+///         copy constructor but allows common syntax.
+/// \param other - the other stream which will not be modified
+///         in the copy
 SeqStream& SeqStream::operator=(const SeqStream& other)
 {
     mHead = other.GetHead();
@@ -60,6 +81,11 @@ SeqStream& SeqStream::operator=(const SeqStream& other)
     return *this;
 }
 
+/// \brief backwards push to the stream that appends a module
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param module - a module passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator<<(IModuleWrapper& module)
 {
     if(!mHead)
@@ -74,6 +100,11 @@ SeqStream& SeqStream::operator<<(IModuleWrapper& module)
     return *this;
 }
 
+/// \brief forwards push to the stream that appends a module
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param module - a module passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator>>(IModuleWrapper& module)
 {
     if(!mHead)
@@ -88,6 +119,11 @@ SeqStream& SeqStream::operator>>(IModuleWrapper& module)
     return *this;
 }
 
+/// \brief backwards push to the stream that appends a node
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param node - a node passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator<<(SeqNode& node)
 {
     if(!mHead)
@@ -102,6 +138,11 @@ SeqStream& SeqStream::operator<<(SeqNode& node)
     return *this;
 }
 
+/// \brief forwards push to the stream that appends a node
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param node - a node passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator>>(SeqNode& node)
 {
     if(!mHead)
@@ -116,6 +157,11 @@ SeqStream& SeqStream::operator>>(SeqNode& node)
     return *this;
 }
 
+/// \brief backwards push to the stream that appends a
+///         sequence based on the state of the current node
+///         and the head, if one exists.
+/// \param seq - a sequence passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator<<(Sequence& seq)
 {
     if(!mHead)
@@ -130,6 +176,11 @@ SeqStream& SeqStream::operator<<(Sequence& seq)
     return *this;
 }
 
+/// \brief forwards push to the stream that appends a
+///         sequence based on the state of the current node
+///         and the head, if one exists.
+/// \param seq - a sequence passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator>>(Sequence& seq)
 {
     if(!mHead)
@@ -144,6 +195,11 @@ SeqStream& SeqStream::operator>>(Sequence& seq)
     return *this;
 }
 
+/// \brief backwards push of another stream that appends to
+///         the current stream based on the state of the
+///         current node and the head, if one exists.
+/// \param stream - a stream passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator<<(SeqStream& stream)
 {
     if(!mHead)
@@ -158,6 +214,11 @@ SeqStream& SeqStream::operator<<(SeqStream& stream)
     return *this;
 }
 
+/// \brief forwards push of another stream that appends to
+///         the current stream based on the state of the
+///         current node and the head, if one exists.
+/// \param stream - a stream passed by user to be pushed
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator>>(SeqStream& stream)
 {
     if(!mHead)
@@ -172,6 +233,12 @@ SeqStream& SeqStream::operator>>(SeqStream& stream)
     return *this;
 }
 
+/// \brief the commands push/pop allow a new sequence
+///         context to be created in-place and joined
+///         into the current progress of the stream.
+/// \param type - what kind of command to run (e.g. push
+///         or pop)
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator>>(Command type)
 {
     if(!mHead)
@@ -208,6 +275,12 @@ SeqStream& SeqStream::operator>>(Command type)
     return *this;
 }
 
+/// \brief for symmetry/compatibility we also provide the
+///         reverse of the commands push/pop however there
+///         is currently no difference in its function.
+/// \param type - what kind of command to run (e.g. push
+///         or pop)
+/// \return the current progress of the stream
 SeqStream& SeqStream::operator<<(Command type)
 {
     // direction does not actually matter on these at the moment

@@ -42,6 +42,39 @@ AppendChar::AppendChar(Cross::Context* ctx, Cross::Continuer* cnt, Cross::Serial
     }
 }
 
+/// \brief constructor for test module that simply adds a new
+///         service that all future modules will read from
+///         and use to dynamically select a character to be
+///         added.
+/// \param ctx - context for the module
+/// \param cnt - continuer to use when done
+/// \param serial - data that was passed as the module
+///         was created so that specific data can be used when
+///         he module is run
+AdjustSpecialChar::AdjustSpecialChar(Cross::Context* ctx, Cross::Continuer* cnt, Cross::Serial* s) :
+    Cross::Module(ctx, cnt), mCharService(NULL)
+{
+    char c;
+    if(s && s->GetData<char>(CHAR, c))
+    {
+        mCharService = new SpecialChar(ctx, c);
+        ctx->RegisterService(SpecialChar::KEY, mCharService);
+    }
+
+    if(cnt)
+    {
+        cnt->Continue(ctx);
+    }
+}
+
+AdjustSpecialChar::~AdjustSpecialChar()
+{
+    if(mCharService)
+    {
+        delete mCharService;
+    }
+}
+
 /// \brief some of the tests rely on doing things a few times
 ///         and the lap count junction will containue to run
 ///         the prescribed amount of times

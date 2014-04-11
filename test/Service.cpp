@@ -30,4 +30,31 @@ TEST_F(ModuleTest, GlobalService)
     EXPECT_EQ(ERR_NONE, mTestError);
 }
 
+/// \brief General test to confirm a service can be globally accessible
+TEST_F(ModuleTest, LocalizedService)
+{
+    using namespace Cross;
+
+    SpecialChar specialChar(mCtx, '+');
+    mCtx->RegisterService(SpecialChar::KEY, &specialChar);
+
+    SeqStream a;
+    a>>mA>>mB>>mC;
+
+    SeqStream b;
+    b>>mAdj>>mA>>mB>>mC;
+
+    SeqStream c;
+    c>>mA>>mB>>mC;
+
+    a>>SeqStream::Push>>b>>SeqStream::Pop>>c;
+
+    CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
+
+    SequenceIterator iter(a.GetHead());
+    iter.Run(mCtx, &complete);
+
+    EXPECT_EQ("a+b+c+a-b-c-a+b+c+", mTestString);
+    EXPECT_EQ(ERR_NONE, mTestError);
+}
 
