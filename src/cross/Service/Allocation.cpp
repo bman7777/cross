@@ -13,6 +13,7 @@
 
 namespace Cross
 {
+
 const Service::Key Allocation::KEY = Service::MakeKey();
 
 /// \brief allocate memory for some module potentially from some
@@ -29,6 +30,16 @@ void* Allocation::Allocate(size_t size)
 void Allocation::DeAllocate(void* ptr)
 {
     free(ptr);
+}
+
+/// \brief helper for getting the allocation context
+///         that will prevent/hide the need for static
+///         casts.
+/// \param context - which context to use for getting
+///         the service
+Allocation* Allocation::Get(Context* ctx)
+{
+    return static_cast<Allocation*>(Service::Get(KEY, ctx));
 }
 
 }

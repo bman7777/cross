@@ -115,30 +115,151 @@ Collaboration diagram for Cross::SequenceIterator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7b5325d9b01a22f784035069e205a6e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b5325d9b01a22f784035069e205a6e7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SequenceIterator</b> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *root, <a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *strat=NULL)</td></tr>
+<tr class="memitem:a7b5325d9b01a22f784035069e205a6e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#a7b5325d9b01a22f784035069e205a6e7">SequenceIterator</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *root, <a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *strat=NULL)</td></tr>
+<tr class="memdesc:a7b5325d9b01a22f784035069e205a6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the sequence iterator so it can be used to traverse the sequence tree.  <a href="#a7b5325d9b01a22f784035069e205a6e7">More...</a><br/></td></tr>
 <tr class="separator:a7b5325d9b01a22f784035069e205a6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa233822045ed6ca40c86670b5db2e86d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa233822045ed6ca40c86670b5db2e86d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL)</td></tr>
+<tr class="memitem:a722cd767614106a2374efcd18b08a870"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a722cd767614106a2374efcd18b08a870"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#a722cd767614106a2374efcd18b08a870">~SequenceIterator</a> ()</td></tr>
+<tr class="memdesc:a722cd767614106a2374efcd18b08a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for iterator which cleans up temp memory allocation(s) <br/></td></tr>
+<tr class="separator:a722cd767614106a2374efcd18b08a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa233822045ed6ca40c86670b5db2e86d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#aa233822045ed6ca40c86670b5db2e86d">Run</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL)</td></tr>
+<tr class="memdesc:aa233822045ed6ca40c86670b5db2e86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">entry point for sequence iteration- this will start up a new context that can be used to localize services.  <a href="#aa233822045ed6ca40c86670b5db2e86d">More...</a><br/></td></tr>
 <tr class="separator:aa233822045ed6ca40c86670b5db2e86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aba4615481bb2b39c242c507cf246e501"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba4615481bb2b39c242c507cf246e501"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Continue</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, ErrorCode e=ERR_NONE)</td></tr>
+<tr class="memitem:aba4615481bb2b39c242c507cf246e501"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#aba4615481bb2b39c242c507cf246e501">Continue</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, ErrorCode e=ERR_NONE)</td></tr>
+<tr class="memdesc:aba4615481bb2b39c242c507cf246e501"><td class="mdescLeft">&#160;</td><td class="mdescRight">each step in the traversal will continue and allow the iterator to advance to the next stage  <a href="#aba4615481bb2b39c242c507cf246e501">More...</a><br/></td></tr>
 <tr class="separator:aba4615481bb2b39c242c507cf246e501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Iterate through sequence nodes and run each one in turn. When the end of the node sequence has been reached call the continuer. </p>
 <dl class="section date"><dt>Date</dt><dd>Jan 6, 2014 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7b5325d9b01a22f784035069e205a6e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cross::SequenceIterator::SequenceIterator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *&#160;</td>
+          <td class="paramname"><em>strat</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>construct the sequence iterator so it can be used to traverse the sequence tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>- the sequence node that will serve as a start for traversal </td></tr>
+    <tr><td class="paramname">strategy</td><td>- decision-maker for path selection as we run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aba4615481bb2b39c242c507cf246e501"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::SequenceIterator::Continue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrorCode&#160;</td>
+          <td class="paramname"><em>e</em> = <code>ERR_NONE</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>each step in the traversal will continue and allow the iterator to advance to the next stage </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>- context that was run with </td></tr>
+    <tr><td class="paramname">error</td><td>- any errors that occurred are specified here </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1Continuer.html">Cross::Continuer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa233822045ed6ca40c86670b5db2e86d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::SequenceIterator::Run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Continuer.html">Continuer</a> *&#160;</td>
+          <td class="paramname"><em>cnt</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>entry point for sequence iteration- this will start up a new context that can be used to localize services. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>- the context to fork and run with </td></tr>
+    <tr><td class="paramname">continuer</td><td>- when done with running, call this </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="SequenceIterator_8h_source.html">SequenceIterator.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/SequenceIterator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 22:53:38 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

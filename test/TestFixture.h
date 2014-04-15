@@ -29,10 +29,7 @@ public:
 
     char GetExtraChar() const { return mChar; }
 
-    static SpecialChar* Get(Cross::Context* ctx)
-    {
-        return static_cast<SpecialChar*>(Cross::Service::Get(KEY, ctx));
-    }
+    static SpecialChar* Get(Cross::Context* ctx);
 
 private:
     Cross::Context* mContext;
@@ -77,41 +74,13 @@ private:
 class ModuleTest : public ::testing::Test
 {
 public:
-    void ErrorStorage(Cross::ErrorCode e)
-    {
-        mTestError = e;
-    }
+    void ErrorStorage(Cross::ErrorCode e);
 
 protected:
+    ModuleTest();
 
-    ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD),
-        mAdj(&mParamAdj), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
-    {
-        mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-        mParamA.AddData(AppendChar::CHAR, 'a');
-
-        mParamB.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-        mParamB.AddData(AppendChar::CHAR, 'b');
-
-        mParamC.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-        mParamC.AddData(AppendChar::CHAR, 'c');
-
-        mParamD.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-        mParamD.AddData(AppendChar::CHAR, 'd');
-
-        mParamAdj.AddData(AppendChar::CHAR, '-');
-    }
-
-    void SetUp()
-    {
-        mTestError = Cross::ERR_UNKNOWN;
-        mCtx = new Cross::Context(Cross::GenesisContext::Get());
-    }
-
-    void TearDown()
-    {
-        delete mCtx;
-    }
+    void SetUp();
+    void TearDown();
 
     std::string mTestString;
     Cross::Context* mCtx;

@@ -26,7 +26,7 @@ Service::Key Service::MakeKey()
 ///               for all services of its kind
 /// \param context- where are you asking from?
 /// \return ptr to service (or NULL if there is none.)
-Service* Service::Get(Service::Key k, Context* ctx)
+Service* Service::Get(const Service::Key& k, Context* ctx)
 {
     assert(ctx);
     return ctx->GetService(k);

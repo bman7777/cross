@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prioritydirectionstrategy',['PriorityDirectionStrategy',['../classCross_1_1PriorityDirectionStrategy.html',1,'Cross']]]
+  ['junction',['Junction',['../classCross_1_1Junction.html',1,'Cross']]]
 ];

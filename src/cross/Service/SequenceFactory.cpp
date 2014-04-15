@@ -14,6 +14,7 @@
 
 namespace Cross
 {
+
 const Service::Key SequenceFactory::KEY = Service::MakeKey();
 
 /// \brief create a sequence using friendship to constructor
@@ -22,7 +23,7 @@ const Service::Key SequenceFactory::KEY = Service::MakeKey();
 /// \return ptr to new sequence
 Sequence* SequenceFactory::CreateSequence()
 {
-    return new Sequence(mContext);
+    return new(mContext) Sequence(mContext);
 }
 
 /// \brief create a sequence node using friendship to
@@ -31,7 +32,17 @@ Sequence* SequenceFactory::CreateSequence()
 /// \return ptr to new sequence node
 SeqNode* SequenceFactory::CreateSeqNode(IModuleWrapper* m)
 {
-    return new SeqNode(mContext, m);
+    return new(mContext) SeqNode(mContext, m);
+}
+
+/// \brief helper for getting the sequence factory context
+///         that will prevent/hide the need for static
+///         casts.
+/// \param context - which context to use for getting
+///         the service
+SequenceFactory* SequenceFactory::Get(Context* ctx)
+{
+    return static_cast<SequenceFactory*>(Service::Get(KEY, ctx));
 }
 
 }

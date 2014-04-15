@@ -13,32 +13,32 @@
 #include <boost/unordered_map.hpp>
 #include <utility>
 #include <stddef.h>
+#include "cross/Context/AllocationContext.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
 {
 
-class Context
+class Context : public AllocationContext
 {
 public:
-    Context() : mParentContext(NULL) {}
-    Context(Context* parent) : mParentContext(parent) {}
+    explicit Context(Context* parentContext);
     virtual ~Context() {}
 
-    void RegisterService(Service::Key key, Service* serv);
+    void RegisterService(const Service::Key& key, Service* serv);
 
-    bool EnsureService(Service::Key key, Service* serv);
+    bool EnsureService(const Service::Key& key, Service* serv);
 
-    Service* GetService(Service::Key key) const;
+    Service* GetService(const Service::Key& key) const;
 
-    bool HasService(Service::Key key) const;
+    bool HasService(const Service::Key& key) const;
 
-    void UnRegisterService(Service::Key key, Service* serv);
+    void UnRegisterService(const Service::Key& key, Service* serv);
 
 private:
     typedef boost::unordered_map<Service::Key, Service*> ServiceList;
-
     ServiceList mServices;
+
     Context* mParentContext;
 };
 

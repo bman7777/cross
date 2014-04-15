@@ -8,7 +8,18 @@
 #include "test/TestFixture.h"
 #include "cross/Sequence/Sequence.h"
 
+/// \brief define the specialchar service that will be used
+///         to test various forms of service specialization
 const Cross::Service::Key SpecialChar::KEY = Cross::Service::MakeKey();
+
+/// \brief getter for the specialchar service that will
+///         prevent the need for static casting from service
+///         base class
+/// \param context - context to get service from
+SpecialChar* SpecialChar::Get(Cross::Context* ctx)
+{
+    return static_cast<SpecialChar*>(Cross::Service::Get(KEY, ctx));
+}
 
 /// \brief constructor for test module that simply appends a
 ///         character to the string in the serial
@@ -67,6 +78,8 @@ AdjustSpecialChar::AdjustSpecialChar(Cross::Context* ctx, Cross::Continuer* cnt,
     }
 }
 
+/// \brief destructor for adjustspecialchar module that will
+///         clean up our local allocation for the service
 AdjustSpecialChar::~AdjustSpecialChar()
 {
     if(mCharService)
@@ -104,4 +117,45 @@ void LapCountJunction::Run(Cross::Context* ctx, Cross::Continuer* cnt)
 	}
 }
 
+/// \brief constructor for the ModuleTest fixture that will be
+///         used across all tests.  These variables should be
+///         treated as "shared."
+ModuleTest::ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD),
+    mAdj(&mParamAdj), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
+{
+    mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+    mParamA.AddData(AppendChar::CHAR, 'a');
+
+    mParamB.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+    mParamB.AddData(AppendChar::CHAR, 'b');
+
+    mParamC.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+    mParamC.AddData(AppendChar::CHAR, 'c');
+
+    mParamD.AddData<std::string>(AppendChar::APPENDER, &mTestString);
+    mParamD.AddData(AppendChar::CHAR, 'd');
+
+    mParamAdj.AddData(AdjustSpecialChar::CHAR, '-');
+}
+
+/// \brief this exists as a continuer callback that can be used
+///         to store the error if one occurs.  This will be
+///         checked against at the end of every test
+void ModuleTest::ErrorStorage(Cross::ErrorCode e)
+{
+    mTestError = e;
+}
+
+/// \brief before every test is run, this will be called.
+void ModuleTest::SetUp()
+{
+    mTestError = Cross::ERR_UNKNOWN;
+    mCtx = Cross::GenesisContext::Get();
+}
+
+/// \brief after every test is run, this will be called
+void ModuleTest::TearDown()
+{
+    // nothing for now
+}
 

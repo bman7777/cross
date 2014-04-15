@@ -11,11 +11,12 @@
 #ifndef ALLOCATION_H_
 #define ALLOCATION_H_
 
-#include "cross/Context/Context.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
 {
+
+class Context;
 
 class Allocation : public Service
 {
@@ -28,10 +29,7 @@ public:
     virtual void* Allocate(size_t size);
     virtual void DeAllocate(void* ptr);
 
-    static Allocation* Get(Context* ctx)
-    {
-        return static_cast<Allocation*>(Service::Get(KEY, ctx));
-    }
+    static Allocation* Get(Context* ctx);
 
 private:
     Context* mContext;

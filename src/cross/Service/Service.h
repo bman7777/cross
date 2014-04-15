@@ -22,7 +22,7 @@ public:
     typedef boost::uuids::uuid Key;
     static Key MakeKey();
 
-    static Service* Get(Key k, Context* ctx);
+    static Service* Get(const Key& k, Context* ctx);
 };
 
 }

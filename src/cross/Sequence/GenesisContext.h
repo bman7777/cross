@@ -10,15 +10,24 @@
 #ifndef GENESISCONTEXT_H_
 #define GENESISCONTEXT_H_
 
+#include "cross/Context/Context.h"
+#include "cross/Service/Allocation.h"
+#include "cross/Service/SequenceFactory.h"
+
 namespace Cross
 {
 
-class Context;
-
-class GenesisContext
+class GenesisContext : public Context
 {
 public:
+    GenesisContext();
+    virtual ~GenesisContext() {}
+
     static Context* Get();
+
+private:
+    Allocation mAllocService;
+    SequenceFactory mSeqFactoryService;
 };
 }
 

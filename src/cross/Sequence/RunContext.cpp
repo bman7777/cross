@@ -13,7 +13,15 @@
 namespace Cross
 {
 
+/// \brief constructor for the run context that can be used as a
+///         helper to run an iterator while internally handling
+///         the continuer.
+/// \param context - the context used to run
+/// \param continuer - when run is done, call this
+/// \param node - which node to start running with
+/// \param strategy - strategy that can inject decision-making
 RunContext::RunContext(Context* ctx, Continuer* cnt, SeqNode* node, IDirectionStrategy* strategy) :
+    Context(ctx),
     mContinue(cnt),
     mContext(ctx),
     mIter(node, strategy)
@@ -21,11 +29,17 @@ RunContext::RunContext(Context* ctx, Continuer* cnt, SeqNode* node, IDirectionSt
     mIter.Run(mContext, this);
 }
 
+/// \brief entry point for the run context is a static function
+///         that will construct a runcontext.
+/// \param context - the context used to run
+/// \param continuer - when run is done, call this
+/// \param node - which node to start running with
+/// \param strategy - strategy that can inject decision-making
 void RunContext::BeginRun(Context* ctx, Continuer* cnt, SeqNode* node, IDirectionStrategy* strategy)
 {
     if(node)
     {
-        RunContext* run = new RunContext(ctx, cnt, node, strategy);
+        RunContext* run = new(ctx) RunContext(ctx, cnt, node, strategy);
     }
     else
     {
@@ -33,6 +47,10 @@ void RunContext::BeginRun(Context* ctx, Continuer* cnt, SeqNode* node, IDirectio
     }
 }
 
+/// \brief when the run is complete, use this as a callback to
+///         clean up the run and proceed
+/// \param context - the context that was run with
+/// \param error - error, if any, occurred
 void RunContext::Continue(Context* ctx, ErrorCode e)
 {
     mContinue->Continue(ctx, e);
@@ -40,6 +58,11 @@ void RunContext::Continue(Context* ctx, ErrorCode e)
     RunContext::FinishRun(this);
 }
 
+/// \brief static exit point for the run that will clean up
+///         the run allocations and return the state of
+///         the system to pre-run conditions.
+/// \param context - the runcontext that was created for the
+///         run.
 void RunContext::FinishRun(RunContext* ctx)
 {
     delete ctx;

@@ -128,16 +128,16 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0a2049057e9e191bfdbf655686e39915"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a2049057e9e191bfdbf655686e39915"></a>
-static <a class="el" href="classCross_1_1SequenceFactory.html">SequenceFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
-<tr class="separator:a0a2049057e9e191bfdbf655686e39915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99749a338fbdb71a04190bc2e1fe80de"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCross_1_1SequenceFactory.html">SequenceFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceFactory.html#a99749a338fbdb71a04190bc2e1fe80de">Get</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:a99749a338fbdb71a04190bc2e1fe80de"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper for getting the sequence factory context that will prevent/hide the need for static casts.  <a href="#a99749a338fbdb71a04190bc2e1fe80de">More...</a><br/></td></tr>
+<tr class="separator:a99749a338fbdb71a04190bc2e1fe80de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classCross_1_1Service"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classCross_1_1Service')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classCross_1_1Service.html">Cross::Service</a></td></tr>
 <tr class="memitem:a81feecc7eef2cf7be6a9ae060f73d051 inherit pub_static_methods_classCross_1_1Service"><td class="memItemLeft" align="right" valign="top">static Key&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Service.html#a81feecc7eef2cf7be6a9ae060f73d051">MakeKey</a> ()</td></tr>
 <tr class="memdesc:a81feecc7eef2cf7be6a9ae060f73d051 inherit pub_static_methods_classCross_1_1Service"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a new key using a UUID to identify the service uniquely. This can be used to hash the service.  <a href="#a81feecc7eef2cf7be6a9ae060f73d051">More...</a><br/></td></tr>
 <tr class="separator:a81feecc7eef2cf7be6a9ae060f73d051 inherit pub_static_methods_classCross_1_1Service"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1e69d95471f3d61db92223462e8aeff inherit pub_static_methods_classCross_1_1Service"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCross_1_1Service.html">Service</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Get</a> (Key k, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
-<tr class="memdesc:ae1e69d95471f3d61db92223462e8aeff inherit pub_static_methods_classCross_1_1Service"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a service using its key and context  <a href="#ae1e69d95471f3d61db92223462e8aeff">More...</a><br/></td></tr>
-<tr class="separator:ae1e69d95471f3d61db92223462e8aeff inherit pub_static_methods_classCross_1_1Service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10398e436de42eeffb083358061ad00f inherit pub_static_methods_classCross_1_1Service"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCross_1_1Service.html">Service</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Service.html#a10398e436de42eeffb083358061ad00f">Get</a> (const Key &amp;k, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:a10398e436de42eeffb083358061ad00f inherit pub_static_methods_classCross_1_1Service"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a service using its key and context  <a href="#a10398e436de42eeffb083358061ad00f">More...</a><br/></td></tr>
+<tr class="separator:a10398e436de42eeffb083358061ad00f inherit pub_static_methods_classCross_1_1Service"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -193,6 +193,38 @@ typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
+<a class="anchor" id="a99749a338fbdb71a04190bc2e1fe80de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SequenceFactory.html">SequenceFactory</a> * Cross::SequenceFactory::Get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>helper for getting the sequence factory context that will prevent/hide the need for static casts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>- which context to use for getting the service </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Service/<a class="el" href="SequenceFactory_8h_source.html">SequenceFactory.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Service/SequenceFactory.cpp</li>
@@ -200,7 +232,7 @@ typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 22:53:38 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

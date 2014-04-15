@@ -7,19 +7,21 @@
 ///         sequences are run throughout an iterator.
 /****************************************************************/
 
-#include "cross/Service/Allocation.h"
-#include "cross/Service/SequenceFactory.h"
-#include "cross/Context/Context.h"
 #include "cross/Sequence/GenesisContext.h"
 
 namespace Cross
 {
 
-static GenesisContext sGenesis;
-static Context sContext;
-static Allocation sAlloc(&sContext);
-static SequenceFactory sFactory(&sContext);
-static bool sIsRegistered = false;
+/// \brief constructor for genesis context.  The parent context
+///         *is* also the genesis context since there is no
+///         higher context.  This also provides the allocation
+///         and sequence factory services that are common to
+///         most use-cases for Cross.
+GenesisContext::GenesisContext() : Context(this), mAllocService(this), mSeqFactoryService(this)
+{
+    RegisterService(Allocation::KEY, &mAllocService);
+    RegisterService(SequenceFactory::KEY, &mSeqFactoryService);
+}
 
 /// \brief get the genesis context.  This should only be used
 ///         in creation of sequences and nodes.  This will
@@ -28,14 +30,8 @@ static bool sIsRegistered = false;
 /// \return ptr to the context
 Context* GenesisContext::Get()
 {
-    if(!sIsRegistered)
-    {
-        sIsRegistered = true;
-        sContext.EnsureService(Allocation::KEY, &sAlloc);
-        sContext.EnsureService(SequenceFactory::KEY, &sFactory);
-    }
-
-    return &sContext;
+    static GenesisContext sGenesis;
+    return &sGenesis;
 }
 
 }

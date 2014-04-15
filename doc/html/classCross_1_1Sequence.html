@@ -104,23 +104,23 @@ Inheritance diagram for Cross::Sequence:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCross_1_1Sequence__inherit__graph.png" border="0" usemap="#Cross_1_1Sequence_inherit__map" alt="Inheritance graph"/></div>
 <map name="Cross_1_1Sequence_inherit__map" id="Cross_1_1Sequence_inherit__map">
-<area shape="rect" id="node2" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="15,83,132,112"/><area shape="rect" id="node4" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/></map>
+<area shape="rect" id="node2" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="103,83,220,112"/><area shape="rect" id="node4" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/><area shape="rect" id="node6" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="165,5,333,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Cross::Sequence:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCross_1_1Sequence__coll__graph.png" border="0" usemap="#Cross_1_1Sequence_coll__map" alt="Collaboration graph"/></div>
 <map name="Cross_1_1Sequence_coll__map" id="Cross_1_1Sequence_coll__map">
-<area shape="rect" id="node2" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="15,83,132,112"/><area shape="rect" id="node4" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/></map>
+<area shape="rect" id="node2" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="103,83,220,112"/><area shape="rect" id="node4" href="classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/><area shape="rect" id="node6" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="165,5,333,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af02f7f45c846b90ea8840ff6cb270d7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af02f7f45c846b90ea8840ff6cb270d7b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt)</td></tr>
+<tr class="memitem:af02f7f45c846b90ea8840ff6cb270d7b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Sequence.html#af02f7f45c846b90ea8840ff6cb270d7b">Run</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt)</td></tr>
+<tr class="memdesc:af02f7f45c846b90ea8840ff6cb270d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">run this node from some iterator/runner which should be running its internal module or just continuing if none exists  <a href="#af02f7f45c846b90ea8840ff6cb270d7b">More...</a><br/></td></tr>
 <tr class="separator:af02f7f45c846b90ea8840ff6cb270d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf058dd6e38d42e786f00a2e33c4b321"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf058dd6e38d42e786f00a2e33c4b321"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *mod) const </td></tr>
+<tr class="memitem:adf058dd6e38d42e786f00a2e33c4b321"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Sequence.html#adf058dd6e38d42e786f00a2e33c4b321">operator==</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *mod) const </td></tr>
+<tr class="memdesc:adf058dd6e38d42e786f00a2e33c4b321"><td class="mdescLeft">&#160;</td><td class="mdescRight">if someone requests the equality state with a module, use our internal module to check validity  <a href="#adf058dd6e38d42e786f00a2e33c4b321">More...</a><br/></td></tr>
 <tr class="separator:adf058dd6e38d42e786f00a2e33c4b321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3224f27fbc561c52211044e1fb7276f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3224f27fbc561c52211044e1fb7276f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>InterConnect</b> ()</td></tr>
@@ -132,27 +132,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>IntraConnect</b> ()</
 <tr class="memitem:aed660837f3ba1c55d54ee172f4e87b9c inherit pub_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed660837f3ba1c55d54ee172f4e87b9c"></a>
 <a class="el" href="classCross_1_1SeqConnect.html">SeqConnect</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Connect</b> ()</td></tr>
 <tr class="separator:aed660837f3ba1c55d54ee172f4e87b9c inherit pub_methods_classCross_1_1SeqNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCross_1_1AllocationContext"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCross_1_1AllocationContext')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCross_1_1AllocationContext.html">Cross::AllocationContext</a></td></tr>
+<tr class="memitem:a0609490c5fbfe557c659cdf19a145ff5 inherit pub_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0609490c5fbfe557c659cdf19a145ff5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AllocationContext</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="separator:a0609490c5fbfe557c659cdf19a145ff5 inherit pub_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb9cd7d87201b82ddf540529172186e inherit pub_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#aeeb9cd7d87201b82ddf540529172186e">operator new</a> (size_t size, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:aeeb9cd7d87201b82ddf540529172186e inherit pub_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate a new object  <a href="#aeeb9cd7d87201b82ddf540529172186e">More...</a><br/></td></tr>
+<tr class="separator:aeeb9cd7d87201b82ddf540529172186e inherit pub_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0228ad0be289f51995b47115cbdfbd2a inherit pub_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#a0228ad0be289f51995b47115cbdfbd2a">operator delete</a> (void *module)</td></tr>
+<tr class="memdesc:a0228ad0be289f51995b47115cbdfbd2a inherit pub_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the more common case of destruction  <a href="#a0228ad0be289f51995b47115cbdfbd2a">More...</a><br/></td></tr>
+<tr class="separator:a0228ad0be289f51995b47115cbdfbd2a inherit pub_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064a5cf5493ddc575b09684fcdb72c7d inherit pub_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#a064a5cf5493ddc575b09684fcdb72c7d">operator delete</a> (void *module, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:a064a5cf5493ddc575b09684fcdb72c7d inherit pub_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will only be called if the object constructor throws an exception on construction  <a href="#a064a5cf5493ddc575b09684fcdb72c7d">More...</a><br/></td></tr>
+<tr class="separator:a064a5cf5493ddc575b09684fcdb72c7d inherit pub_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a729d9aaf030a718a69cdf5003a93fb35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a729d9aaf030a718a69cdf5003a93fb35"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Sequence</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
 <tr class="separator:a729d9aaf030a718a69cdf5003a93fb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e64d4c27271112347d999baec962701"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e64d4c27271112347d999baec962701"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *n, Direction d)</td></tr>
+<tr class="memitem:a1e64d4c27271112347d999baec962701"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Sequence.html#a1e64d4c27271112347d999baec962701">AddConnection</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *n, Direction d)</td></tr>
+<tr class="memdesc:a1e64d4c27271112347d999baec962701"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another node  <a href="#a1e64d4c27271112347d999baec962701">More...</a><br/></td></tr>
 <tr class="separator:a1e64d4c27271112347d999baec962701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d715a00b466ff8a7788afd6be08974c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d715a00b466ff8a7788afd6be08974c"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *m, Direction d)</td></tr>
+<tr class="memitem:a2d715a00b466ff8a7788afd6be08974c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Sequence.html#a2d715a00b466ff8a7788afd6be08974c">AddConnection</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *m, Direction d)</td></tr>
+<tr class="memdesc:a2d715a00b466ff8a7788afd6be08974c"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another module  <a href="#a2d715a00b466ff8a7788afd6be08974c">More...</a><br/></td></tr>
 <tr class="separator:a2d715a00b466ff8a7788afd6be08974c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d81fd7f60adfaa51af49d8acfddc9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33d81fd7f60adfaa51af49d8acfddc9f"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *s, Direction d)</td></tr>
+<tr class="memitem:a33d81fd7f60adfaa51af49d8acfddc9f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Sequence.html#a33d81fd7f60adfaa51af49d8acfddc9f">AddConnection</a> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *s, Direction d)</td></tr>
+<tr class="memdesc:a33d81fd7f60adfaa51af49d8acfddc9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another stream  <a href="#a33d81fd7f60adfaa51af49d8acfddc9f">More...</a><br/></td></tr>
 <tr class="separator:a33d81fd7f60adfaa51af49d8acfddc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCross_1_1SeqNode"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCross_1_1SeqNode')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCross_1_1SeqNode.html">Cross::SeqNode</a></td></tr>
-<tr class="memitem:ad1d4a1ffe2b5fe90b13926f4a9e90d84 inherit pro_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1d4a1ffe2b5fe90b13926f4a9e90d84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SeqNode</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module=NULL)</td></tr>
+<tr class="memitem:ad1d4a1ffe2b5fe90b13926f4a9e90d84 inherit pro_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">SeqNode</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module=NULL)</td></tr>
+<tr class="memdesc:ad1d4a1ffe2b5fe90b13926f4a9e90d84 inherit pro_methods_classCross_1_1SeqNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...">SeqNode</a> using a module to initialize  <a href="#ad1d4a1ffe2b5fe90b13926f4a9e90d84">More...</a><br/></td></tr>
 <tr class="separator:ad1d4a1ffe2b5fe90b13926f4a9e90d84 inherit pro_methods_classCross_1_1SeqNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a29521659cf16e9b459209e03cedad6 inherit pro_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a29521659cf16e9b459209e03cedad6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SeqNode</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memitem:a1a29521659cf16e9b459209e03cedad6 inherit pro_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqNode.html#a1a29521659cf16e9b459209e03cedad6">SeqNode</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memdesc:a1a29521659cf16e9b459209e03cedad6 inherit pro_methods_classCross_1_1SeqNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...">SeqNode</a> using another <a class="el" href="classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...">SeqNode</a> to initialize  <a href="#a1a29521659cf16e9b459209e03cedad6">More...</a><br/></td></tr>
 <tr class="separator:a1a29521659cf16e9b459209e03cedad6 inherit pro_methods_classCross_1_1SeqNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1341b503c91ff4019b04224c1e593a55 inherit pro_methods_classCross_1_1SeqNode"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1341b503c91ff4019b04224c1e593a55"></a>
 <a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetModule</b> () const </td></tr>
@@ -167,15 +180,31 @@ Connection::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>GetCo
 <tr class="memitem:aaed7f1dc767da62a04b9cb0aea67e58f inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaed7f1dc767da62a04b9cb0aea67e58f"></a>
 Connection::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>GetConnectionEnd</b> ()</td></tr>
 <tr class="separator:aaed7f1dc767da62a04b9cb0aea67e58f inherit pro_methods_classCross_1_1SeqConnect"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fed460f81be1d42e58476caa64afdde inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fed460f81be1d42e58476caa64afdde"></a>
-SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><b>FindConnection</b> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module)</td></tr>
+<tr class="memitem:a3fed460f81be1d42e58476caa64afdde inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top">SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#a3fed460f81be1d42e58476caa64afdde">FindConnection</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module)</td></tr>
+<tr class="memdesc:a3fed460f81be1d42e58476caa64afdde inherit pro_methods_classCross_1_1SeqConnect"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a module connection to this node and return the resulting connection  <a href="#a3fed460f81be1d42e58476caa64afdde">More...</a><br/></td></tr>
 <tr class="separator:a3fed460f81be1d42e58476caa64afdde inherit pro_methods_classCross_1_1SeqConnect"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4551122bbcfc4858d4b0f67a33b9bd87 inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4551122bbcfc4858d4b0f67a33b9bd87"></a>
-SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><b>FindConnection</b> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memitem:a4551122bbcfc4858d4b0f67a33b9bd87 inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top">SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#a4551122bbcfc4858d4b0f67a33b9bd87">FindConnection</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memdesc:a4551122bbcfc4858d4b0f67a33b9bd87 inherit pro_methods_classCross_1_1SeqConnect"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a node connection to this node and return the resulting connection  <a href="#a4551122bbcfc4858d4b0f67a33b9bd87">More...</a><br/></td></tr>
 <tr class="separator:a4551122bbcfc4858d4b0f67a33b9bd87 inherit pro_methods_classCross_1_1SeqConnect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f50d267a1fbaade0bb22cc085f418a1 inherit pro_methods_classCross_1_1SeqConnect"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f50d267a1fbaade0bb22cc085f418a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearConnections</b> ()</td></tr>
 <tr class="separator:a4f50d267a1fbaade0bb22cc085f418a1 inherit pro_methods_classCross_1_1SeqConnect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classCross_1_1AllocationContext"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCross_1_1AllocationContext')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCross_1_1AllocationContext.html">Cross::AllocationContext</a></td></tr>
+<tr class="memitem:a4dd29ba0f512ffc182ed9b305e3abbbb inherit pro_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4dd29ba0f512ffc182ed9b305e3abbbb"></a>
+<a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllocContext</b> ()</td></tr>
+<tr class="separator:a4dd29ba0f512ffc182ed9b305e3abbbb inherit pro_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0609490c5fbfe557c659cdf19a145ff5 inherit pro_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0609490c5fbfe557c659cdf19a145ff5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AllocationContext</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="separator:a0609490c5fbfe557c659cdf19a145ff5 inherit pro_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb9cd7d87201b82ddf540529172186e inherit pro_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#aeeb9cd7d87201b82ddf540529172186e">operator new</a> (size_t size, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:aeeb9cd7d87201b82ddf540529172186e inherit pro_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate a new object  <a href="#aeeb9cd7d87201b82ddf540529172186e">More...</a><br/></td></tr>
+<tr class="separator:aeeb9cd7d87201b82ddf540529172186e inherit pro_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0228ad0be289f51995b47115cbdfbd2a inherit pro_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#a0228ad0be289f51995b47115cbdfbd2a">operator delete</a> (void *module)</td></tr>
+<tr class="memdesc:a0228ad0be289f51995b47115cbdfbd2a inherit pro_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is the more common case of destruction  <a href="#a0228ad0be289f51995b47115cbdfbd2a">More...</a><br/></td></tr>
+<tr class="separator:a0228ad0be289f51995b47115cbdfbd2a inherit pro_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064a5cf5493ddc575b09684fcdb72c7d inherit pro_methods_classCross_1_1AllocationContext"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocationContext.html#a064a5cf5493ddc575b09684fcdb72c7d">operator delete</a> (void *module, <a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="memdesc:a064a5cf5493ddc575b09684fcdb72c7d inherit pro_methods_classCross_1_1AllocationContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will only be called if the object constructor throws an exception on construction  <a href="#a064a5cf5493ddc575b09684fcdb72c7d">More...</a><br/></td></tr>
+<tr class="separator:a064a5cf5493ddc575b09684fcdb72c7d inherit pro_methods_classCross_1_1AllocationContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -197,14 +226,233 @@ typedef std::vector&lt; SeqPair &gt;&#160;</td><td class="memItemRight" valign="
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sequences are networks of nodes. They carry an isolated context that allows sequences to operate separately from all other surrounding sequences. </p>
 <dl class="section date"><dt>Date</dt><dd>Jan 5, 2014 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1e64d4c27271112347d999baec962701"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::Sequence::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another node </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>- the node to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in node or the existing node that we were already connected to </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1SeqConnect.html#ada0832352da1b33e707334073e5e8b49">Cross::SeqConnect</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d715a00b466ff8a7788afd6be08974c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::Sequence::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>- the module to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in node that is already connected and contains this module or a new node </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1SeqConnect.html#a15a9cda3dfdb20257b5e96ff3c141344">Cross::SeqConnect</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33d81fd7f60adfaa51af49d8acfddc9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::Sequence::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another stream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>- the stream to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in stream/head or a node that is already connected </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1SeqConnect.html#ad3f39e30fa1927e26ac29ad241e45f55">Cross::SeqConnect</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf058dd6e38d42e786f00a2e33c4b321"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cross::Sequence::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td>
+          <td class="paramname"><em>mod</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>if someone requests the equality state with a module, use our internal module to check validity </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mod</td><td>- module to check against </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T: if equal; F: if not equal </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1SeqNode.html#a17a7923ed7d5387521eb8170e74c2cfd">Cross::SeqNode</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af02f7f45c846b90ea8840ff6cb270d7b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cross::Sequence::Run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Continuer.html">Continuer</a> *&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>run this node from some iterator/runner which should be running its internal module or just continuing if none exists </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- the context that is being run with </td></tr>
+    <tr><td class="paramname">cnt</td><td>- the continuer to use when running is complete </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classCross_1_1SeqNode.html#ac8641339315c39a06d21370ee0fb8263">Cross::SeqNode</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="Sequence_8h_source.html">Sequence.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/Sequence.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 22:53:38 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

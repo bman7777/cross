@@ -10,6 +10,7 @@
 #define FLOW_MODULE_H_
 
 #include <stddef.h>
+#include "cross/Context/AllocationContext.h"
 
 namespace Cross
 {
@@ -19,23 +20,11 @@ class Continuer;
 class Context;
 
 // encapsulates modular flow logic
-class Module
+class Module : public AllocationContext
 {
 public:
-    Module(Context* ctx, Continuer* cnt=NULL, Serial* s=NULL) : mContext(ctx) {}
-
+    Module(Context* ctx, Continuer* cnt=NULL, Serial* s=NULL) : AllocationContext(ctx) {}
     virtual ~Module() {}
-
-    void* operator new (size_t size, Context* ctx);
-
-    void operator delete (void* module);
-
-    void operator delete (void* module, Context* ctx);
-
-    Context* GetContext() const { return mContext; }
-
-private:
-    Context* mContext;
 };
 
 }

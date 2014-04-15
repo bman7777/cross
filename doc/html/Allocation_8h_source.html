@@ -92,48 +92,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef ALLOCATION_H_</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ALLOCATION_H_</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;cross/Context/Context.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;cross/Service/Service.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Cross</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classCross_1_1Allocation.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1Allocation.html">Allocation</a> : <span class="keyword">public</span> <a class="code" href="classCross_1_1Service.html">Service</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> Service::Key KEY;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classCross_1_1Allocation.html">Allocation</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx) : mContext(ctx) {}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1Allocation.html">Allocation</a>() {}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code" href="classCross_1_1Allocation.html#ae333b09d0499a0240bcee9223ec039c5">Allocate</a>(<span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCross_1_1Allocation.html#a231ee3a9a4ce913729054f9206df3e66">DeAllocate</a>(<span class="keywordtype">void</span>* ptr);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCross_1_1Allocation.html">Allocation</a>* Get(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classCross_1_1Allocation.html">Allocation</a>*<span class="keyword">&gt;</span>(<a class="code" href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Service::Get</a>(KEY, ctx));</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classCross_1_1Context.html">Context</a>* mContext;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;cross/Service/Service.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>Cross</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>Context;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classCross_1_1Allocation.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1Allocation.html">Allocation</a> : <span class="keyword">public</span> <a class="code" href="classCross_1_1Service.html">Service</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> Service::Key KEY;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classCross_1_1Allocation.html">Allocation</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx) : mContext(ctx) {}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1Allocation.html">Allocation</a>() {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code" href="classCross_1_1Allocation.html#ae333b09d0499a0240bcee9223ec039c5">Allocate</a>(<span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCross_1_1Allocation.html#a231ee3a9a4ce913729054f9206df3e66">DeAllocate</a>(<span class="keywordtype">void</span>* ptr);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCross_1_1Allocation.html">Allocation</a>* <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Get</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classCross_1_1Context.html">Context</a>* mContext;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="comment">//end namespace</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">//end namespace</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ALLOCATION_H_ */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="ttc" id="classCross_1_1Service_html_ae1e69d95471f3d61db92223462e8aeff"><div class="ttname"><a href="classCross_1_1Service.html#ae1e69d95471f3d61db92223462e8aeff">Cross::Service::Get</a></div><div class="ttdeci">static Service * Get(Key k, Context *ctx)</div><div class="ttdoc">get a service using its key and context </div><div class="ttdef"><b>Definition:</b> Service.cpp:29</div></div>
-<div class="ttc" id="classCross_1_1Allocation_html"><div class="ttname"><a href="classCross_1_1Allocation.html">Cross::Allocation</a></div><div class="ttdoc">A service that provides allocation support for flow-based entities. This can create/destroy objects f...</div><div class="ttdef"><b>Definition:</b> Allocation.h:20</div></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ALLOCATION_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="ttc" id="classCross_1_1Allocation_html"><div class="ttname"><a href="classCross_1_1Allocation.html">Cross::Allocation</a></div><div class="ttdoc">A service that provides allocation support for flow-based entities. This can create/destroy objects f...</div><div class="ttdef"><b>Definition:</b> Allocation.h:21</div></div>
+<div class="ttc" id="classCross_1_1Allocation_html_a8f954a8b40fc0f98c80647acf7bb0138"><div class="ttname"><a href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Cross::Allocation::Get</a></div><div class="ttdeci">static Allocation * Get(Context *ctx)</div><div class="ttdoc">helper for getting the allocation context that will prevent/hide the need for static casts...</div><div class="ttdef"><b>Definition:</b> Allocation.cpp:40</div></div>
 <div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:19</div></div>
-<div class="ttc" id="classCross_1_1Allocation_html_ae333b09d0499a0240bcee9223ec039c5"><div class="ttname"><a href="classCross_1_1Allocation.html#ae333b09d0499a0240bcee9223ec039c5">Cross::Allocation::Allocate</a></div><div class="ttdeci">virtual void * Allocate(size_t size)</div><div class="ttdoc">allocate memory for some module potentially from some pooled memory </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:22</div></div>
-<div class="ttc" id="classCross_1_1Allocation_html_a231ee3a9a4ce913729054f9206df3e66"><div class="ttname"><a href="classCross_1_1Allocation.html#a231ee3a9a4ce913729054f9206df3e66">Cross::Allocation::DeAllocate</a></div><div class="ttdeci">virtual void DeAllocate(void *ptr)</div><div class="ttdoc">deallocate memory created from allocate </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:29</div></div>
-<div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:21</div></div>
+<div class="ttc" id="classCross_1_1Allocation_html_ae333b09d0499a0240bcee9223ec039c5"><div class="ttname"><a href="classCross_1_1Allocation.html#ae333b09d0499a0240bcee9223ec039c5">Cross::Allocation::Allocate</a></div><div class="ttdeci">virtual void * Allocate(size_t size)</div><div class="ttdoc">allocate memory for some module potentially from some pooled memory </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:23</div></div>
+<div class="ttc" id="classCross_1_1Allocation_html_a231ee3a9a4ce913729054f9206df3e66"><div class="ttname"><a href="classCross_1_1Allocation.html#a231ee3a9a4ce913729054f9206df3e66">Cross::Allocation::DeAllocate</a></div><div class="ttdeci">virtual void DeAllocate(void *ptr)</div><div class="ttdoc">deallocate memory created from allocate </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:30</div></div>
+<div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 22:53:38 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

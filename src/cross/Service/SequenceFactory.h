@@ -11,12 +11,12 @@
 #ifndef SEQUENCEFACTORY_H_
 #define SEQUENCEFACTORY_H_
 
-#include "cross/Context/Context.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
 {
 
+class Context;
 class IModuleWrapper;
 class Sequence;
 class SeqNode;
@@ -32,10 +32,7 @@ public:
     Sequence* CreateSequence();
     SeqNode* CreateSeqNode(IModuleWrapper* m = NULL);
 
-    static SequenceFactory* Get(Context* ctx)
-    {
-        return static_cast<SequenceFactory*>(Service::Get(KEY, ctx));
-    }
+    static SequenceFactory* Get(Context* ctx);
 
 private:
     Context* mContext;

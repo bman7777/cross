@@ -26,9 +26,6 @@ class SeqStream;
 class SeqConnect
 {
 public:
-    explicit SeqConnect(Context* ctx) : mContext(ctx) {}
-    virtual ~SeqConnect() {}
-
     typedef std::pair<SeqNode*, Direction> SeqPair;
     typedef std::vector<SeqPair> Connection;
 
@@ -43,6 +40,10 @@ public:
     virtual SeqNode* AddConnection(SeqNode* n, Direction d);
     virtual SeqNode* AddConnection(IModuleWrapper* m, Direction d);
     virtual SeqNode* AddConnection(SeqStream* s, Direction d);
+
+protected:
+    explicit SeqConnect(Context* ctx) : mContext(ctx) {}
+    virtual ~SeqConnect() {}
 
 private:
     Connection mConnect;

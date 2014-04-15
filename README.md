@@ -24,7 +24,8 @@ TODOs
 * Write more unit tests
 * Flesh out the serial functionality
 * Add more documentation
-* Fill out allocator service
+* Fill out allocator service (and make sure all deletes/news use it)
+* make allocator actually come from specified pools of memory
 * Use google test features to detect memory leaks
 * make sure context/services can be customized per module/sequence/junction
 * analyze performance

@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classCross_1_1SeqConnect-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Cross::SeqConnect Class Reference</div>  </div>
@@ -118,47 +119,239 @@ typedef std::vector&lt; SeqPair &gt;&#160;</td><td class="memItemRight" valign="
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a83a4b03c1927801a14207cf6825273d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83a4b03c1927801a14207cf6825273d0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SeqConnect</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
-<tr class="separator:a83a4b03c1927801a14207cf6825273d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c47e947f40970569214c196540c6140"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c47e947f40970569214c196540c6140"></a>
 Connection::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>GetConnectionBegin</b> ()</td></tr>
 <tr class="separator:a7c47e947f40970569214c196540c6140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaed7f1dc767da62a04b9cb0aea67e58f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaed7f1dc767da62a04b9cb0aea67e58f"></a>
 Connection::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>GetConnectionEnd</b> ()</td></tr>
 <tr class="separator:aaed7f1dc767da62a04b9cb0aea67e58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fed460f81be1d42e58476caa64afdde"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fed460f81be1d42e58476caa64afdde"></a>
-SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><b>FindConnection</b> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module)</td></tr>
+<tr class="memitem:a3fed460f81be1d42e58476caa64afdde"><td class="memItemLeft" align="right" valign="top">SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#a3fed460f81be1d42e58476caa64afdde">FindConnection</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *module)</td></tr>
+<tr class="memdesc:a3fed460f81be1d42e58476caa64afdde"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a module connection to this node and return the resulting connection  <a href="#a3fed460f81be1d42e58476caa64afdde">More...</a><br/></td></tr>
 <tr class="separator:a3fed460f81be1d42e58476caa64afdde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4551122bbcfc4858d4b0f67a33b9bd87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4551122bbcfc4858d4b0f67a33b9bd87"></a>
-SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><b>FindConnection</b> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memitem:a4551122bbcfc4858d4b0f67a33b9bd87"><td class="memItemLeft" align="right" valign="top">SeqPair *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#a4551122bbcfc4858d4b0f67a33b9bd87">FindConnection</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *node)</td></tr>
+<tr class="memdesc:a4551122bbcfc4858d4b0f67a33b9bd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a node connection to this node and return the resulting connection  <a href="#a4551122bbcfc4858d4b0f67a33b9bd87">More...</a><br/></td></tr>
 <tr class="separator:a4551122bbcfc4858d4b0f67a33b9bd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f50d267a1fbaade0bb22cc085f418a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f50d267a1fbaade0bb22cc085f418a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearConnections</b> ()</td></tr>
 <tr class="separator:a4f50d267a1fbaade0bb22cc085f418a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0832352da1b33e707334073e5e8b49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada0832352da1b33e707334073e5e8b49"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *n, Direction d)</td></tr>
+<tr class="memitem:ada0832352da1b33e707334073e5e8b49"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#ada0832352da1b33e707334073e5e8b49">AddConnection</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *n, Direction d)</td></tr>
+<tr class="memdesc:ada0832352da1b33e707334073e5e8b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another node  <a href="#ada0832352da1b33e707334073e5e8b49">More...</a><br/></td></tr>
 <tr class="separator:ada0832352da1b33e707334073e5e8b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a9cda3dfdb20257b5e96ff3c141344"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15a9cda3dfdb20257b5e96ff3c141344"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *m, Direction d)</td></tr>
+<tr class="memitem:a15a9cda3dfdb20257b5e96ff3c141344"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#a15a9cda3dfdb20257b5e96ff3c141344">AddConnection</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *m, Direction d)</td></tr>
+<tr class="memdesc:a15a9cda3dfdb20257b5e96ff3c141344"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another module  <a href="#a15a9cda3dfdb20257b5e96ff3c141344">More...</a><br/></td></tr>
 <tr class="separator:a15a9cda3dfdb20257b5e96ff3c141344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f39e30fa1927e26ac29ad241e45f55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3f39e30fa1927e26ac29ad241e45f55"></a>
-virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddConnection</b> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *s, Direction d)</td></tr>
+<tr class="memitem:ad3f39e30fa1927e26ac29ad241e45f55"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqConnect.html#ad3f39e30fa1927e26ac29ad241e45f55">AddConnection</a> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *s, Direction d)</td></tr>
+<tr class="memdesc:ad3f39e30fa1927e26ac29ad241e45f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a connection to this node that involves a direction and another stream  <a href="#ad3f39e30fa1927e26ac29ad241e45f55">More...</a><br/></td></tr>
 <tr class="separator:ad3f39e30fa1927e26ac29ad241e45f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a83a4b03c1927801a14207cf6825273d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83a4b03c1927801a14207cf6825273d0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SeqConnect</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx)</td></tr>
+<tr class="separator:a83a4b03c1927801a14207cf6825273d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This helper owns connection between nodes that allow a network of nodes to be created as a sequence. Connections ultimately contain modules, junctions, and other sequences. </p>
 <dl class="section date"><dt>Date</dt><dd>Mar 24, 2014</dd>
 <dd>
 Mar 23, 2014 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ada0832352da1b33e707334073e5e8b49"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::SeqConnect::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another node </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>- the node to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in node or the existing node that we were already connected to </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCross_1_1Sequence.html#a1e64d4c27271112347d999baec962701">Cross::Sequence</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a15a9cda3dfdb20257b5e96ff3c141344"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::SeqConnect::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>- the module to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in node that is already connected and contains this module or a new node </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCross_1_1Sequence.html#a2d715a00b466ff8a7788afd6be08974c">Cross::Sequence</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3f39e30fa1927e26ac29ad241e45f55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> * Cross::SeqConnect::AddConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add a connection to this node that involves a direction and another stream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>- the stream to connect us to </td></tr>
+    <tr><td class="paramname">dir</td><td>- the direction of the connection (forward/back) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the resulting node that is connected with- this may be the passed in stream/head or a node that is already connected </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classCross_1_1Sequence.html#a33d81fd7f60adfaa51af49d8acfddc9f">Cross::Sequence</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fed460f81be1d42e58476caa64afdde"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SeqConnect::SeqPair * Cross::SeqConnect::FindConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> *&#160;</td>
+          <td class="paramname"><em>module</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>find a module connection to this node and return the resulting connection </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>- module to check against </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pair that contains the match (or NULL if no match was found) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4551122bbcfc4858d4b0f67a33b9bd87"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SeqConnect::SeqPair * Cross::SeqConnect::FindConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>find a node connection to this node and return the resulting connection </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>- node to check against </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pair that contains the match (or NULL if no match was found) </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="SeqConnect_8h_source.html">SeqConnect.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/SeqConnect.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 22:53:38 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

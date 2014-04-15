@@ -16,6 +16,11 @@
 namespace Cross
 {
 
+/// \brief construct the sequence iterator so it can be used to
+///         traverse the sequence tree.
+/// \param root - the sequence node that will serve as a start
+///         for traversal
+/// \param strategy - decision-maker for path selection as we run
 SequenceIterator::SequenceIterator(SeqNode* root, IDirectionStrategy* strat) :
     mCurrentProgress(root),
     mDirectionStrategy(strat),
@@ -34,6 +39,8 @@ SequenceIterator::SequenceIterator(SeqNode* root, IDirectionStrategy* strat) :
     }
 }
 
+/// \brief destructor for iterator which cleans up temp
+///         memory allocation(s)
 SequenceIterator::~SequenceIterator()
 {
     if(mDirectionStrategy && mOwnsDirectionStrategy)
@@ -42,6 +49,10 @@ SequenceIterator::~SequenceIterator()
     }
 }
 
+/// \brief each step in the traversal will continue and allow
+///         the iterator to advance to the next stage
+/// \param context - context that was run with
+/// \param error - any errors that occurred are specified here
 void SequenceIterator::Continue(Context* ctx, ErrorCode e)
 {
     if(mDirectionStrategy)
@@ -64,6 +75,11 @@ void SequenceIterator::Continue(Context* ctx, ErrorCode e)
     }
 }
 
+/// \brief entry point for sequence iteration- this will
+///         start up a new context that can be used to
+///         localize services.
+/// \param context - the context to fork and run with
+/// \param continuer - when done with running, call this
 void SequenceIterator::Run(Context* ctx, Continuer* cnt)
 {
     if(!mIsRunning)
@@ -75,10 +91,10 @@ void SequenceIterator::Run(Context* ctx, Continuer* cnt)
         if(mCurrentProgress)
         {
             // make a shiny new context for module
-            Context* ctx = new Context(mContext);
+            Context* nextCtx = new(mContext) Context(mContext);
 
             // this will run/instantiate the module
-            mCurrentProgress->Run(ctx, this);
+            mCurrentProgress->Run(nextCtx, this);
         }
         else
         {
@@ -86,7 +102,6 @@ void SequenceIterator::Run(Context* ctx, Continuer* cnt)
         }
     }
 }
-
 
 }
 
