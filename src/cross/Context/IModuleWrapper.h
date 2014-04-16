@@ -10,9 +10,7 @@
 #ifndef FLOW_IMODULEWRAPPER_H_
 #define FLOW_IMODULEWRAPPER_H_
 
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid.hpp>
-#include "cross/Context/FlowDefine.h"
+#include "cross/Context/DataContext.h"
 
 namespace Cross
 {
@@ -20,20 +18,11 @@ namespace Cross
 class Context;
 class Continuer;
 
-class IModuleWrapper
+class IModuleWrapper : public DataContext
 {
 public:
-    typedef boost::uuids::uuid Key;
-
     virtual ~IModuleWrapper() {}
-    virtual Key GetKey() const = 0;
     virtual void Run(Context* ctx, Continuer* cnt) = 0;
-
-protected:
-    static Key MakeKey()
-    {
-        return boost::uuids::random_generator()();
-    }
 };
 
 }

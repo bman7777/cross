@@ -21,7 +21,7 @@ class Context;
 class Allocation : public Service
 {
 public:
-    static const Service::Key KEY;
+    static const DataContext::Key KEY;
 
     Allocation(Context* ctx) : mContext(ctx) {}
     virtual ~Allocation() {}

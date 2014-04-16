@@ -14,7 +14,7 @@
 namespace Cross
 {
 
-const Service::Key Allocation::KEY = Service::MakeKey();
+const DataContext::Key Allocation::KEY = DataContext::MakeKey();
 
 /// \brief allocate memory for some module potentially from some
 ///         pooled memory

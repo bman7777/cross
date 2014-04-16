@@ -12,6 +12,7 @@
 
 #include <stddef.h>
 #include "cross/Context/AllocationContext.h"
+#include "cross/Context/DataContext.h"
 #include "cross/Sequence/SeqConnect.h"
 
 namespace Cross
@@ -22,7 +23,7 @@ class Continuer;
 class IModuleWrapper;
 class SequenceFactory;
 
-class SeqNode : protected SeqConnect, public AllocationContext
+class SeqNode : protected SeqConnect, public AllocationContext, public DataContext
 {
 public:
     virtual void Run(Context* ctx, Continuer* cnt);

@@ -28,7 +28,6 @@ class ModuleWrapper : public IModuleWrapper
 public:
     ModuleWrapper(Serial* s=NULL) :
         mFlow(NULL),
-        mKey(MakeKey()),
         mSerial(s)
     {}
 
@@ -42,8 +41,6 @@ public:
     }
 
 protected:
-    virtual IModuleWrapper::Key GetKey() const { return mKey; }
-
     void Run(Context* ctx, Continuer* cnt=NULL)
     {
         // make sure we never run a module twice!
@@ -54,7 +51,6 @@ protected:
 
 private:
     T* mFlow;
-    IModuleWrapper::Key mKey;
     Serial* mSerial;
 };
 

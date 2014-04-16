@@ -29,7 +29,7 @@ Context::Context(Context* parentContext) :
 /// \param key - a unique key that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-void Context::RegisterService(const Service::Key& key, Service* serv)
+void Context::RegisterService(const DataContext::Key& key, Service* serv)
 {
     mServices[key] = serv;
 }
@@ -42,7 +42,7 @@ void Context::RegisterService(const Service::Key& key, Service* serv)
 /// \param key - a unique key that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-bool Context::EnsureService(const Service::Key& key, Service* serv)
+bool Context::EnsureService(const DataContext::Key& key, Service* serv)
 {
     bool serviceAdded = false;
     ServiceList::const_iterator iter = mServices.find(key);
@@ -65,7 +65,7 @@ bool Context::EnsureService(const Service::Key& key, Service* serv)
 /// \param key - a unique key that identifies the service
 /// \return service - a service implementation that provides some
 ///         functionality.  NULL will be returned if none exists
-Service* Context::GetService(const Service::Key& key) const
+Service* Context::GetService(const DataContext::Key& key) const
 {
     Service* serv = NULL;
     ServiceList::const_iterator iter = mServices.find(key);
@@ -88,7 +88,7 @@ Service* Context::GetService(const Service::Key& key) const
 /// \param key - a unique key that identifies the service
 /// \return T: this service is available; F: this
 ///         service has not been registered.
-bool Context::HasService(const Service::Key& key) const
+bool Context::HasService(const DataContext::Key& key) const
 {
     return (GetService(key) != NULL);
 }
@@ -99,7 +99,7 @@ bool Context::HasService(const Service::Key& key) const
 /// \param key - a unique key that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-void Context::UnRegisterService(const Service::Key& key, Service* serv)
+void Context::UnRegisterService(const DataContext::Key& key, Service* serv)
 {
     ServiceList::const_iterator iter = mServices.find(key);
     if(iter != mServices.end() && iter->second == serv)

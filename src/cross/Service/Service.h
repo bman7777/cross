@@ -10,19 +10,17 @@
 #define SERVICE_H_
 
 #include <boost/uuid/uuid.hpp>
+#include "cross/Context/DataContext.h"
 
 namespace Cross
 {
 
 class Context;
 
-class Service
+class Service : public DataContext
 {
 public:
-    typedef boost::uuids::uuid Key;
-    static Key MakeKey();
-
-    static Service* Get(const Key& k, Context* ctx);
+    static Service* Get(const DataContext::Key& k, Context* ctx);
 };
 
 }

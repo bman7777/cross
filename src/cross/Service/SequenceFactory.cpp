@@ -15,7 +15,7 @@
 namespace Cross
 {
 
-const Service::Key SequenceFactory::KEY = Service::MakeKey();
+const DataContext::Key SequenceFactory::KEY = DataContext::MakeKey();
 
 /// \brief create a sequence using friendship to constructor
 ///         and passing along our local context (likely

@@ -93,32 +93,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SERVICE_H_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;boost/uuid/uuid.hpp&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Cross</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span>Context;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classCross_1_1Service.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1Service.html">Service</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">typedef</span> boost::uuids::uuid Key;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> Key <a class="code" href="classCross_1_1Service.html#a81feecc7eef2cf7be6a9ae060f73d051">MakeKey</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCross_1_1Service.html">Service</a>* <a class="code" href="classCross_1_1Service.html#a10398e436de42eeffb083358061ad00f">Get</a>(<span class="keyword">const</span> Key&amp; k, <a class="code" href="classCross_1_1Context.html">Context</a>* ctx);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;cross/Context/DataContext.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>Cross</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span>Context;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classCross_1_1Service.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1Service.html">Service</a> : <span class="keyword">public</span> <a class="code" href="classCross_1_1DataContext.html">DataContext</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCross_1_1Service.html">Service</a>* <a class="code" href="classCross_1_1Service.html#a91e335a6b2268c835a5cedaae1ae8b04">Get</a>(<span class="keyword">const</span> DataContext::Key&amp; k, <a class="code" href="classCross_1_1Context.html">Context</a>* ctx);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERVICE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classCross_1_1Service_html_a81feecc7eef2cf7be6a9ae060f73d051"><div class="ttname"><a href="classCross_1_1Service.html#a81feecc7eef2cf7be6a9ae060f73d051">Cross::Service::MakeKey</a></div><div class="ttdeci">static Key MakeKey()</div><div class="ttdoc">create a new key using a UUID to identify the service uniquely. This can be used to hash the service...</div><div class="ttdef"><b>Definition:</b> Service.cpp:19</div></div>
-<div class="ttc" id="classCross_1_1Service_html_a10398e436de42eeffb083358061ad00f"><div class="ttname"><a href="classCross_1_1Service.html#a10398e436de42eeffb083358061ad00f">Cross::Service::Get</a></div><div class="ttdeci">static Service * Get(const Key &amp;k, Context *ctx)</div><div class="ttdoc">get a service using its key and context </div><div class="ttdef"><b>Definition:</b> Service.cpp:29</div></div>
-<div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:19</div></div>
-<div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:22</div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SERVICE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classCross_1_1DataContext_html"><div class="ttname"><a href="classCross_1_1DataContext.html">Cross::DataContext</a></div><div class="ttdoc">container for data key that can be used to identify a contextual object. </div><div class="ttdef"><b>Definition:</b> DataContext.h:17</div></div>
+<div class="ttc" id="classCross_1_1Service_html_a91e335a6b2268c835a5cedaae1ae8b04"><div class="ttname"><a href="classCross_1_1Service.html#a91e335a6b2268c835a5cedaae1ae8b04">Cross::Service::Get</a></div><div class="ttdeci">static Service * Get(const DataContext::Key &amp;k, Context *ctx)</div><div class="ttdoc">get a service using its key and context </div><div class="ttdef"><b>Definition:</b> Service.cpp:20</div></div>
+<div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:20</div></div>
+<div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 14 2014 22:50:04 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 16 2014 08:55:13 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
