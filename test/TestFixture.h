@@ -14,7 +14,6 @@
 #include "cross/Context/FlowDefine.h"
 #include "cross/Context/Module.h"
 #include "cross/Context/ModuleWrapper.h"
-#include "cross/Context/Serial.h"
 #include "cross/Sequence/GenesisContext.h"
 #include "cross/Sequence/Junction.h"
 #include "cross/Service/Service.h"
@@ -39,19 +38,30 @@ private:
 class AppendChar : public Cross::Module
 {
 public:
-    static const Cross::Serial::Key APPENDER = 0xd00d;
-    static const Cross::Serial::Key CHAR = 0xd11d;
+    struct Param
+    {
+        const char c;
+        std::string* appender;
 
-    AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
+        Param() : c(' '), appender(NULL) {}
+        Param(const char letter, std::string* str) : c(letter), appender(str) {}
+    };
+
+    AppendChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Param* p=NULL);
     virtual ~AppendChar() {}
 };
 
 class AdjustSpecialChar : public Cross::Module
 {
 public:
-    static const Cross::Serial::Key CHAR = 0xd11d;
+    struct Param
+    {
+        char c;
 
-    AdjustSpecialChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Cross::Serial* s=NULL);
+        Param(char letter=' ') : c(letter) {}
+    };
+
+    AdjustSpecialChar(Cross::Context* cxt, Cross::Continuer* cnt=NULL, Param* p=NULL);
     virtual ~AdjustSpecialChar();
 
 private:
@@ -85,20 +95,20 @@ protected:
     std::string mTestString;
     Cross::Context* mCtx;
 
-    Cross::Serial mParamA;
-    Cross::ModuleWrapper<AppendChar> mA;
+    AppendChar::Param mParamA;
+    Cross::ModuleWrapper<AppendChar, AppendChar::Param> mA;
 
-    Cross::Serial mParamB;
-    Cross::ModuleWrapper<AppendChar> mB;
+    AppendChar::Param mParamB;
+    Cross::ModuleWrapper<AppendChar, AppendChar::Param> mB;
 
-    Cross::Serial mParamC;
-    Cross::ModuleWrapper<AppendChar> mC;
+    AppendChar::Param mParamC;
+    Cross::ModuleWrapper<AppendChar, AppendChar::Param> mC;
 
-    Cross::Serial mParamD;
-    Cross::ModuleWrapper<AppendChar> mD;
+    AppendChar::Param mParamD;
+    Cross::ModuleWrapper<AppendChar, AppendChar::Param> mD;
 
-    Cross::Serial mParamAdj;
-    Cross::ModuleWrapper<AdjustSpecialChar> mAdj;
+    AdjustSpecialChar::Param mParamAdj;
+    Cross::ModuleWrapper<AdjustSpecialChar, AdjustSpecialChar::Param> mAdj;
 
     Cross::ErrorCode mTestError;
 };

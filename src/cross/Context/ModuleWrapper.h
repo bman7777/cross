@@ -20,23 +20,22 @@ namespace Cross
 
 class Context;
 class Continuer;
-class Serial;
 
-template <class T>
+template <class M, class P=void>
 class ModuleWrapper : public IModuleWrapper
 {
 public:
-    ModuleWrapper(Serial* s=NULL) :
-        mFlow(NULL),
-        mSerial(s)
+    ModuleWrapper(P* p=NULL) :
+        mModule(NULL),
+        mParam(p)
     {}
 
     virtual ~ModuleWrapper()
     {
-        if(mFlow)
+        if(mModule)
         {
-            delete mFlow;
-            mFlow = NULL;
+            delete mModule;
+            mModule = NULL;
         }
     }
 
@@ -44,14 +43,14 @@ protected:
     void Run(Context* ctx, Continuer* cnt=NULL)
     {
         // make sure we never run a module twice!
-        assert(!mFlow);
+        assert(!mModule);
 
-        mFlow = new(ctx) T(ctx, cnt, mSerial);
+        mModule = new(ctx) M(ctx, cnt, mParam);
     }
 
 private:
-    T* mFlow;
-    Serial* mSerial;
+    M* mModule;
+    P* mParam;
 };
 
 }

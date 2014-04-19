@@ -15,15 +15,13 @@
 namespace Cross
 {
 
-class Serial;
-class Continuer;
 class Context;
 
 // encapsulates modular flow logic
 class Module : public AllocationContext
 {
 public:
-    Module(Context* ctx, Continuer* cnt=NULL, Serial* s=NULL) : AllocationContext(ctx) {}
+    Module(Context* ctx) : AllocationContext(ctx) {}
     virtual ~Module() {}
 };
 

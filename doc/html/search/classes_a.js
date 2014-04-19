@@ -6,6 +6,5 @@ var searchData=
   ['sequence',['Sequence',['../classCross_1_1Sequence.html',1,'Cross']]],
   ['sequencefactory',['SequenceFactory',['../classCross_1_1SequenceFactory.html',1,'Cross']]],
   ['sequenceiterator',['SequenceIterator',['../classCross_1_1SequenceIterator.html',1,'Cross']]],
-  ['serial',['Serial',['../classCross_1_1Serial.html',1,'Cross']]],
   ['service',['Service',['../classCross_1_1Service.html',1,'Cross']]]
 ];

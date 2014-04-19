@@ -24,7 +24,7 @@ namespace Cross
 /// \param module - the module to run (this is what we are
 ///         ultimately decorating)
 DirectionModuleDecorator::DirectionModuleDecorator(AutoDirectionStrategy* strat, Direction newDir, IModuleWrapper* mod) :
-	mStrategy(strat), mNewDir(newDir), mModule(mod), mKey(MakeKey()), mContinue(NULL)
+    mStrategy(strat), mNewDir(newDir), mModule(mod), mKey(MakeKey()), mContinue(NULL)
 {
 }
 
@@ -33,15 +33,15 @@ DirectionModuleDecorator::DirectionModuleDecorator(AutoDirectionStrategy* strat,
 /// \param cnt - continuer after the run
 void DirectionModuleDecorator::Run(Context* ctx, Continuer* cnt)
 {
-	mContinue = cnt;
-	if(mModule)
-	{
-		mModule->Run(ctx, this);
-	}
-	else
-	{
-		Continue(ctx, ERR_NONE);
-	}
+    mContinue = cnt;
+    if(mModule)
+    {
+        mModule->Run(ctx, this);
+    }
+    else
+    {
+        Continue(ctx, ERR_NONE);
+    }
 }
 
 /// \brief continue the run process and interface with the
@@ -50,15 +50,15 @@ void DirectionModuleDecorator::Run(Context* ctx, Continuer* cnt)
 /// \param error - any error that occurred in the run
 void DirectionModuleDecorator::Continue(Context* ctx, ErrorCode e)
 {
-	if(mStrategy)
-	{
-		mStrategy->UpdateDir(mNewDir);
-	}
+    if(mStrategy)
+    {
+        mStrategy->UpdateDir(mNewDir);
+    }
 
-	if(mContinue)
-	{
-		mContinue->Continue(ctx, ERR_NONE);
-	}
+    if(mContinue)
+    {
+        mContinue->Continue(ctx, ERR_NONE);
+    }
 }
 
 }

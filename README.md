@@ -20,9 +20,7 @@ A given flow's module can use its location in the system to request a registered
 
 TODOs
 -------
-* serial keys for values should not be manual
 * Write more unit tests
-* Flesh out the serial functionality
 * Add more documentation
 * Fill out allocator service (and make sure all deletes/news use it)
 * make allocator actually come from specified pools of memory

@@ -22,28 +22,23 @@ SpecialChar* SpecialChar::Get(Cross::Context* ctx)
 }
 
 /// \brief constructor for test module that simply appends a
-///         character to the string in the serial
+///         character to the string in the param
 /// \param ctx - context for the module
 /// \param cnt - continuer to use when done
-/// \param serial - data that was passed as the module
+/// \param param - data that was passed as the module
 ///         was created so that specific data can be used when
 ///         he module is run
-AppendChar::AppendChar(Cross::Context* ctx, Cross::Continuer* cnt, Cross::Serial* s) :
-    Cross::Module(ctx, cnt)
+AppendChar::AppendChar(Cross::Context* ctx, Cross::Continuer* cnt, Param* p) :
+    Cross::Module(ctx)
 {
-    char c;
-    std::string* str;
-
-    if(s &&
-       s->GetData<char>(CHAR, c) &&
-       s->GetData<std::string>(APPENDER, str))
+    if(p && p->appender)
     {
-        *str += c;
+        *(p->appender) += p->c;
 
         SpecialChar* specChar = SpecialChar::Get(ctx);
         if(specChar)
         {
-            *str += specChar->GetExtraChar();
+            *(p->appender) += specChar->GetExtraChar();
         }
     }
 
@@ -59,16 +54,15 @@ AppendChar::AppendChar(Cross::Context* ctx, Cross::Continuer* cnt, Cross::Serial
 ///         added.
 /// \param ctx - context for the module
 /// \param cnt - continuer to use when done
-/// \param serial - data that was passed as the module
+/// \param param - data that was passed as the module
 ///         was created so that specific data can be used when
 ///         he module is run
-AdjustSpecialChar::AdjustSpecialChar(Cross::Context* ctx, Cross::Continuer* cnt, Cross::Serial* s) :
-    Cross::Module(ctx, cnt), mCharService(NULL)
+AdjustSpecialChar::AdjustSpecialChar(Cross::Context* ctx, Cross::Continuer* cnt, Param* p) :
+    Cross::Module(ctx), mCharService(NULL)
 {
-    char c;
-    if(s && s->GetData<char>(CHAR, c))
+    if(p)
     {
-        mCharService = new SpecialChar(ctx, c);
+        mCharService = new SpecialChar(ctx, p->c);
         ctx->RegisterService(SpecialChar::KEY, mCharService);
     }
 
@@ -89,7 +83,7 @@ AdjustSpecialChar::~AdjustSpecialChar()
 }
 
 /// \brief some of the tests rely on doing things a few times
-///         and the lap count junction will containue to run
+///         and the lap count junction will continue to run
 ///         the prescribed amount of times
 /// \param numLaps - how many laps to run
 /// \param ctx - context to use
@@ -120,22 +114,14 @@ void LapCountJunction::Run(Cross::Context* ctx, Cross::Continuer* cnt)
 /// \brief constructor for the ModuleTest fixture that will be
 ///         used across all tests.  These variables should be
 ///         treated as "shared."
-ModuleTest::ModuleTest() : mA(&mParamA), mB(&mParamB), mC(&mParamC), mD(&mParamD),
-    mAdj(&mParamAdj), mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
+ModuleTest::ModuleTest() :
+    mParamA('a', &mTestString), mA(&mParamA),
+    mParamB('b', &mTestString), mB(&mParamB),
+    mParamC('c', &mTestString), mC(&mParamC),
+    mParamD('d', &mTestString), mD(&mParamD),
+    mParamAdj('-'), mAdj(&mParamAdj),
+    mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
 {
-    mParamA.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-    mParamA.AddData(AppendChar::CHAR, 'a');
-
-    mParamB.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-    mParamB.AddData(AppendChar::CHAR, 'b');
-
-    mParamC.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-    mParamC.AddData(AppendChar::CHAR, 'c');
-
-    mParamD.AddData<std::string>(AppendChar::APPENDER, &mTestString);
-    mParamD.AddData(AppendChar::CHAR, 'd');
-
-    mParamAdj.AddData(AdjustSpecialChar::CHAR, '-');
 }
 
 /// \brief this exists as a continuer callback that can be used
@@ -150,12 +136,16 @@ void ModuleTest::ErrorStorage(Cross::ErrorCode e)
 void ModuleTest::SetUp()
 {
     mTestError = Cross::ERR_UNKNOWN;
-    mCtx = Cross::GenesisContext::Get();
+
+    // this will ensure that one-off services don't carry
+    // over to different runs
+    Cross::Context* genesis = Cross::GenesisContext::Get();
+    mCtx = new(genesis) Cross::Context(genesis);
 }
 
 /// \brief after every test is run, this will be called
 void ModuleTest::TearDown()
 {
-    // nothing for now
+    delete mCtx;
 }
 
