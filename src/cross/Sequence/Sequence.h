@@ -28,10 +28,11 @@ public:
 
 protected:
     explicit Sequence(Context* ctx);
+    virtual ~Sequence() {}
 
-    virtual SeqNode* AddConnection(SeqNode* n, Direction d);
-    virtual SeqNode* AddConnection(IModuleWrapper* m, Direction d);
-    virtual SeqNode* AddConnection(SeqStream* s, Direction d);
+    virtual bool AddConnection(SeqNode*& out, SeqNode* n, Direction d);
+    virtual bool AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d);
+    virtual bool AddConnection(SeqNode*& out, SeqStream* s, Direction d);
 
 private:
     SeqNode* mRoot;

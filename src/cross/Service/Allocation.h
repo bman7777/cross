@@ -21,9 +21,7 @@ class Context;
 class Allocation : public Service
 {
 public:
-    static const DataContext::Key KEY;
-
-    Allocation(Context* ctx) : mContext(ctx) {}
+    Allocation() {}
     virtual ~Allocation() {}
 
     virtual void* Allocate(size_t size);
@@ -31,8 +29,6 @@ public:
 
     static Allocation* Get(Context* ctx);
 
-private:
-    Context* mContext;
 };
 
 } //end namespace

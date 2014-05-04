@@ -14,7 +14,6 @@
 #include <utility>
 #include <stddef.h>
 #include "cross/Context/AllocationContext.h"
-#include "cross/Context/DataContext.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
@@ -26,18 +25,18 @@ public:
     explicit Context(Context* parentContext);
     virtual ~Context() {}
 
-    void RegisterService(const DataContext::Key& key, Service* serv);
+    void RegisterService(const Service::Type& t, Service* serv);
 
-    bool EnsureService(const DataContext::Key& key, Service* serv);
+    bool EnsureService(const Service::Type& t, Service* serv);
 
-    Service* GetService(const DataContext::Key& key) const;
+    Service* GetService(const Service::Type& t) const;
 
-    bool HasService(const DataContext::Key& key) const;
+    bool HasService(const Service::Type& t) const;
 
-    void UnRegisterService(const DataContext::Key& key, Service* serv);
+    void UnRegisterService(const Service::Type& t, Service* serv);
 
 private:
-    typedef boost::unordered_map<DataContext::Key, Service*> ServiceList;
+    typedef boost::unordered_map<size_t, Service*> ServiceList;
     ServiceList mServices;
 
     Context* mParentContext;

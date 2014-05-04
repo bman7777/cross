@@ -17,10 +17,10 @@ namespace Cross
 ///         higher context.  This also provides the allocation
 ///         and sequence factory services that are common to
 ///         most use-cases for Cross.
-GenesisContext::GenesisContext() : Context(this), mAllocService(this), mSeqFactoryService(this)
+GenesisContext::GenesisContext() : Context(this), mSeqFactoryService(this)
 {
-    RegisterService(Allocation::KEY, &mAllocService);
-    RegisterService(SequenceFactory::KEY, &mSeqFactoryService);
+    RegisterService(typeid(Allocation), &mAllocService);
+    RegisterService(typeid(SequenceFactory), &mSeqFactoryService);
 }
 
 /// \brief get the genesis context.  This should only be used

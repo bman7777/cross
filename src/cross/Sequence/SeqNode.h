@@ -23,12 +23,13 @@ class Continuer;
 class IModuleWrapper;
 class SequenceFactory;
 
-class SeqNode : protected SeqConnect, public AllocationContext, public DataContext
+class SeqNode : protected SeqConnect, public AllocationContext
 {
 public:
     virtual void Run(Context* ctx, Continuer* cnt);
     virtual bool operator==(IModuleWrapper* mod) const;
     SeqConnect* Connect() { return this; }
+    Context* GetContext() const { return SeqConnect::GetContext(); }
 
 protected:
     explicit SeqNode(Context* ctx, IModuleWrapper* module = NULL);

@@ -26,12 +26,12 @@ Context::Context(Context* parentContext) :
 /// \brief register a service with this context.  This is hashed
 ///         with a key that can later be used to retrieve this
 ///         service
-/// \param key - a unique key that identifies the service
+/// \param type - a unique type that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-void Context::RegisterService(const DataContext::Key& key, Service* serv)
+void Context::RegisterService(const Service::Type& t, Service* serv)
 {
-    mServices[key] = serv;
+    mServices[t.hash_code()] = serv;
 }
 
 /// \brief register a service ONLY if no one has previously
@@ -39,18 +39,18 @@ void Context::RegisterService(const DataContext::Key& key, Service* serv)
 ///         situations where the client is satisfied with a
 ///         default service, but will instantiate one if the
 ///         need arises.
-/// \param key - a unique key that identifies the service
+/// \param type - a unique type that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-bool Context::EnsureService(const DataContext::Key& key, Service* serv)
+bool Context::EnsureService(const Service::Type& t, Service* serv)
 {
     bool serviceAdded = false;
-    ServiceList::const_iterator iter = mServices.find(key);
+    ServiceList::const_iterator iter = mServices.find(t.hash_code());
     if(iter == mServices.end())
     {
-        if(!mParentContext || !mParentContext->HasService(key))
+        if(!mParentContext || !mParentContext->HasService(t))
         {
-            RegisterService(key, serv);
+            RegisterService(t, serv);
             serviceAdded = true;
         }
     }
@@ -62,13 +62,13 @@ bool Context::EnsureService(const DataContext::Key& key, Service* serv)
 ///         context) if one exists.  This allows decouples
 ///         foreign functionality from the modules that use
 ///         them.  NOTE: a service may not exist.
-/// \param key - a unique key that identifies the service
+/// \param type - a unique type that identifies the service
 /// \return service - a service implementation that provides some
 ///         functionality.  NULL will be returned if none exists
-Service* Context::GetService(const DataContext::Key& key) const
+Service* Context::GetService(const Service::Type& t) const
 {
     Service* serv = NULL;
-    ServiceList::const_iterator iter = mServices.find(key);
+    ServiceList::const_iterator iter = mServices.find(t.hash_code());
     if(iter != mServices.end())
     {
         serv = iter->second;
@@ -78,30 +78,30 @@ Service* Context::GetService(const DataContext::Key& key) const
     // IFF we are not ourselves a parent (like GenesisContext)
     if(serv == NULL && mParentContext && this != mParentContext)
     {
-        serv = mParentContext->GetService(key);
+        serv = mParentContext->GetService(t);
     }
 
     return serv;
 }
 
 /// \brief Determine if a service can be obtained.
-/// \param key - a unique key that identifies the service
+/// \param type - a unique type that identifies the service
 /// \return T: this service is available; F: this
 ///         service has not been registered.
-bool Context::HasService(const DataContext::Key& key) const
+bool Context::HasService(const Service::Type& t) const
 {
-    return (GetService(key) != NULL);
+    return (GetService(t) != NULL);
 }
 
 /// \brief unregister a service that was registered with
 ///         this context.  We will tolerate unregistering
 ///         a service that does not exist in this context.
-/// \param key - a unique key that identifies the service
+/// \param type - a unique type that identifies the service
 /// \param service - a service implementation that provides some
 ///         functionality
-void Context::UnRegisterService(const DataContext::Key& key, Service* serv)
+void Context::UnRegisterService(const Service::Type& t, Service* serv)
 {
-    ServiceList::const_iterator iter = mServices.find(key);
+    ServiceList::const_iterator iter = mServices.find(t.hash_code());
     if(iter != mServices.end() && iter->second == serv)
     {
         mServices.erase(iter);

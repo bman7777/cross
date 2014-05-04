@@ -47,6 +47,8 @@ SequenceIterator::~SequenceIterator()
     {
         delete mDirectionStrategy;
     }
+
+    mContextTracker.clear();
 }
 
 /// \brief each step in the traversal will continue and allow
@@ -91,10 +93,10 @@ void SequenceIterator::Run(Context* ctx, Continuer* cnt)
         if(mCurrentProgress)
         {
             // make a shiny new context for module
-            Context* nextCtx = new(mContext) Context(mContext);
+            ContextTrackList::iterator iter = mContextTracker.emplace(mContextTracker.end(), mContext);
 
             // this will run/instantiate the module
-            mCurrentProgress->Run(nextCtx, this);
+            mCurrentProgress->Run(&(*iter), this);
         }
         else
         {

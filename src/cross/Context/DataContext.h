@@ -24,7 +24,7 @@ public:
     const Key& GetKey() const { return mKey; }
 
 protected:
-    static Key MakeKey();
+    static const Key MakeKey();
 
 private:
     const Key mKey;

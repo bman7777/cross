@@ -9,12 +9,11 @@
 /****************************************************************/
 
 #include <malloc.h>
+#include "cross/Sequence/GenesisContext.h"
 #include "cross/Service/Allocation.h"
 
 namespace Cross
 {
-
-const DataContext::Key Allocation::KEY = DataContext::MakeKey();
 
 /// \brief allocate memory for some module potentially from some
 ///         pooled memory
@@ -39,7 +38,8 @@ void Allocation::DeAllocate(void* ptr)
 ///         the service
 Allocation* Allocation::Get(Context* ctx)
 {
-    return static_cast<Allocation*>(Service::Get(KEY, ctx));
+    return static_cast<Allocation*>(Service::Get(typeid(Allocation), ctx));
 }
 
 }
+

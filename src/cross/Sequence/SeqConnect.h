@@ -37,13 +37,15 @@ public:
 
     void ClearConnections() { mConnect.clear(); }
 
-    virtual SeqNode* AddConnection(SeqNode* n, Direction d);
-    virtual SeqNode* AddConnection(IModuleWrapper* m, Direction d);
-    virtual SeqNode* AddConnection(SeqStream* s, Direction d);
+    virtual bool AddConnection(SeqNode*& out, SeqNode* in, Direction d);
+    virtual bool AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d);
+    virtual bool AddConnection(SeqNode*& out, SeqStream* s, Direction d);
 
 protected:
-    explicit SeqConnect(Context* ctx) : mContext(ctx) {}
+    explicit SeqConnect(Context* ctx);
     virtual ~SeqConnect() {}
+
+    Context* GetContext() const { return mContext; }
 
 private:
     Connection mConnect;

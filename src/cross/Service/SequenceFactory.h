@@ -16,7 +16,7 @@
 namespace Cross
 {
 
-class Context;
+class Allocation;
 class IModuleWrapper;
 class Sequence;
 class SeqNode;
@@ -24,17 +24,18 @@ class SeqNode;
 class SequenceFactory : public Service
 {
 public:
-    static const DataContext::Key KEY;
-
-    SequenceFactory(Context* ctx) : mContext(ctx) {}
+    explicit SequenceFactory(Context* ctx);
     virtual ~SequenceFactory() {}
 
     Sequence* CreateSequence();
     SeqNode* CreateSeqNode(IModuleWrapper* m = NULL);
 
+    void Destroy(SeqNode* s);
+
     static SequenceFactory* Get(Context* ctx);
 
 private:
+    Allocation* mAllocator;
     Context* mContext;
 };
 

@@ -12,7 +12,8 @@
 #ifndef JUNCTION_H_
 #define JUNCTION_H_
 
-#include "cross/Sequence/GenesisContext.h"
+#include <boost/container/list.hpp>
+#include "cross/Context/DataContext.h"
 #include "cross/Sequence/SeqNode.h"
 
 namespace Cross
@@ -20,32 +21,35 @@ namespace Cross
 class IDirectionStrategy;
 class Sequence;
 
-class Junction : public SeqNode
+class Junction : public SeqNode, public DataContext
 {
 public:
-    Junction(IDirectionStrategy* strat = NULL, Context* ctx = GenesisContext::Get());
+    Junction(IDirectionStrategy* strat = NULL, Context* ctx = NULL);
     virtual ~Junction();
 
-    virtual SeqStream operator<<(IModuleWrapper& module);
-    virtual SeqStream operator>>(IModuleWrapper& module);
+    virtual SeqStream& operator<<(IModuleWrapper& module);
+    virtual SeqStream& operator>>(IModuleWrapper& module);
 
-    virtual SeqStream operator<<(SeqNode& node);
-    virtual SeqStream operator>>(SeqNode& node);
+    virtual SeqStream& operator<<(SeqNode& node);
+    virtual SeqStream& operator>>(SeqNode& node);
 
-    virtual SeqStream operator<<(Sequence& seq);
-    virtual SeqStream operator>>(Sequence& seq);
+    virtual SeqStream& operator<<(Sequence& seq);
+    virtual SeqStream& operator>>(Sequence& seq);
 
-    virtual SeqStream operator<<(SeqStream& stream);
-    virtual SeqStream operator>>(SeqStream& stream);
+    virtual SeqStream& operator<<(SeqStream& stream);
+    virtual SeqStream& operator>>(SeqStream& stream);
 
 protected:
     virtual void Run(Context* ctx, Continuer* cnt);
 
 private:
-    IDirectionStrategy* mStrategy;
     bool mOwnsDirectionStrategy;
+    IDirectionStrategy* mStrategy;
     SeqNode* mRoot;
-    Context* mContext;
+    SequenceFactory* mSeqFactory;
+
+    typedef boost::container::list<SeqStream> StreamTrackList;
+    StreamTrackList mStreamTracker;
 };
 
 }

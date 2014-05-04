@@ -8,9 +8,22 @@
 
 #include "cross/Context/AllocationContext.h"
 #include "cross/Service/Allocation.h"
+#include "cross/Sequence/GenesisContext.h"
 
 namespace Cross
 {
+
+/// \brief constructor for AllocationContext
+/// \param ctx - context used for allocations
+AllocationContext::AllocationContext(Context* ctx)
+{
+    if(ctx == NULL)
+    {
+        ctx = GenesisContext::Get();
+    }
+
+    mAllocator = Allocation::Get(ctx);
+}
 
 /// \brief allocate a new object
 /// \param size - the size of the module to be allocated
@@ -25,10 +38,7 @@ void* AllocationContext::operator new (size_t size, Context* ctx)
 /// \param allocCtx - the object to be deleted
 void AllocationContext::operator delete (void* allocCtx)
 {
-    if(allocCtx)
-    {
-        Allocation::Get(static_cast<AllocationContext*>(allocCtx)->GetAllocContext())->DeAllocate(allocCtx);
-    }
+    free(allocCtx);
 }
 
 /// \brief this will only be called if the object constructor

@@ -16,10 +16,16 @@
 namespace Cross
 {
 
+/// \brief constructor for sequences to contain a flow of
+///         sequence nodes
+/// \param ctx - context for construction
 Sequence::Sequence(Context* ctx) : SeqNode(ctx), mContext(ctx), mRoot(NULL), mIntraConnect(true)
 {
 }
 
+/// \brief run a sequence to completion
+/// \param ctx - a context for the run to propagate
+/// \param cnt - a continuer to call on completion
 void Sequence::Run(Context* ctx, Continuer* cnt)
 {
     if(mRoot)
@@ -32,6 +38,9 @@ void Sequence::Run(Context* ctx, Continuer* cnt)
     }
 }
 
+/// \brief determine if this sequence is equal to
+///         a module based on the root node
+/// \return T: if module is a match; F: if not a match
 bool Sequence::operator==(IModuleWrapper* mod) const
 {
     bool isSame = false;
@@ -46,73 +55,99 @@ bool Sequence::operator==(IModuleWrapper* mod) const
     return isSame;
 }
 
-SeqNode* Sequence::AddConnection(SeqNode* n, Direction d)
+/// \brief add a connection to this sequence that involves a
+///         direction and another node
+/// \param out - the resulting node that is connected with- this
+///         may be the passed in node or the existing node
+///         that we were already connected to
+/// \param in - the node to connect us to
+/// \param dir - the direction of the connection
+///         (forward/back)
+/// \return T: a new node was created, F: new node wasn't created
+bool Sequence::AddConnection(SeqNode*& out, SeqNode* in, Direction d)
 {
-    SeqNode* returnNode = NULL;
+    bool isNew = false;
     if(mIntraConnect)
     {
         if(mRoot)
         {
-            returnNode = mRoot->Connect()->AddConnection(n, d);
+            isNew = mRoot->Connect()->AddConnection(out, in, d);
         }
         else
         {
-            mRoot = n;
-            returnNode = mRoot;
+            mRoot = in;
+            out = mRoot;
         }
     }
     else
     {
-        returnNode = SeqNode::AddConnection(n, d);
+        isNew = SeqNode::AddConnection(out, in, d);
     }
 
-    return returnNode;
+    return isNew;
 }
 
-SeqNode* Sequence::AddConnection(IModuleWrapper* m, Direction d)
+/// \brief add a connection to this sequence that involves a
+///         direction and another module
+/// \param out - the resulting node that is connected with- this
+///         may be the passed in node or a newly created module
+/// \param in - the node to connect us to
+/// \param dir - the direction of the connection
+///         (forward/back)
+/// \return T: a new node was created, F: new node wasn't created
+bool Sequence::AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d)
 {
-    SeqNode* returnNode = NULL;
+    bool isNew = false;
     if(mIntraConnect)
     {
         if(mRoot)
         {
-            returnNode = mRoot->Connect()->AddConnection(m, d);
+            isNew = mRoot->Connect()->AddConnection(out, m, d);
         }
         else
         {
             mRoot = SequenceFactory::Get(mContext)->CreateSeqNode(m);
-            returnNode = mRoot;
+            isNew = true;
+            out = mRoot;
         }
     }
     else
     {
-        returnNode = SeqNode::AddConnection(m, d);
+        isNew = SeqNode::AddConnection(out, m, d);
     }
 
-    return returnNode;
+    return isNew;
 }
 
-SeqNode* Sequence::AddConnection(SeqStream* s, Direction d)
+/// \brief add a connection to this sequence that involves a
+///         direction and another stream's head
+/// \param out - the resulting node that is connected with- this
+///         may be the passed in stream's head or an existing node
+/// \param in - the node to connect us to
+/// \param dir - the direction of the connection
+///         (forward/back)
+/// \return T: a new node was created, F: new node wasn't created
+bool Sequence::AddConnection(SeqNode*& out, SeqStream* s, Direction d)
 {
-    SeqNode* returnNode = NULL;
+    bool isNew = false;
     if(mIntraConnect)
     {
         if(mRoot)
         {
-            returnNode = mRoot->Connect()->AddConnection(s->GetHead(), d);
+            isNew = mRoot->Connect()->AddConnection(out, s->GetHead(), d);
         }
         else
         {
             mRoot = s->GetHead();
-            returnNode = mRoot;
+            out = mRoot;
         }
     }
     else
     {
-        returnNode = SeqNode::AddConnection(s->GetHead(), d);
+        isNew = SeqNode::AddConnection(out, s->GetHead(), d);
     }
 
-    return returnNode;
+    return isNew;
 }
 
 }

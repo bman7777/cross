@@ -23,16 +23,16 @@ class IModuleWrapper;
 class SeqNode;
 class Sequence;
 
-class SeqStream
+class SeqStream : protected DataContext
 {
 public:
-    explicit SeqStream(Context* ctx = GenesisContext::Get());
-    explicit SeqStream(SeqNode* node, Context* ctx = GenesisContext::Get());
-    explicit SeqStream(IModuleWrapper* module, Context* ctx = GenesisContext::Get());
+    explicit SeqStream(Context* ctx = NULL);
+    explicit SeqStream(SeqNode* node, Context* ctx = NULL);
+    explicit SeqStream(IModuleWrapper* module, Context* ctx = NULL);
     SeqStream(const SeqStream& other);
     SeqStream& operator=(const SeqStream& other);
 
-    virtual ~SeqStream() {}
+    virtual ~SeqStream();
 
     Context* GetContext() const { return mContext; }
     SeqNode* GetCurrent() const { return mCurrentNode; }
@@ -60,6 +60,9 @@ private:
     SeqNode* mCurrentNode;
     SeqNode* mHead;
     Context* mContext;
+
+    typedef std::list<SeqNode*> NodeTrackList;
+    NodeTrackList mNodeTracker;
 
     typedef std::stack<Sequence*> SeqStack;
     SeqStack mStack;

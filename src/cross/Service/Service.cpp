@@ -13,14 +13,13 @@ namespace Cross
 {
 
 /// \brief get a service using its key and context
-/// \param key - this comes from MakeKey() and is a unique ID
-///               for all services of its kind
+/// \param type - type of service being requested
 /// \param context- where are you asking from?
 /// \return ptr to service (or NULL if there is none.)
-Service* Service::Get(const DataContext::Key& k, Context* ctx)
+Service* Service::Get(const Type& t, Context* ctx)
 {
     assert(ctx);
-    return ctx->GetService(k);
+    return ctx->GetService(t);
 }
 
 }

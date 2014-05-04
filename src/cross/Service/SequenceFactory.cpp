@@ -8,14 +8,21 @@
 ///         perform these functions.
 /****************************************************************/
 
-#include "cross/Service/SequenceFactory.h"
 #include "cross/Sequence/Sequence.h"
 #include "cross/Sequence/SeqNode.h"
+#include "cross/Service/Allocation.h"
+#include "cross/Service/SequenceFactory.h"
 
 namespace Cross
 {
 
-const DataContext::Key SequenceFactory::KEY = DataContext::MakeKey();
+/// \brief constructor for sequence factory to create
+///         sequences and nodes
+/// \param ctx - context for the construction
+SequenceFactory::SequenceFactory(Context* ctx):
+    mAllocator(NULL), mContext(ctx)
+{
+}
 
 /// \brief create a sequence using friendship to constructor
 ///         and passing along our local context (likely
@@ -35,6 +42,13 @@ SeqNode* SequenceFactory::CreateSeqNode(IModuleWrapper* m)
     return new(mContext) SeqNode(mContext, m);
 }
 
+/// \brief destroy a particular node that was created by
+///         this factory
+void SequenceFactory::Destroy(SeqNode* s)
+{
+    delete s;
+}
+
 /// \brief helper for getting the sequence factory context
 ///         that will prevent/hide the need for static
 ///         casts.
@@ -42,7 +56,7 @@ SeqNode* SequenceFactory::CreateSeqNode(IModuleWrapper* m)
 ///         the service
 SequenceFactory* SequenceFactory::Get(Context* ctx)
 {
-    return static_cast<SequenceFactory*>(Service::Get(KEY, ctx));
+    return static_cast<SequenceFactory*>(Service::Get(typeid(SequenceFactory), ctx));
 }
 
 }

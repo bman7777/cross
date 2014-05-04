@@ -9,7 +9,7 @@
 #ifndef SERVICE_H_
 #define SERVICE_H_
 
-#include <boost/uuid/uuid.hpp>
+#include <typeinfo>
 #include "cross/Context/DataContext.h"
 
 namespace Cross
@@ -20,7 +20,9 @@ class Context;
 class Service : public DataContext
 {
 public:
-    static Service* Get(const DataContext::Key& k, Context* ctx);
+    typedef std::type_info Type;
+
+    static Service* Get(const Type& t, Context* ctx);
 };
 
 }

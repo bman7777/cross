@@ -28,22 +28,25 @@ public:
     ModuleWrapper(P* p=NULL) :
         mModule(NULL),
         mParam(p)
-    {}
+    {
+    }
 
     virtual ~ModuleWrapper()
     {
         if(mModule)
         {
             delete mModule;
-            mModule = NULL;
         }
     }
 
 protected:
     void Run(Context* ctx, Continuer* cnt=NULL)
     {
-        // make sure we never run a module twice!
-        assert(!mModule);
+        // TODO: should this be allowed?  should destruction be async?
+        if(mModule)
+        {
+            delete mModule;
+        }
 
         mModule = new(ctx) M(ctx, cnt, mParam);
     }

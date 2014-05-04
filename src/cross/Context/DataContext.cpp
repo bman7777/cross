@@ -15,9 +15,12 @@ namespace Cross
 /// \brief create a new key using a UUID to identify the object
 ///         uniquely.  This can be used to hash.
 /// \return UUID that identifies the service
-DataContext::Key DataContext::MakeKey()
+const DataContext::Key DataContext::MakeKey()
 {
-    return boost::uuids::random_generator()();
+    boost::mt19937 ran;
+    ran.seed(time(NULL)); // one should likely seed in a better way
+    boost::uuids::basic_random_generator<boost::mt19937> gen(&ran);
+    return gen();
 }
 
 }

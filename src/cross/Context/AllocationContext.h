@@ -14,12 +14,13 @@
 namespace Cross
 {
 
+class Allocation;
 class Context;
 
 class AllocationContext
 {
 public:
-    AllocationContext(Context* ctx) : mAllocator(ctx) {}
+    AllocationContext(Context* ctx);
 
     virtual ~AllocationContext() {}
 
@@ -30,13 +31,12 @@ public:
     void operator delete (void* module, Context* ctx);
 
 protected:
-    Context* GetAllocContext() { return mAllocator; }
+    Allocation* GetAllocContext() { return mAllocator; }
 
 private:
-    Context* mAllocator;
+    Allocation* mAllocator;
 };
 
 }
-
 
 #endif /* ALLOCATIONCONTEXT_H_ */

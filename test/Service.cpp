@@ -16,7 +16,7 @@ TEST_F(ModuleTest, GlobalService)
     using namespace Cross;
 
     SpecialChar specialChar(mCtx, '+');
-    mCtx->RegisterService(SpecialChar::KEY, &specialChar);
+    mCtx->RegisterService(typeid(SpecialChar), &specialChar);
 
     SeqStream a;
     a>>mA>>mB>>mC;
@@ -36,7 +36,7 @@ TEST_F(ModuleTest, LocalizedService)
     using namespace Cross;
 
     SpecialChar specialChar(mCtx, '+');
-    mCtx->RegisterService(SpecialChar::KEY, &specialChar);
+    mCtx->RegisterService(typeid(SpecialChar), &specialChar);
 
     SeqStream a;
     a>>mA>>mB>>mC;

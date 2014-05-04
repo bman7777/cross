@@ -21,7 +21,7 @@
 class SpecialChar : public Cross::Service
 {
 public:
-    static const Cross::Service::Key KEY;
+    static const DataContext::Key& Type();
 
     SpecialChar(Cross::Context* ctx, char c) : mContext(ctx), mChar(c) {}
     virtual ~SpecialChar() {}
@@ -71,7 +71,7 @@ private:
 class LapCountJunction : public Cross::Junction
 {
 public:
-    LapCountJunction(int numLaps, Cross::Context* ctx = Cross::GenesisContext::Get());
+    LapCountJunction(int numLaps, Cross::Context* ctx = NULL);
     virtual ~LapCountJunction() {}
 
     void Run(Cross::Context* ctx, Cross::Continuer* cnt);
@@ -88,6 +88,7 @@ public:
 
 protected:
     ModuleTest();
+    ~ModuleTest() {}
 
     void SetUp();
     void TearDown();

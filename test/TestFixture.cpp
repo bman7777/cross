@@ -7,10 +7,15 @@
 
 #include "test/TestFixture.h"
 #include "cross/Sequence/Sequence.h"
+#include "cross/Service/Allocation.h"
 
 /// \brief define the specialchar service that will be used
 ///         to test various forms of service specialization
-const Cross::Service::Key SpecialChar::KEY = Cross::Service::MakeKey();
+const Cross::DataContext::Key& SpecialChar::Type()
+{
+    static DataContext::Key typeKey = DataContext::MakeKey();
+    return typeKey;
+}
 
 /// \brief getter for the specialchar service that will
 ///         prevent the need for static casting from service
@@ -18,7 +23,7 @@ const Cross::Service::Key SpecialChar::KEY = Cross::Service::MakeKey();
 /// \param context - context to get service from
 SpecialChar* SpecialChar::Get(Cross::Context* ctx)
 {
-    return static_cast<SpecialChar*>(Cross::Service::Get(KEY, ctx));
+    return static_cast<SpecialChar*>(Cross::Service::Get(typeid(SpecialChar), ctx));
 }
 
 /// \brief constructor for test module that simply appends a
@@ -63,7 +68,7 @@ AdjustSpecialChar::AdjustSpecialChar(Cross::Context* ctx, Cross::Continuer* cnt,
     if(p)
     {
         mCharService = new SpecialChar(ctx, p->c);
-        ctx->RegisterService(SpecialChar::KEY, mCharService);
+        ctx->RegisterService(typeid(SpecialChar), mCharService);
     }
 
     if(cnt)

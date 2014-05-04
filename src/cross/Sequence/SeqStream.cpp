@@ -24,7 +24,7 @@ namespace Cross
 /// \param ctx - a context to use in creating new nodes for the
 ///         network.
 SeqStream::SeqStream(Context* ctx) :
-    mContext(ctx),
+    mContext(ctx == NULL ? GenesisContext::Get() : ctx),
     mHead(NULL),
     mCurrentNode(NULL)
 {
@@ -37,7 +37,7 @@ SeqStream::SeqStream(Context* ctx) :
 /// \param ctx - a context to use in creating new nodes for the
 ///         network.
 SeqStream::SeqStream(SeqNode* node, Context* ctx) :
-    mContext(ctx),
+    mContext(ctx == NULL ? GenesisContext::Get() : ctx),
     mHead(node),
     mCurrentNode(node)
 {
@@ -50,9 +50,10 @@ SeqStream::SeqStream(SeqNode* node, Context* ctx) :
 /// \param ctx - a context to use in creating new nodes for the
 ///               network.
 SeqStream::SeqStream(IModuleWrapper* module, Context* ctx) :
-    mContext(ctx)
+    mContext(ctx == NULL ? GenesisContext::Get() : ctx)
 {
     mHead = SequenceFactory::Get(mContext)->CreateSeqNode(module);
+    mNodeTracker.push_back(mHead);
     mCurrentNode = mHead;
 }
 
@@ -66,6 +67,14 @@ SeqStream::SeqStream(const SeqStream& other) :
     mStack(other.mStack),
     mContext(other.GetContext())
 {
+}
+
+SeqStream::~SeqStream()
+{
+    for(NodeTrackList::iterator i = mNodeTracker.begin(); i != mNodeTracker.end(); i++)
+    {
+        SequenceFactory::Get(mContext)->Destroy(*i);
+    }
 }
 
 /// \brief equals operator for stream.  Functions much like the
@@ -91,11 +100,16 @@ SeqStream& SeqStream::operator<<(IModuleWrapper& module)
     if(!mHead)
     {
         mHead = SequenceFactory::Get(mContext)->CreateSeqNode(&module);
+        mNodeTracker.push_back(mHead);
         mCurrentNode = mHead;
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&module, DIR_BACKWARD);
+        bool isNew = mCurrentNode->Connect()->AddConnection(mCurrentNode, &module, DIR_BACKWARD);
+        if(isNew)
+        {
+            mNodeTracker.push_back(mCurrentNode);
+        }
     }
     return *this;
 }
@@ -110,11 +124,16 @@ SeqStream& SeqStream::operator>>(IModuleWrapper& module)
     if(!mHead)
     {
         mHead = SequenceFactory::Get(mContext)->CreateSeqNode(&module);
+        mNodeTracker.push_back(mHead);
         mCurrentNode = mHead;
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&module, DIR_FORWARD);
+        bool isNew = mCurrentNode->Connect()->AddConnection(mCurrentNode, &module, DIR_FORWARD);
+        if(isNew)
+        {
+            mNodeTracker.push_back(mCurrentNode);
+        }
     }
     return *this;
 }
@@ -133,7 +152,7 @@ SeqStream& SeqStream::operator<<(SeqNode& node)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&node, DIR_BACKWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &node, DIR_BACKWARD);
     }
     return *this;
 }
@@ -152,7 +171,7 @@ SeqStream& SeqStream::operator>>(SeqNode& node)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&node, DIR_FORWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &node, DIR_FORWARD);
     }
     return *this;
 }
@@ -171,7 +190,7 @@ SeqStream& SeqStream::operator<<(Sequence& seq)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&seq, DIR_BACKWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &seq, DIR_BACKWARD);
     }
     return *this;
 }
@@ -190,7 +209,7 @@ SeqStream& SeqStream::operator>>(Sequence& seq)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&seq, DIR_FORWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &seq, DIR_FORWARD);
     }
     return *this;
 }
@@ -209,7 +228,7 @@ SeqStream& SeqStream::operator<<(SeqStream& stream)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&stream, DIR_BACKWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &stream, DIR_BACKWARD);
     }
     return *this;
 }
@@ -228,7 +247,7 @@ SeqStream& SeqStream::operator>>(SeqStream& stream)
     }
     else
     {
-        mCurrentNode = mCurrentNode->Connect()->AddConnection(&stream, DIR_FORWARD);
+        mCurrentNode->Connect()->AddConnection(mCurrentNode, &stream, DIR_FORWARD);
     }
     return *this;
 }
@@ -246,6 +265,7 @@ SeqStream& SeqStream::operator>>(Command type)
         if(type == Push)
         {
             Sequence* seq = SequenceFactory::Get(mContext)->CreateSequence();
+            mNodeTracker.push_back(seq);
             seq->IntraConnect();
             mStack.push(seq);
             mHead = seq;
@@ -257,9 +277,10 @@ SeqStream& SeqStream::operator>>(Command type)
         if(type == Push)
         {
             Sequence* seq = SequenceFactory::Get(mContext)->CreateSequence();
+            mNodeTracker.push_back(seq);
             mStack.push(seq);
             seq->IntraConnect();
-            mCurrentNode = mCurrentNode->Connect()->AddConnection(seq, DIR_FORWARD);
+            mCurrentNode->Connect()->AddConnection(mCurrentNode, seq, DIR_FORWARD);
         }
         else if(type == Pop)
         {
