@@ -12,7 +12,6 @@
 
 #include "cross/Context/Context.h"
 #include "cross/Service/Allocation.h"
-#include "cross/Service/SequenceFactory.h"
 
 namespace Cross
 {
@@ -27,7 +26,6 @@ public:
 
 private:
     Allocation mAllocService;
-    SequenceFactory mSeqFactoryService;
 };
 }
 

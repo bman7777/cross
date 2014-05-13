@@ -1,0 +1,5 @@
+<map id="Cross::SeqConnect" name="Cross::SeqConnect">
+<area shape="rect" id="node3" href="$classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="75,83,192,112"/>
+<area shape="rect" id="node5" href="$classCross_1_1Junction.html" title="A junction is a point in a sequence that contains several routes to new sequences. The chosen route will rely on direction strategies. A junction is definable by a user, and can be streamed from like a standard sequence stream. " alt="" coords="5,160,120,189"/>
+<area shape="rect" id="node7" href="$classCross_1_1Sequence.html" title="Sequences are networks of nodes. They carry an isolated context that allows sequences to operate sepa..." alt="" coords="144,160,267,189"/>
+</map>

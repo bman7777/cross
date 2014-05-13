@@ -46,7 +46,6 @@ private:
     bool mOwnsDirectionStrategy;
     IDirectionStrategy* mStrategy;
     SeqNode* mRoot;
-    SequenceFactory* mSeqFactory;
 
     typedef boost::container::list<SeqStream> StreamTrackList;
     StreamTrackList mStreamTracker;

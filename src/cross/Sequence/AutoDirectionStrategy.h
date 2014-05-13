@@ -21,7 +21,7 @@ class SeqNode;
 class AutoDirectionStrategy : public IDirectionStrategy
 {
 public:
-    AutoDirectionStrategy(Direction priorityDir) : mPriorityDir(priorityDir) { }
+    AutoDirectionStrategy(const Direction& priorityDir) : mPriorityDir(priorityDir) { }
     virtual ~AutoDirectionStrategy() {}
 
     virtual SeqNode* GetNextNode(SeqConnect* current, ErrorCode e);

@@ -7,6 +7,7 @@
 /****************************************************************/
 
 #include "cross/Context/Context.h"
+#include "cross/Sequence/GenesisContext.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
@@ -18,8 +19,14 @@ namespace Cross
 /// \return ptr to service (or NULL if there is none.)
 Service* Service::Get(const Type& t, Context* ctx)
 {
-    assert(ctx);
-    return ctx->GetService(t);
+    if(ctx)
+    {
+        return ctx->GetService(t);
+    }
+    else
+    {
+        return GenesisContext::Get()->GetService(t);
+    }
 }
 
 }

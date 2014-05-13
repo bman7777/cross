@@ -11,6 +11,7 @@
 #ifndef SEQCONNECT_H_
 #define SEQCONNECT_H_
 
+#include <stddef.h>
 #include <utility>
 #include <vector>
 #include "cross/Context/FlowDefine.h"
@@ -42,7 +43,7 @@ public:
     virtual bool AddConnection(SeqNode*& out, SeqStream* s, Direction d);
 
 protected:
-    explicit SeqConnect(Context* ctx);
+    explicit SeqConnect(Context* ctx = NULL);
     virtual ~SeqConnect() {}
 
     Context* GetContext() const { return mContext; }

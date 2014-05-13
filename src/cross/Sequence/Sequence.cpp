@@ -7,7 +7,6 @@
 ///         separately from all other surrounding sequences.
 /****************************************************************/
 
-#include "cross/Service/SequenceFactory.h"
 #include "cross/Sequence/RunContext.h"
 #include "cross/Sequence/SeqNode.h"
 #include "cross/Sequence/Sequence.h"
@@ -106,7 +105,7 @@ bool Sequence::AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d)
         }
         else
         {
-            mRoot = SequenceFactory::Get(mContext)->CreateSeqNode(m);
+            mRoot = Allocation::Get(mContext)->New<SeqNode>(mContext, m);
             isNew = true;
             out = mRoot;
         }

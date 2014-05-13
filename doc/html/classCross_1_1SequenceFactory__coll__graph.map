@@ -1,0 +1,4 @@
+<map id="Cross::SequenceFactory" name="Cross::SequenceFactory">
+<area shape="rect" id="node2" href="$classCross_1_1Service.html" title="A base class for services that provides support for service keys that index into contexts. " alt="" coords="33,83,143,112"/>
+<area shape="rect" id="node4" href="$classCross_1_1DataContext.html" title="container for data key that can be used to identify a contextual object. " alt="" coords="19,5,157,35"/>
+</map>

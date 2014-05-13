@@ -8,27 +8,18 @@
 ///         lines.
 /****************************************************************/
 
-#include <malloc.h>
-#include "cross/Sequence/GenesisContext.h"
+#include "cross/Context/AllocationContext.h"
 #include "cross/Service/Allocation.h"
 
 namespace Cross
 {
 
-/// \brief allocate memory for some module potentially from some
-///         pooled memory
-/// \param size - how much to allocate
-/// \return ptr to new memory
-void* Allocation::Allocate(size_t size)
-{
-    return malloc(size);
-}
-
 /// \brief deallocate memory created from allocate
 /// \param the previously allocated ptr
-void Allocation::DeAllocate(void* ptr)
+void Allocation::Delete(AllocationContext* alloc)
 {
-    free(ptr);
+    AllocInfo* info = alloc->GetAllocInfo();
+    info->Callback();
 }
 
 /// \brief helper for getting the allocation context

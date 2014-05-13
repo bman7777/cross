@@ -11,13 +11,15 @@
 #ifndef IDIRECTIONSTRATEGY_H_
 #define IDIRECTIONSTRATEGY_H_
 
+#include "cross/Context/AllocationContext.h"
+
 namespace Cross
 {
 
 class SeqConnect;
 class SeqNode;
 
-class IDirectionStrategy
+class IDirectionStrategy : public AllocationContext
 {
 public:
     virtual ~IDirectionStrategy() {}

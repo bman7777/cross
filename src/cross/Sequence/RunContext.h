@@ -30,6 +30,7 @@ public:
     static void FinishRun(RunContext* ctx);
 
 protected:
+
     virtual void Continue(Context* ctx, ErrorCode e = ERR_NONE);
 
 private:

@@ -23,10 +23,9 @@ namespace Cross
 RunContext::RunContext(Context* ctx, Continuer* cnt, SeqNode* node, IDirectionStrategy* strategy) :
     Context(ctx),
     mContinue(cnt),
-    mContext(ctx),
-    mIter(node, strategy)
+    mIter(node, strategy),
+    mContext(ctx)
 {
-    mIter.Run(mContext, this);
 }
 
 /// \brief entry point for the run context is a static function
@@ -39,7 +38,8 @@ void RunContext::BeginRun(Context* ctx, Continuer* cnt, SeqNode* node, IDirectio
 {
     if(node)
     {
-        RunContext* run = new(ctx) RunContext(ctx, cnt, node, strategy);
+        RunContext* runCtx = Allocation::Get(ctx)->New<RunContext>(ctx, cnt, node, strategy);
+        runCtx->mIter.Run(ctx, runCtx);
     }
     else
     {
@@ -65,7 +65,7 @@ void RunContext::Continue(Context* ctx, ErrorCode e)
 ///         run.
 void RunContext::FinishRun(RunContext* ctx)
 {
-    delete ctx;
+    Allocation::Get(ctx->mContext)->Delete(ctx);
 }
 
 }

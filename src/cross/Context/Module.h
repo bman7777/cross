@@ -21,7 +21,7 @@ class Context;
 class Module : public AllocationContext
 {
 public:
-    Module(Context* ctx) : AllocationContext(ctx) {}
+    Module(Context* ctx) : AllocationContext() {}
     virtual ~Module() {}
 };
 

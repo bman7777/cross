@@ -27,7 +27,8 @@ class ModuleWrapper : public IModuleWrapper
 public:
     ModuleWrapper(P* p=NULL) :
         mModule(NULL),
-        mParam(p)
+        mParam(p),
+        mContext(NULL)
     {
     }
 
@@ -35,7 +36,8 @@ public:
     {
         if(mModule)
         {
-            delete mModule;
+            Allocation::Get(mContext)->Delete(mModule);
+            mModule = NULL;
         }
     }
 
@@ -45,15 +47,17 @@ protected:
         // TODO: should this be allowed?  should destruction be async?
         if(mModule)
         {
-            delete mModule;
+            Allocation::Get(mContext)->Delete(mModule);
         }
 
-        mModule = new(ctx) M(ctx, cnt, mParam);
+        mContext = ctx;
+        mModule = Allocation::Get(mContext)->New<M>(mContext, cnt, mParam);
     }
 
 private:
     M* mModule;
     P* mParam;
+    Context* mContext;
 };
 
 }

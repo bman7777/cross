@@ -14,7 +14,6 @@
 
 #include <stack>
 #include "cross/Context/Context.h"
-#include "cross/Sequence/GenesisContext.h"
 
 namespace Cross
 {

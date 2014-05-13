@@ -86,6 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classCross_1_1Allocation-members.html">List of all members</a>  </div>
@@ -113,14 +115,35 @@ Collaboration diagram for Cross::Allocation:</div>
 <area shape="rect" id="node2" href="classCross_1_1Service.html" title="A base class for services that provides support for service keys that index into contexts. " alt="" coords="20,83,129,112"/><area shape="rect" id="node4" href="classCross_1_1DataContext.html" title="container for data key that can be used to identify a contextual object. " alt="" coords="5,5,144,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCross_1_1Allocation_1_1AllocInfo.html">AllocInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4d4ce00b5fb85ea4f4dc0e0855b227c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d4ce00b5fb85ea4f4dc0e0855b227c3"></a>
+typedef std::allocator<br class="typebreak"/>
+&lt; <a class="el" href="classCross_1_1AllocationContext.html">AllocationContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Allocator</b></td></tr>
+<tr class="separator:a4d4ce00b5fb85ea4f4dc0e0855b227c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classCross_1_1Service"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1Service')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1Service.html">Cross::Service</a></td></tr>
+<tr class="memitem:a19c5262165548ac7a14fcae0b8678193 inherit pub_types_classCross_1_1Service"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19c5262165548ac7a14fcae0b8678193"></a>
+typedef std::type_info&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b></td></tr>
+<tr class="separator:a19c5262165548ac7a14fcae0b8678193 inherit pub_types_classCross_1_1Service"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classCross_1_1DataContext"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1DataContext')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1DataContext.html">Cross::DataContext</a></td></tr>
+<tr class="memitem:aa0a0a4a8005ae8f6376b5dfddb8cb67d inherit pub_types_classCross_1_1DataContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0a0a4a8005ae8f6376b5dfddb8cb67d"></a>
+typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
+<tr class="separator:aa0a0a4a8005ae8f6376b5dfddb8cb67d inherit pub_types_classCross_1_1DataContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae333b09d0499a0240bcee9223ec039c5"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Allocation.html#ae333b09d0499a0240bcee9223ec039c5">Allocate</a> (size_t size)</td></tr>
-<tr class="memdesc:ae333b09d0499a0240bcee9223ec039c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate memory for some module potentially from some pooled memory  <a href="#ae333b09d0499a0240bcee9223ec039c5">More...</a><br/></td></tr>
-<tr class="separator:ae333b09d0499a0240bcee9223ec039c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a231ee3a9a4ce913729054f9206df3e66"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Allocation.html#a231ee3a9a4ce913729054f9206df3e66">DeAllocate</a> (void *ptr)</td></tr>
-<tr class="memdesc:a231ee3a9a4ce913729054f9206df3e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">deallocate memory created from allocate  <a href="#a231ee3a9a4ce913729054f9206df3e66">More...</a><br/></td></tr>
-<tr class="separator:a231ee3a9a4ce913729054f9206df3e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f589af1596571b6e5f6e9f5b4ab6ef6"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3f589af1596571b6e5f6e9f5b4ab6ef6"></a>
+template&lt;class T , typename... Args&gt; </td></tr>
+<tr class="memitem:a3f589af1596571b6e5f6e9f5b4ab6ef6"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>New</b> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a3f589af1596571b6e5f6e9f5b4ab6ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba29fd08c0a10d6a1e07525318f1182b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Allocation.html#aba29fd08c0a10d6a1e07525318f1182b">Delete</a> (<a class="el" href="classCross_1_1AllocationContext.html">AllocationContext</a> *alloc)</td></tr>
+<tr class="memdesc:aba29fd08c0a10d6a1e07525318f1182b"><td class="mdescLeft">&#160;</td><td class="mdescRight">deallocate memory created from allocate  <a href="#aba29fd08c0a10d6a1e07525318f1182b">More...</a><br/></td></tr>
+<tr class="separator:aba29fd08c0a10d6a1e07525318f1182b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCross_1_1DataContext"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCross_1_1DataContext')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCross_1_1DataContext.html">Cross::DataContext</a></td></tr>
 <tr class="memitem:a5dee52a5c119f104c82ceb03a3219cde inherit pub_methods_classCross_1_1DataContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dee52a5c119f104c82ceb03a3219cde"></a>
 const Key &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetKey</b> () const </td></tr>
@@ -138,14 +161,6 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_classCross_1_1Service"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1Service')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1Service.html">Cross::Service</a></td></tr>
-<tr class="memitem:a19c5262165548ac7a14fcae0b8678193 inherit pub_types_classCross_1_1Service"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19c5262165548ac7a14fcae0b8678193"></a>
-typedef std::type_info&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b></td></tr>
-<tr class="separator:a19c5262165548ac7a14fcae0b8678193 inherit pub_types_classCross_1_1Service"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_classCross_1_1DataContext"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCross_1_1DataContext')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCross_1_1DataContext.html">Cross::DataContext</a></td></tr>
-<tr class="memitem:aa0a0a4a8005ae8f6376b5dfddb8cb67d inherit pub_types_classCross_1_1DataContext"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0a0a4a8005ae8f6376b5dfddb8cb67d"></a>
-typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b>Key</b></td></tr>
-<tr class="separator:aa0a0a4a8005ae8f6376b5dfddb8cb67d inherit pub_types_classCross_1_1DataContext"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_classCross_1_1DataContext"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classCross_1_1DataContext')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classCross_1_1DataContext.html">Cross::DataContext</a></td></tr>
 <tr class="memitem:a41ea28e6ca6f86f4bfe82030eb381694 inherit pro_static_methods_classCross_1_1DataContext"><td class="memItemLeft" align="right" valign="top">static const Key&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1DataContext.html#a41ea28e6ca6f86f4bfe82030eb381694">MakeKey</a> ()</td></tr>
 <tr class="memdesc:a41ea28e6ca6f86f4bfe82030eb381694 inherit pro_static_methods_classCross_1_1DataContext"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a new key using a UUID to identify the object uniquely. This can be used to hash.  <a href="#a41ea28e6ca6f86f4bfe82030eb381694">More...</a><br/></td></tr>
@@ -157,59 +172,18 @@ typedef boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><b
 <dd>
 Oct 4, 2013 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae333b09d0499a0240bcee9223ec039c5"></a>
+<a class="anchor" id="aba29fd08c0a10d6a1e07525318f1182b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void * Cross::Allocation::Allocate </td>
+          <td class="memname">void Cross::Allocation::Delete </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1AllocationContext.html">AllocationContext</a> *&#160;</td>
+          <td class="paramname"><em>alloc</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>allocate memory for some module potentially from some pooled memory </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size</td><td>- how much to allocate </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>ptr to new memory </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a231ee3a9a4ce913729054f9206df3e66"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Cross::Allocation::DeAllocate </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>deallocate memory created from allocate </p>
@@ -261,7 +235,7 @@ Oct 4, 2013 </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 3 2014 21:27:08 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 13 2014 08:40:34 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

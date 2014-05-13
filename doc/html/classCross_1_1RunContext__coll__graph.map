@@ -1,0 +1,5 @@
+<map id="Cross::RunContext" name="Cross::RunContext">
+<area shape="rect" id="node2" href="$classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="35,83,144,112"/>
+<area shape="rect" id="node4" href="$classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="5,5,173,35"/>
+<area shape="rect" id="node6" href="$classCross_1_1Continuer.html" title="Continuer triggers the next part of a flow with an error, if applicable. Various classes can implemen..." alt="" coords="168,83,288,112"/>
+</map>

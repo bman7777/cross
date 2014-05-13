@@ -9,7 +9,7 @@
 ///         that is customarily used in the world of streams.
 /****************************************************************/
 
-#include "cross/Service/SequenceFactory.h"
+#include "cross/Service/Allocation.h"
 #include "cross/Context/IModuleWrapper.h"
 #include "cross/Sequence/SeqNode.h"
 #include "cross/Sequence/Sequence.h"
@@ -24,7 +24,7 @@ namespace Cross
 /// \param ctx - a context to use in creating new nodes for the
 ///         network.
 SeqStream::SeqStream(Context* ctx) :
-    mContext(ctx == NULL ? GenesisContext::Get() : ctx),
+    mContext(ctx),
     mHead(NULL),
     mCurrentNode(NULL)
 {
@@ -37,7 +37,7 @@ SeqStream::SeqStream(Context* ctx) :
 /// \param ctx - a context to use in creating new nodes for the
 ///         network.
 SeqStream::SeqStream(SeqNode* node, Context* ctx) :
-    mContext(ctx == NULL ? GenesisContext::Get() : ctx),
+    mContext(ctx),
     mHead(node),
     mCurrentNode(node)
 {
@@ -50,9 +50,9 @@ SeqStream::SeqStream(SeqNode* node, Context* ctx) :
 /// \param ctx - a context to use in creating new nodes for the
 ///               network.
 SeqStream::SeqStream(IModuleWrapper* module, Context* ctx) :
-    mContext(ctx == NULL ? GenesisContext::Get() : ctx)
+    mContext(ctx)
 {
-    mHead = SequenceFactory::Get(mContext)->CreateSeqNode(module);
+    mHead = Allocation::Get(mContext)->New<SeqNode>(mContext, module);
     mNodeTracker.push_back(mHead);
     mCurrentNode = mHead;
 }
@@ -71,9 +71,10 @@ SeqStream::SeqStream(const SeqStream& other) :
 
 SeqStream::~SeqStream()
 {
+    Allocation* allocator = Allocation::Get(mContext);
     for(NodeTrackList::iterator i = mNodeTracker.begin(); i != mNodeTracker.end(); i++)
     {
-        SequenceFactory::Get(mContext)->Destroy(*i);
+        allocator->Delete(*i);
     }
 }
 
@@ -99,7 +100,7 @@ SeqStream& SeqStream::operator<<(IModuleWrapper& module)
 {
     if(!mHead)
     {
-        mHead = SequenceFactory::Get(mContext)->CreateSeqNode(&module);
+        mHead = Allocation::Get(mContext)->New<SeqNode>(mContext, &module);
         mNodeTracker.push_back(mHead);
         mCurrentNode = mHead;
     }
@@ -123,7 +124,7 @@ SeqStream& SeqStream::operator>>(IModuleWrapper& module)
 {
     if(!mHead)
     {
-        mHead = SequenceFactory::Get(mContext)->CreateSeqNode(&module);
+        mHead = Allocation::Get(mContext)->New<SeqNode>(mContext, &module);
         mNodeTracker.push_back(mHead);
         mCurrentNode = mHead;
     }
@@ -264,7 +265,7 @@ SeqStream& SeqStream::operator>>(Command type)
     {
         if(type == Push)
         {
-            Sequence* seq = SequenceFactory::Get(mContext)->CreateSequence();
+            Sequence* seq = Allocation::Get(mContext)->New<Sequence>(mContext);
             mNodeTracker.push_back(seq);
             seq->IntraConnect();
             mStack.push(seq);
@@ -276,7 +277,7 @@ SeqStream& SeqStream::operator>>(Command type)
     {
         if(type == Push)
         {
-            Sequence* seq = SequenceFactory::Get(mContext)->CreateSequence();
+            Sequence* seq = Allocation::Get(mContext)->New<Sequence>(mContext);
             mNodeTracker.push_back(seq);
             mStack.push(seq);
             seq->IntraConnect();

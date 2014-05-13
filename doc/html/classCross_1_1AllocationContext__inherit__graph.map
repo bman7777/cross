@@ -1,0 +1,12 @@
+<map id="Cross::AllocationContext" name="Cross::AllocationContext">
+<area shape="rect" id="node3" href="$classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="252,59,361,88"/>
+<area shape="rect" id="node9" href="$classCross_1_1IDirectionStrategy.html" title="An abstract interface that describes classes who can decide the next direction in a flow..." alt="" coords="221,120,392,149"/>
+<area shape="rect" id="node15" href="$classCross_1_1Module.html" title="A base class for modules that allows allocations to always draw from services. " alt="" coords="253,173,360,203"/>
+<area shape="rect" id="node17" href="$classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="248,235,365,264"/>
+<area shape="rect" id="node5" href="$classCross_1_1GenesisContext.html" title="The context used for generating the construction of sequences. This is then forked and split as seque..." alt="" coords="459,5,616,35"/>
+<area shape="rect" id="node7" href="$classCross_1_1RunContext.html" title="A surrogate for running a node with a strategy. This would be duplicated in several places if not for..." alt="" coords="471,59,604,88"/>
+<area shape="rect" id="node11" href="$classCross_1_1AutoDirectionStrategy.html" title="When more than 1 route is possible as a sequence is being processed&#45; this strategy provides an automa..." alt="" coords="441,112,633,141"/>
+<area shape="rect" id="node13" href="$classCross_1_1PriorityDirectionStrategy.html" title="Sibling to the automatic strategy&#45; this is able to select from a prioritized list of direction/module..." alt="" coords="459,165,616,211"/>
+<area shape="rect" id="node19" href="$classCross_1_1Junction.html" title="A junction is a point in a sequence that contains several routes to new sequences. The chosen route will rely on direction strategies. A junction is definable by a user, and can be streamed from like a standard sequence stream. " alt="" coords="480,235,595,264"/>
+<area shape="rect" id="node21" href="$classCross_1_1Sequence.html" title="Sequences are networks of nodes. They carry an isolated context that allows sequences to operate sepa..." alt="" coords="476,288,599,317"/>
+</map>

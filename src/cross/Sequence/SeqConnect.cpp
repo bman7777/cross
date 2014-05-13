@@ -8,7 +8,6 @@
 ///         and other sequences.
 /****************************************************************/
 
-#include "cross/Service/SequenceFactory.h"
 #include "cross/Sequence/SeqConnect.h"
 #include "cross/Sequence/SeqNode.h"
 #include "cross/Sequence/SeqStream.h"
@@ -19,9 +18,8 @@ namespace Cross
 
 /// \brief construct a sequence connection with a context
 ///         that can be used in all future construction
-SeqConnect::SeqConnect(Context* ctx)
+SeqConnect::SeqConnect(Context* ctx) : mContext(NULL)
 {
-    mContext = ctx == NULL ? GenesisContext::Get() : ctx;
 }
 
 /// \brief find a module connection to this node and return the
@@ -106,7 +104,7 @@ bool SeqConnect::AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d)
     SeqPair* pair = FindConnection(m);
     if (!pair)
     {
-        SeqNode* node = SequenceFactory::Get(mContext)->CreateSeqNode(m);
+        SeqNode* node = Allocation::Get(mContext)->New<SeqNode>(mContext, m);
         isNew = true;
 
         mConnect.push_back(SeqPair(node, d));

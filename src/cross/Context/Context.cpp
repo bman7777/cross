@@ -18,7 +18,7 @@ namespace Cross
 ///         a NULL parent to be passed.
 /// \param parentContext - a link to parent context.
 Context::Context(Context* parentContext) :
-    mParentContext(parentContext), AllocationContext(parentContext)
+    mParentContext(parentContext), AllocationContext()
 {
     assert(mParentContext);
 }

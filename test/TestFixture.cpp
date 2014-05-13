@@ -145,12 +145,13 @@ void ModuleTest::SetUp()
     // this will ensure that one-off services don't carry
     // over to different runs
     Cross::Context* genesis = Cross::GenesisContext::Get();
-    mCtx = new(genesis) Cross::Context(genesis);
+    mCtx = new Cross::Context(genesis);
 }
 
 /// \brief after every test is run, this will be called
 void ModuleTest::TearDown()
 {
     delete mCtx;
+    mCtx = NULL;
 }
 

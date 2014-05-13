@@ -9,9 +9,8 @@
 ///         a standard sequence stream.
 /****************************************************************/
 
-#include "cross/Service/SequenceFactory.h"
+#include "cross/Service/Allocation.h"
 #include "cross/Sequence/AutoDirectionStrategy.h"
-#include "cross/Sequence/GenesisContext.h"
 #include "cross/Sequence/Junction.h"
 #include "cross/Sequence/RunContext.h"
 #include "cross/Sequence/SeqStream.h"
@@ -29,17 +28,11 @@ Junction::Junction(IDirectionStrategy* strat, Context* ctx) :
     mOwnsDirectionStrategy(false),
     mStrategy(strat)
 {
-    if(ctx == NULL)
-    {
-        ctx = GenesisContext::Get();
-    }
-
-    mSeqFactory = SequenceFactory::Get(ctx);
-    mRoot = mSeqFactory->CreateSeqNode();
+    mRoot = Allocation::Get(ctx)->New<SeqNode>(ctx);
     if(!mStrategy)
     {
         mOwnsDirectionStrategy = true;
-        mStrategy = new AutoDirectionStrategy(DIR_FORWARD);
+        mStrategy = Allocation::Get(ctx)->New<AutoDirectionStrategy>(DIR_FORWARD);
     }
 }
 
@@ -51,10 +44,10 @@ Junction::~Junction()
 
     if(mStrategy && mOwnsDirectionStrategy)
     {
-        delete mStrategy;
+        Allocation::Get(GetContext())->Delete(mStrategy);
     }
 
-    mSeqFactory->Destroy(mRoot);
+    Allocation::Get(GetContext())->Delete(mRoot);
 }
 
 /// \brief run the junction based on the state of the system

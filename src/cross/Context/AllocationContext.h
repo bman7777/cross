@@ -9,32 +9,25 @@
 #ifndef ALLOCATIONCONTEXT_H_
 #define ALLOCATIONCONTEXT_H_
 
+#include <memory>
 #include <stddef.h>
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {
 
-class Allocation;
-class Context;
-
 class AllocationContext
 {
 public:
-    AllocationContext(Context* ctx);
-
+    AllocationContext() {}
     virtual ~AllocationContext() {}
 
-    void* operator new (size_t size, Context* ctx);
-
-    void operator delete (void* module);
-
-    void operator delete (void* module, Context* ctx);
-
-protected:
-    Allocation* GetAllocContext() { return mAllocator; }
-
 private:
-    Allocation* mAllocator;
+    Allocation::AllocInfo* GetAllocInfo() { return &mAllocInfo; }
+
+    Allocation::AllocInfo mAllocInfo;
+
+    friend Allocation;
 };
 
 }

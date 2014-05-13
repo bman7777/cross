@@ -1,0 +1,9 @@
+<map id="Cross::DataContext" name="Cross::DataContext">
+<area shape="rect" id="node3" href="$classCross_1_1IModuleWrapper.html" title="A wrapper for runtime modules that can perform some task or service according to their function..." alt="" coords="137,83,297,112"/>
+<area shape="rect" id="node9" href="$classCross_1_1Junction.html" title="A junction is a point in a sequence that contains several routes to new sequences. The chosen route will rely on direction strategies. A junction is definable by a user, and can be streamed from like a standard sequence stream. " alt="" coords="321,83,436,112"/>
+<area shape="rect" id="node11" href="$classCross_1_1SeqStream.html" title="The construction of a sequence can be made using modules, junction, and other sequences. This is the user&#39;s entry point for construction with a very readable interface for forward/backward directions that is customarily used in the world of streams. " alt="" coords="460,83,591,112"/>
+<area shape="rect" id="node13" href="$classCross_1_1Service.html" title="A base class for services that provides support for service keys that index into contexts. " alt="" coords="615,83,724,112"/>
+<area shape="rect" id="node5" href="$classCross_1_1DirectionModuleDecorator.html" title="A module that can force a direction change in a flow in a specific way. This depends heavily on direc..." alt="" coords="5,169,221,199"/>
+<area shape="rect" id="node7" href="$classCross_1_1ModuleWrapper.html" title="A functional wrapper for runtime modules that can perform some task or service according to their fun..." alt="" coords="245,161,400,207"/>
+<area shape="rect" id="node15" href="$classCross_1_1Allocation.html" title="A service that provides allocation support for flow&#45;based entities. This can create/destroy objects f..." alt="" coords="608,169,731,199"/>
+</map>

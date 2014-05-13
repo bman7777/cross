@@ -34,7 +34,7 @@ SequenceIterator::SequenceIterator(SeqNode* root, IDirectionStrategy* strat) :
         if(mDirectionStrategy == NULL)
         {
             mOwnsDirectionStrategy = true;
-            mDirectionStrategy = new AutoDirectionStrategy(DIR_FORWARD);
+            mDirectionStrategy = Allocation::Get(mContext)->New<AutoDirectionStrategy>(DIR_FORWARD);
         }
     }
 }
@@ -45,7 +45,7 @@ SequenceIterator::~SequenceIterator()
 {
     if(mDirectionStrategy && mOwnsDirectionStrategy)
     {
-        delete mDirectionStrategy;
+        Allocation::Get(mContext)->Delete(mDirectionStrategy);
     }
 
     mContextTracker.clear();

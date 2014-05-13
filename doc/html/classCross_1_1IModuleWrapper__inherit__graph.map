@@ -1,0 +1,5 @@
+<map id="Cross::IModuleWrapper" name="Cross::IModuleWrapper">
+<area shape="rect" id="node5" href="$classCross_1_1DirectionModuleDecorator.html" title="A module that can force a direction change in a flow in a specific way. This depends heavily on direc..." alt="" coords="5,169,221,199"/>
+<area shape="rect" id="node7" href="$classCross_1_1ModuleWrapper.html" title="A functional wrapper for runtime modules that can perform some task or service according to their fun..." alt="" coords="245,161,400,207"/>
+<area shape="rect" id="node2" href="$classCross_1_1DataContext.html" title="container for data key that can be used to identify a contextual object. " alt="" coords="148,5,287,35"/>
+</map>

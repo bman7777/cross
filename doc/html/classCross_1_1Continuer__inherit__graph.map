@@ -1,0 +1,6 @@
+<map id="Cross::Continuer" name="Cross::Continuer">
+<area shape="rect" id="node3" href="$classCross_1_1CallbackContinuer.html" title="Since commonly continuers are just pass&#45;through callbacks&#45; this serves as a helper utility for simple..." alt="" coords="199,5,369,35"/>
+<area shape="rect" id="node5" href="$classCross_1_1DirectionModuleDecorator.html" title="A module that can force a direction change in a flow in a specific way. This depends heavily on direc..." alt="" coords="176,59,392,88"/>
+<area shape="rect" id="node7" href="$classCross_1_1RunContext.html" title="A surrogate for running a node with a strategy. This would be duplicated in several places if not for..." alt="" coords="217,112,351,141"/>
+<area shape="rect" id="node9" href="$classCross_1_1SequenceIterator.html" title="Iterate through sequence nodes and run each one in turn. When the end of the node sequence has been r..." alt="" coords="203,165,365,195"/>
+</map>

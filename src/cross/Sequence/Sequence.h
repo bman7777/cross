@@ -21,15 +21,15 @@ class SeqStream;
 class Sequence : public SeqNode
 {
 public:
+    explicit Sequence(Context* ctx);
+    virtual ~Sequence() {}
+
     virtual void Run(Context* ctx, Continuer* cnt);
     virtual bool operator==(IModuleWrapper* mod) const;
     void InterConnect() { mIntraConnect = false; }
     void IntraConnect() { mIntraConnect = true; }
 
 protected:
-    explicit Sequence(Context* ctx);
-    virtual ~Sequence() {}
-
     virtual bool AddConnection(SeqNode*& out, SeqNode* n, Direction d);
     virtual bool AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d);
     virtual bool AddConnection(SeqNode*& out, SeqStream* s, Direction d);
@@ -39,7 +39,7 @@ private:
     Context* mContext;
     bool mIntraConnect;
 
-    friend class SequenceFactory;
+    friend class Allocation;
 };
 
 }
