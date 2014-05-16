@@ -24,7 +24,7 @@ namespace Cross
 /// \param module - the module to run (this is what we are
 ///         ultimately decorating)
 DirectionModuleDecorator::DirectionModuleDecorator(AutoDirectionStrategy* strat, Direction newDir, IModuleWrapper* mod) :
-    mStrategy(strat), mNewDir(newDir), mModule(mod), mKey(MakeKey()), mContinue(NULL)
+    mStrategy(strat), mNewDir(newDir), mModule(mod), mContinue(NULL)
 {
 }
 

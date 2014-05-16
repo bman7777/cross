@@ -93,42 +93,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEQNODE_H_</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;cross/Context/AllocationContext.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;cross/Sequence/SeqConnect.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Cross</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span>Context;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>Continuer;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>IModuleWrapper;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classCross_1_1SeqNode.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1SeqNode.html">SeqNode</a> : <span class="keyword">protected</span> <a class="code" href="classCross_1_1SeqConnect.html">SeqConnect</a>, <span class="keyword">public</span> <a class="code" href="classCross_1_1AllocationContext.html">AllocationContext</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">SeqNode</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* module = NULL);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">SeqNode</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>* node);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>() {}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCross_1_1SeqNode.html#ac8641339315c39a06d21370ee0fb8263">Run</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1Continuer.html">Continuer</a>* cnt);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCross_1_1SeqNode.html#a17a7923ed7d5387521eb8170e74c2cfd">operator==</a>(<a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* mod) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classCross_1_1SeqConnect.html">SeqConnect</a>* Connect() { <span class="keywordflow">return</span> <span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classCross_1_1Context.html">Context</a>* GetContext()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> SeqConnect::GetContext(); }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* GetModule()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mModule; }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* mModule;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SEQNODE_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classCross_1_1SeqNode_html"><div class="ttname"><a href="classCross_1_1SeqNode.html">Cross::SeqNode</a></div><div class="ttdoc">Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...</div><div class="ttdef"><b>Definition:</b> SeqNode.h:24</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;cross/Sequence/SeqConnect.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>Cross</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>Context;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span>Continuer;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>IModuleWrapper;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classCross_1_1SeqNode.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1SeqNode.html">SeqNode</a> : <span class="keyword">protected</span> <a class="code" href="classCross_1_1SeqConnect.html">SeqConnect</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">SeqNode</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* module = NULL);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">SeqNode</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>* node);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1SeqNode.html">SeqNode</a>() {}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCross_1_1SeqNode.html#ac8641339315c39a06d21370ee0fb8263">Run</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1Continuer.html">Continuer</a>* cnt);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCross_1_1SeqNode.html#a17a7923ed7d5387521eb8170e74c2cfd">operator==</a>(<a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* mod) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classCross_1_1SeqConnect.html">SeqConnect</a>* Connect() { <span class="keywordflow">return</span> <span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classCross_1_1Context.html">Context</a>* GetContext()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> SeqConnect::GetContext(); }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* GetModule()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mModule; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a>* mModule;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SEQNODE_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classCross_1_1SeqNode_html"><div class="ttname"><a href="classCross_1_1SeqNode.html">Cross::SeqNode</a></div><div class="ttdoc">Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f...</div><div class="ttdef"><b>Definition:</b> SeqNode.h:23</div></div>
 <div class="ttc" id="classCross_1_1SeqNode_html_ac8641339315c39a06d21370ee0fb8263"><div class="ttname"><a href="classCross_1_1SeqNode.html#ac8641339315c39a06d21370ee0fb8263">Cross::SeqNode::Run</a></div><div class="ttdeci">virtual void Run(Context *ctx, Continuer *cnt)</div><div class="ttdoc">run this node from some iterator/runner which should be running its internal module or just continuin...</div><div class="ttdef"><b>Definition:</b> SeqNode.cpp:45</div></div>
-<div class="ttc" id="classCross_1_1AllocationContext_html"><div class="ttname"><a href="classCross_1_1AllocationContext.html">Cross::AllocationContext</a></div><div class="ttdoc">all classes that require use of allocation context should derive from this base class ...</div><div class="ttdef"><b>Definition:</b> AllocationContext.h:19</div></div>
-<div class="ttc" id="classCross_1_1IModuleWrapper_html"><div class="ttname"><a href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></div><div class="ttdoc">A wrapper for runtime modules that can perform some task or service according to their function...</div><div class="ttdef"><b>Definition:</b> IModuleWrapper.h:21</div></div>
+<div class="ttc" id="classCross_1_1IModuleWrapper_html"><div class="ttname"><a href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></div><div class="ttdoc">A wrapper for runtime modules that can perform some task or service according to their function...</div><div class="ttdef"><b>Definition:</b> IModuleWrapper.h:19</div></div>
 <div class="ttc" id="classCross_1_1SeqNode_html_ad1d4a1ffe2b5fe90b13926f4a9e90d84"><div class="ttname"><a href="classCross_1_1SeqNode.html#ad1d4a1ffe2b5fe90b13926f4a9e90d84">Cross::SeqNode::SeqNode</a></div><div class="ttdeci">SeqNode(Context *ctx, IModuleWrapper *module=NULL)</div><div class="ttdoc">construct a SeqNode using a module to initialize </div><div class="ttdef"><b>Definition:</b> SeqNode.cpp:24</div></div>
 <div class="ttc" id="classCross_1_1SeqConnect_html"><div class="ttname"><a href="classCross_1_1SeqConnect.html">Cross::SeqConnect</a></div><div class="ttdoc">This helper owns connection between nodes that allow a network of nodes to be created as a sequence...</div><div class="ttdef"><b>Definition:</b> SeqConnect.h:27</div></div>
 <div class="ttc" id="classCross_1_1SeqNode_html_a17a7923ed7d5387521eb8170e74c2cfd"><div class="ttname"><a href="classCross_1_1SeqNode.html#a17a7923ed7d5387521eb8170e74c2cfd">Cross::SeqNode::operator==</a></div><div class="ttdeci">virtual bool operator==(IModuleWrapper *mod) const </div><div class="ttdoc">if someone requests the equality state with a module, use our internal module to check validity ...</div><div class="ttdef"><b>Definition:</b> SeqNode.cpp:62</div></div>
@@ -137,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 13 2014 08:40:34 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

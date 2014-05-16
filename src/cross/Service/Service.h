@@ -10,14 +10,13 @@
 #define SERVICE_H_
 
 #include <typeinfo>
-#include "cross/Context/DataContext.h"
 
 namespace Cross
 {
 
 class Context;
 
-class Service : public DataContext
+class Service
 {
 public:
     typedef std::type_info Type;

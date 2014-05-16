@@ -1,5 +1,4 @@
 <map id="Cross::IDirectionStrategy" name="Cross::IDirectionStrategy">
-<area shape="rect" id="node5" href="$classCross_1_1AutoDirectionStrategy.html" title="When more than 1 route is possible as a sequence is being processed&#45; this strategy provides an automa..." alt="" coords="5,169,197,199"/>
-<area shape="rect" id="node7" href="$classCross_1_1PriorityDirectionStrategy.html" title="Sibling to the automatic strategy&#45; this is able to select from a prioritized list of direction/module..." alt="" coords="221,161,379,207"/>
-<area shape="rect" id="node2" href="$classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="116,5,284,35"/>
+<area shape="rect" id="node3" href="$classCross_1_1AutoDirectionStrategy.html" title="When more than 1 route is possible as a sequence is being processed&#45; this strategy provides an automa..." alt="" coords="5,92,197,121"/>
+<area shape="rect" id="node5" href="$classCross_1_1PriorityDirectionStrategy.html" title="Sibling to the automatic strategy&#45; this is able to select from a prioritized list of direction/module..." alt="" coords="221,83,379,130"/>
 </map>

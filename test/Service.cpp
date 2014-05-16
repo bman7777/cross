@@ -15,8 +15,8 @@ TEST_F(ModuleTest, GlobalService)
 {
     using namespace Cross;
 
-    SpecialChar specialChar(mCtx, '+');
-    mCtx->RegisterService(typeid(SpecialChar), &specialChar);
+    SpecialChar specialChar(&mCtx, '+');
+    mCtx.RegisterService(typeid(SpecialChar), &specialChar);
 
     SeqStream a;
     a>>mA>>mB>>mC;
@@ -24,7 +24,7 @@ TEST_F(ModuleTest, GlobalService)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("a+b+c+", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -35,8 +35,8 @@ TEST_F(ModuleTest, LocalizedService)
 {
     using namespace Cross;
 
-    SpecialChar specialChar(mCtx, '+');
-    mCtx->RegisterService(typeid(SpecialChar), &specialChar);
+    SpecialChar specialChar(&mCtx, '+');
+    mCtx.RegisterService(typeid(SpecialChar), &specialChar);
 
     SeqStream a;
     a>>mA>>mB>>mC;
@@ -52,7 +52,7 @@ TEST_F(ModuleTest, LocalizedService)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("a+b+c+a-b-c-a+b+c+", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);

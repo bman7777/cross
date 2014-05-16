@@ -102,14 +102,7 @@ Inheritance diagram for Cross::Context:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCross_1_1Context__inherit__graph.png" border="0" usemap="#Cross_1_1Context_inherit__map" alt="Inheritance graph"/></div>
 <map name="Cross_1_1Context_inherit__map" id="Cross_1_1Context_inherit__map">
-<area shape="rect" id="node5" href="classCross_1_1GenesisContext.html" title="The context used for generating the construction of sequences. This is then forked and split as seque..." alt="" coords="5,160,163,189"/><area shape="rect" id="node7" href="classCross_1_1RunContext.html" title="A surrogate for running a node with a strategy. This would be duplicated in several places if not for..." alt="" coords="187,160,320,189"/><area shape="rect" id="node2" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="84,5,252,35"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Cross::Context:</div>
-<div class="dyncontent">
-<div class="center"><img src="classCross_1_1Context__coll__graph.png" border="0" usemap="#Cross_1_1Context_coll__map" alt="Collaboration graph"/></div>
-<map name="Cross_1_1Context_coll__map" id="Cross_1_1Context_coll__map">
-<area shape="rect" id="node2" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="5,5,173,35"/></map>
+<area shape="rect" id="node3" href="classCross_1_1GenesisContext.html" title="The context used for generating the construction of sequences. This is then forked and split as seque..." alt="" coords="5,83,163,112"/><area shape="rect" id="node5" href="classCross_1_1RunContext.html" title="A surrogate for running a node with a strategy. This would be duplicated in several places if not for..." alt="" coords="187,83,320,112"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -117,6 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1192692e6b6364c64c0824791b7c0a94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a1192692e6b6364c64c0824791b7c0a94">Context</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *parentContext)</td></tr>
 <tr class="memdesc:a1192692e6b6364c64c0824791b7c0a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the context that will be a link to all services and flow. This will be passed/forked through various flows. A link to immediate parent must always be maintained. Never allow a NULL parent to be passed.  <a href="#a1192692e6b6364c64c0824791b7c0a94">More...</a><br/></td></tr>
 <tr class="separator:a1192692e6b6364c64c0824791b7c0a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d0fb525e220febcc044538fac945aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24d0fb525e220febcc044538fac945aa"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a24d0fb525e220febcc044538fac945aa">~Context</a> ()</td></tr>
+<tr class="memdesc:a24d0fb525e220febcc044538fac945aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">destruct the context and all children contexts that were spawned here <br/></td></tr>
+<tr class="separator:a24d0fb525e220febcc044538fac945aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a945b4dea7bc5ac40cea73331e8c8a345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a945b4dea7bc5ac40cea73331e8c8a345">RegisterService</a> (const Service::Type &amp;t, <a class="el" href="classCross_1_1Service.html">Service</a> *serv)</td></tr>
 <tr class="memdesc:a945b4dea7bc5ac40cea73331e8c8a345"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a service with this context. This is hashed with a key that can later be used to retrieve this service  <a href="#a945b4dea7bc5ac40cea73331e8c8a345">More...</a><br/></td></tr>
 <tr class="separator:a945b4dea7bc5ac40cea73331e8c8a345"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8487a88893731b3f06829f8d79a093a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#aa8487a88893731b3f06829f8d79a093a">UnRegisterService</a> (const Service::Type &amp;t, <a class="el" href="classCross_1_1Service.html">Service</a> *serv)</td></tr>
 <tr class="memdesc:aa8487a88893731b3f06829f8d79a093a"><td class="mdescLeft">&#160;</td><td class="mdescRight">unregister a service that was registered with this context. We will tolerate unregistering a service that does not exist in this context.  <a href="#aa8487a88893731b3f06829f8d79a093a">More...</a><br/></td></tr>
 <tr class="separator:aa8487a88893731b3f06829f8d79a093a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae531a361bfa0898ee7516ae2475fdc07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#ae531a361bfa0898ee7516ae2475fdc07">CreateChild</a> ()</td></tr>
+<tr class="memdesc:ae531a361bfa0898ee7516ae2475fdc07"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a child context that has this context embedded as a parent. This will be tracked and released when the parent is gone.  <a href="#ae531a361bfa0898ee7516ae2475fdc07">More...</a><br/></td></tr>
+<tr class="separator:ae531a361bfa0898ee7516ae2475fdc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. ">Context</a> holds details about location of flow that are hidden to concrete implementation. <a class="el" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. ">Context</a> is also a container for services. </p>
@@ -170,6 +170,24 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae531a361bfa0898ee7516ae2475fdc07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1Context.html">Context</a> * Cross::Context::CreateChild </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>create a child context that has this context embedded as a parent. This will be tracked and released when the parent is gone. </p>
+<dl class="section return"><dt>Returns</dt><dd>context - a context for usage </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a70ee64fa60a46be4ee925824ea4fad12"></a>
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +350,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 13 2014 08:40:34 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

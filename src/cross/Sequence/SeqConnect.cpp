@@ -12,6 +12,7 @@
 #include "cross/Sequence/SeqNode.h"
 #include "cross/Sequence/SeqStream.h"
 #include "cross/Sequence/Sequence.h"
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {

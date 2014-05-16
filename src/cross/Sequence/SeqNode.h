@@ -11,7 +11,6 @@
 #define SEQNODE_H_
 
 #include <stddef.h>
-#include "cross/Context/AllocationContext.h"
 #include "cross/Sequence/SeqConnect.h"
 
 namespace Cross
@@ -21,7 +20,7 @@ class Context;
 class Continuer;
 class IModuleWrapper;
 
-class SeqNode : protected SeqConnect, public AllocationContext
+class SeqNode : protected SeqConnect
 {
 public:
     explicit SeqNode(Context* ctx, IModuleWrapper* module = NULL);

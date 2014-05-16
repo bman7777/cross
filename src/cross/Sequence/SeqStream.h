@@ -22,7 +22,7 @@ class IModuleWrapper;
 class SeqNode;
 class Sequence;
 
-class SeqStream : protected DataContext
+class SeqStream
 {
 public:
     explicit SeqStream(Context* ctx = NULL);

@@ -10,7 +10,6 @@
 #ifndef SEQUENCEITERATOR_H_
 #define SEQUENCEITERATOR_H_
 
-#include <boost/container/list.hpp>
 #include "cross/Context/Continuer.h"
 #include "cross/Context/FlowDefine.h"
 
@@ -38,9 +37,6 @@ private:
     bool mIsRunning;
     Continuer* mCompletedContinuer;
     Context* mContext;
-
-    typedef boost::container::list<Context> ContextTrackList;
-    ContextTrackList mContextTracker;
 };
 
 }

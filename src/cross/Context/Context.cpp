@@ -8,6 +8,7 @@
 /****************************************************************/
 
 #include "cross/Context/Context.h"
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {
@@ -18,9 +19,20 @@ namespace Cross
 ///         a NULL parent to be passed.
 /// \param parentContext - a link to parent context.
 Context::Context(Context* parentContext) :
-    mParentContext(parentContext), AllocationContext()
+    mParentContext(parentContext)
 {
     assert(mParentContext);
+}
+
+/// \brief destruct the context and all children contexts
+///         that were spawned here
+Context::~Context()
+{
+    Allocation* alloc = Allocation::Get(this);
+    for(ContextTrackList::iterator i =mChildren.begin(); i != mChildren.end(); i++)
+    {
+        alloc->Delete(*i);
+    }
 }
 
 /// \brief register a service with this context.  This is hashed
@@ -106,6 +118,18 @@ void Context::UnRegisterService(const Service::Type& t, Service* serv)
     {
         mServices.erase(iter);
     }
+}
+
+/// \brief create a child context that has this context embedded
+///         as a parent.  This will be tracked and released when
+///         the parent is gone.
+/// \return context - a context for usage
+Context* Context::CreateChild()
+{
+    Context* child = Allocation::Get(this)->New<Context>(this);
+    mChildren.push_back(child);
+
+    return child;
 }
 
 }

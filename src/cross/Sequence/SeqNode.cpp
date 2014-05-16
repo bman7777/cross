@@ -22,7 +22,7 @@ namespace Cross
 /// \param module - the node is a wrapper for this module
 ///         located in the flow
 SeqNode::SeqNode(Context* ctx, IModuleWrapper* module) :
-    SeqConnect(ctx), AllocationContext(), mModule(module)
+    SeqConnect(ctx), mModule(module)
 {
 }
 
@@ -32,7 +32,7 @@ SeqNode::SeqNode(Context* ctx, IModuleWrapper* module) :
 /// \param node - the node is a wrapper for a different
 ///         node located in the flow
 SeqNode::SeqNode(Context* ctx, SeqNode* node) :
-    SeqConnect(ctx), AllocationContext(), mModule(node->GetModule())
+    SeqConnect(ctx), mModule(node->GetModule())
 {
 }
 

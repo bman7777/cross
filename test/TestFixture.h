@@ -21,8 +21,6 @@
 class SpecialChar : public Cross::Service
 {
 public:
-    static const DataContext::Key& Type();
-
     SpecialChar(Cross::Context* ctx, char c) : mContext(ctx), mChar(c) {}
     virtual ~SpecialChar() {}
 
@@ -94,7 +92,7 @@ protected:
     void TearDown();
 
     std::string mTestString;
-    Cross::Context* mCtx;
+    Cross::Context mCtx;
 
     AppendChar::Param mParamA;
     Cross::ModuleWrapper<AppendChar, AppendChar::Param> mA;

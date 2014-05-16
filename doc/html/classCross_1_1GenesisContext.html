@@ -103,14 +103,14 @@ Inheritance diagram for Cross::GenesisContext:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCross_1_1GenesisContext__inherit__graph.png" border="0" usemap="#Cross_1_1GenesisContext_inherit__map" alt="Inheritance graph"/></div>
 <map name="Cross_1_1GenesisContext_inherit__map" id="Cross_1_1GenesisContext_inherit__map">
-<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="35,83,144,112"/><area shape="rect" id="node4" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="5,5,173,35"/></map>
+<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="29,5,139,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Cross::GenesisContext:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCross_1_1GenesisContext__coll__graph.png" border="0" usemap="#Cross_1_1GenesisContext_coll__map" alt="Collaboration graph"/></div>
 <map name="Cross_1_1GenesisContext_coll__map" id="Cross_1_1GenesisContext_coll__map">
-<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="35,83,144,112"/><area shape="rect" id="node4" href="classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="5,5,173,35"/></map>
+<area shape="rect" id="node2" href="classCross_1_1Context.html" title="Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. " alt="" coords="29,5,139,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -123,6 +123,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1192692e6b6364c64c0824791b7c0a94 inherit pub_methods_classCross_1_1Context"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a1192692e6b6364c64c0824791b7c0a94">Context</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *parentContext)</td></tr>
 <tr class="memdesc:a1192692e6b6364c64c0824791b7c0a94 inherit pub_methods_classCross_1_1Context"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the context that will be a link to all services and flow. This will be passed/forked through various flows. A link to immediate parent must always be maintained. Never allow a NULL parent to be passed.  <a href="#a1192692e6b6364c64c0824791b7c0a94">More...</a><br/></td></tr>
 <tr class="separator:a1192692e6b6364c64c0824791b7c0a94 inherit pub_methods_classCross_1_1Context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d0fb525e220febcc044538fac945aa inherit pub_methods_classCross_1_1Context"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24d0fb525e220febcc044538fac945aa"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a24d0fb525e220febcc044538fac945aa">~Context</a> ()</td></tr>
+<tr class="memdesc:a24d0fb525e220febcc044538fac945aa inherit pub_methods_classCross_1_1Context"><td class="mdescLeft">&#160;</td><td class="mdescRight">destruct the context and all children contexts that were spawned here <br/></td></tr>
+<tr class="separator:a24d0fb525e220febcc044538fac945aa inherit pub_methods_classCross_1_1Context"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a945b4dea7bc5ac40cea73331e8c8a345 inherit pub_methods_classCross_1_1Context"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#a945b4dea7bc5ac40cea73331e8c8a345">RegisterService</a> (const Service::Type &amp;t, <a class="el" href="classCross_1_1Service.html">Service</a> *serv)</td></tr>
 <tr class="memdesc:a945b4dea7bc5ac40cea73331e8c8a345 inherit pub_methods_classCross_1_1Context"><td class="mdescLeft">&#160;</td><td class="mdescRight">register a service with this context. This is hashed with a key that can later be used to retrieve this service  <a href="#a945b4dea7bc5ac40cea73331e8c8a345">More...</a><br/></td></tr>
 <tr class="separator:a945b4dea7bc5ac40cea73331e8c8a345 inherit pub_methods_classCross_1_1Context"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8487a88893731b3f06829f8d79a093a inherit pub_methods_classCross_1_1Context"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#aa8487a88893731b3f06829f8d79a093a">UnRegisterService</a> (const Service::Type &amp;t, <a class="el" href="classCross_1_1Service.html">Service</a> *serv)</td></tr>
 <tr class="memdesc:aa8487a88893731b3f06829f8d79a093a inherit pub_methods_classCross_1_1Context"><td class="mdescLeft">&#160;</td><td class="mdescRight">unregister a service that was registered with this context. We will tolerate unregistering a service that does not exist in this context.  <a href="#aa8487a88893731b3f06829f8d79a093a">More...</a><br/></td></tr>
 <tr class="separator:aa8487a88893731b3f06829f8d79a093a inherit pub_methods_classCross_1_1Context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae531a361bfa0898ee7516ae2475fdc07 inherit pub_methods_classCross_1_1Context"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1Context.html#ae531a361bfa0898ee7516ae2475fdc07">CreateChild</a> ()</td></tr>
+<tr class="memdesc:ae531a361bfa0898ee7516ae2475fdc07 inherit pub_methods_classCross_1_1Context"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a child context that has this context embedded as a parent. This will be tracked and released when the parent is gone.  <a href="#ae531a361bfa0898ee7516ae2475fdc07">More...</a><br/></td></tr>
+<tr class="separator:ae531a361bfa0898ee7516ae2475fdc07 inherit pub_methods_classCross_1_1Context"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -182,7 +189,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 13 2014 08:40:34 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

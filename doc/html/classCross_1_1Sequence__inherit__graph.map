@@ -1,5 +1,4 @@
 <map id="Cross::Sequence" name="Cross::Sequence">
-<area shape="rect" id="node2" href="$classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="103,83,220,112"/>
+<area shape="rect" id="node2" href="$classCross_1_1SeqNode.html" title="Nodes makes up a network that is known as a sequence. When nodes contain modules, they are wrappers f..." alt="" coords="15,83,132,112"/>
 <area shape="rect" id="node4" href="$classCross_1_1SeqConnect.html" title="This helper owns connection between nodes that allow a network of nodes to be created as a sequence..." alt="" coords="5,5,141,35"/>
-<area shape="rect" id="node6" href="$classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="165,5,333,35"/>
 </map>

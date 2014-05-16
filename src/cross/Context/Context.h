@@ -10,20 +10,20 @@
 #ifndef CONTEXT_H_
 #define CONTEXT_H_
 
+#include <boost/container/list.hpp>
 #include <boost/unordered_map.hpp>
 #include <utility>
 #include <stddef.h>
-#include "cross/Context/AllocationContext.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
 {
 
-class Context : public AllocationContext
+class Context
 {
 public:
     explicit Context(Context* parentContext);
-    virtual ~Context() {}
+    virtual ~Context();
 
     void RegisterService(const Service::Type& t, Service* serv);
 
@@ -35,11 +35,15 @@ public:
 
     void UnRegisterService(const Service::Type& t, Service* serv);
 
+    Context* CreateChild();
 private:
     typedef boost::unordered_map<size_t, Service*> ServiceList;
     ServiceList mServices;
 
     Context* mParentContext;
+
+    typedef boost::container::list<Context*> ContextTrackList;
+    ContextTrackList mChildren;
 };
 
 }

@@ -12,6 +12,7 @@
 #include "cross/Sequence/AutoDirectionStrategy.h"
 #include "cross/Sequence/Sequence.h"
 #include "cross/Sequence/SequenceIterator.h"
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {
@@ -47,8 +48,6 @@ SequenceIterator::~SequenceIterator()
     {
         Allocation::Get(mContext)->Delete(mDirectionStrategy);
     }
-
-    mContextTracker.clear();
 }
 
 /// \brief each step in the traversal will continue and allow
@@ -92,11 +91,8 @@ void SequenceIterator::Run(Context* ctx, Continuer* cnt)
 
         if(mCurrentProgress)
         {
-            // make a shiny new context for module
-            ContextTrackList::iterator iter = mContextTracker.emplace(mContextTracker.end(), mContext);
-
             // this will run/instantiate the module
-            mCurrentProgress->Run(&(*iter), this);
+            mCurrentProgress->Run(mContext->CreateChild(), this);
         }
         else
         {

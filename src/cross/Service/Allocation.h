@@ -14,12 +14,12 @@
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
 #include <memory>
+#include "cross/Service/AllocTracker.h"
 #include "cross/Service/Service.h"
 
 namespace Cross
 {
 
-class AllocationContext;
 class Context;
 
 class Allocation : public Service
@@ -31,20 +31,19 @@ public:
     template <class T, typename... Args>
     T* New(Args&&... args);
 
-    void Delete(AllocationContext* alloc);
+    void Delete(void* alloc);
 
     static Allocation* Get(Context* ctx);
 
-    typedef std::allocator<AllocationContext> Allocator;
-    struct AllocInfo
-    {
-        typedef boost::function<void ()> DestructionCallback;
-        DestructionCallback Callback;
-    };
-
 private:
+
+    typedef std::allocator<void> Allocator;
+    typedef boost::function<void ()> DestructionCallback;
+
     template <class T>
     void Delete(Allocator* allocator, T* ptr);
+
+    static AllocTracker<DestructionCallback> sAllocTrack;
 
     Allocator mGeneralAllocator;
 };
@@ -55,8 +54,12 @@ T* Allocation::New(Args&&... args)
     T* mem = typename Allocator::rebind<T>::other(mGeneralAllocator).allocate(1);
     typename Allocator::rebind<T>::other(mGeneralAllocator).construct(mem, args...);
 
-    AllocInfo* info = mem->GetAllocInfo();
-    info->Callback = boost::bind(&Allocation::Delete<T>, this, &mGeneralAllocator, mem);
+    DestructionCallback* cb = typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).allocate(1);
+    typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).construct(cb);
+
+    *cb = boost::bind(&Allocation::Delete<T>, this, &mGeneralAllocator, mem);
+
+    sAllocTrack.StartTrack(mem, cb);
 
     return mem;
 }

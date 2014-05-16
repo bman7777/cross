@@ -9,14 +9,6 @@
 #include "cross/Sequence/Sequence.h"
 #include "cross/Service/Allocation.h"
 
-/// \brief define the specialchar service that will be used
-///         to test various forms of service specialization
-const Cross::DataContext::Key& SpecialChar::Type()
-{
-    static DataContext::Key typeKey = DataContext::MakeKey();
-    return typeKey;
-}
-
 /// \brief getter for the specialchar service that will
 ///         prevent the need for static casting from service
 ///         base class
@@ -120,12 +112,13 @@ void LapCountJunction::Run(Cross::Context* ctx, Cross::Continuer* cnt)
 ///         used across all tests.  These variables should be
 ///         treated as "shared."
 ModuleTest::ModuleTest() :
+    mCtx(Cross::GenesisContext::Get()),
     mParamA('a', &mTestString), mA(&mParamA),
     mParamB('b', &mTestString), mB(&mParamB),
     mParamC('c', &mTestString), mC(&mParamC),
     mParamD('d', &mTestString), mD(&mParamD),
     mParamAdj('-'), mAdj(&mParamAdj),
-    mCtx(NULL), mTestError(Cross::ERR_UNKNOWN)
+    mTestError(Cross::ERR_UNKNOWN)
 {
 }
 
@@ -141,17 +134,10 @@ void ModuleTest::ErrorStorage(Cross::ErrorCode e)
 void ModuleTest::SetUp()
 {
     mTestError = Cross::ERR_UNKNOWN;
-
-    // this will ensure that one-off services don't carry
-    // over to different runs
-    Cross::Context* genesis = Cross::GenesisContext::Get();
-    mCtx = new Cross::Context(genesis);
 }
 
 /// \brief after every test is run, this will be called
 void ModuleTest::TearDown()
 {
-    delete mCtx;
-    mCtx = NULL;
 }
 

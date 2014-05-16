@@ -1,4 +1,3 @@
 <map id="Cross::AutoDirectionStrategy" name="Cross::AutoDirectionStrategy">
-<area shape="rect" id="node2" href="$classCross_1_1IDirectionStrategy.html" title="An abstract interface that describes classes who can decide the next direction in a flow..." alt="" coords="16,83,187,112"/>
-<area shape="rect" id="node4" href="$classCross_1_1AllocationContext.html" title="all classes that require use of allocation context should derive from this base class ..." alt="" coords="17,5,185,35"/>
+<area shape="rect" id="node2" href="$classCross_1_1IDirectionStrategy.html" title="An abstract interface that describes classes who can decide the next direction in a flow..." alt="" coords="16,5,187,35"/>
 </map>

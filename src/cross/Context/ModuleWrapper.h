@@ -14,6 +14,7 @@
 #include <cassert>
 #include <stddef.h>
 #include "cross/Context/IModuleWrapper.h"
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {
@@ -37,7 +38,6 @@ public:
         if(mModule)
         {
             Allocation::Get(mContext)->Delete(mModule);
-            mModule = NULL;
         }
     }
 

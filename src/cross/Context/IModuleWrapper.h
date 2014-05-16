@@ -10,15 +10,13 @@
 #ifndef FLOW_IMODULEWRAPPER_H_
 #define FLOW_IMODULEWRAPPER_H_
 
-#include "cross/Context/DataContext.h"
-
 namespace Cross
 {
 
 class Context;
 class Continuer;
 
-class IModuleWrapper : public DataContext
+class IModuleWrapper
 {
 public:
     virtual ~IModuleWrapper() {}

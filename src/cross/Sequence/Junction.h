@@ -13,7 +13,6 @@
 #define JUNCTION_H_
 
 #include <boost/container/list.hpp>
-#include "cross/Context/DataContext.h"
 #include "cross/Sequence/SeqNode.h"
 
 namespace Cross
@@ -21,7 +20,7 @@ namespace Cross
 class IDirectionStrategy;
 class Sequence;
 
-class Junction : public SeqNode, public DataContext
+class Junction : public SeqNode
 {
 public:
     Junction(IDirectionStrategy* strat = NULL, Context* ctx = NULL);

@@ -26,14 +26,12 @@ public:
 
 protected:
     virtual void Run(Context* ctx, Continuer* cnt);
-    virtual IModuleWrapper::Key GetKey() const { return mKey; }
     virtual void Continue(Context* ctx, ErrorCode e = ERR_NONE);
 
 private:
     AutoDirectionStrategy* mStrategy;
     Direction mNewDir;
     IModuleWrapper* mModule;
-    IModuleWrapper::Key mKey;
     Continuer* mContinue;
 };
 }

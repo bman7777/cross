@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classCross_1_1Serial.html" title="A series of values can be packed into this object and pulled from when a module is actually run..." alt="" coords="5,5,104,35"/>
+<area shape="rect" id="node1" href="$classCross_1_1IDirectionStrategy.html" title="An abstract interface that describes classes who can decide the next direction in a flow..." alt="" coords="5,36,176,65"/>
+<area shape="rect" id="node3" href="$classCross_1_1AutoDirectionStrategy.html" title="When more than 1 route is possible as a sequence is being processed&#45; this strategy provides an automa..." alt="" coords="225,5,417,35"/>
+<area shape="rect" id="node5" href="$classCross_1_1PriorityDirectionStrategy.html" title="Sibling to the automatic strategy&#45; this is able to select from a prioritized list of direction/module..." alt="" coords="243,58,400,105"/>
 </map>

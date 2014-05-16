@@ -8,18 +8,25 @@
 ///         lines.
 /****************************************************************/
 
-#include "cross/Context/AllocationContext.h"
 #include "cross/Service/Allocation.h"
 
 namespace Cross
 {
 
+AllocTracker<Allocation::DestructionCallback> Allocation::sAllocTrack;
+
 /// \brief deallocate memory created from allocate
-/// \param the previously allocated ptr
-void Allocation::Delete(AllocationContext* alloc)
+/// \param alloc - the previously allocated ptr
+void Allocation::Delete(void* alloc)
 {
-    AllocInfo* info = alloc->GetAllocInfo();
-    info->Callback();
+    DestructionCallback* cb = sAllocTrack.EndTrack(alloc);
+    if(cb)
+    {
+        (*cb)();
+
+        Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).destroy(cb);
+        Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).deallocate(cb, 1);
+    }
 }
 
 /// \brief helper for getting the allocation context

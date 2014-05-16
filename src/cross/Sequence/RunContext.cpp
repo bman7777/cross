@@ -9,6 +9,7 @@
 /****************************************************************/
 
 #include "cross/Sequence/RunContext.h"
+#include "cross/Service/Allocation.h"
 
 namespace Cross
 {

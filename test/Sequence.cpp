@@ -26,7 +26,7 @@ TEST_F(ModuleTest, ForwardSimpleSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("abc", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -44,7 +44,7 @@ TEST_F(ModuleTest, BackwardSimpleSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
     AutoDirectionStrategy dir(DIR_BACKWARD);
     SequenceIterator iter(c.GetHead(), &dir);
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("cba", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -61,7 +61,7 @@ TEST_F(ModuleTest, MinimalSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("a", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -82,7 +82,7 @@ TEST_F(ModuleTest, MultiDirectSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead(), &dir);
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("abcba", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -106,7 +106,7 @@ TEST_F(ModuleTest, CycleSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("abcabcabc", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -137,7 +137,7 @@ TEST_F(ModuleTest, ForkSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(a.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("abcbdad", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -172,7 +172,7 @@ TEST_F(ModuleTest, SeqOfSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(all.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("aaabbbccc", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -196,7 +196,7 @@ TEST_F(ModuleTest, UnorderedAppendedSequence)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(streamFirst.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("aabbcc", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
@@ -216,7 +216,7 @@ TEST_F(ModuleTest, IsolatedFlows)
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
     SequenceIterator iter(s.GetHead());
-    iter.Run(mCtx, &complete);
+    iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("ababcacaca", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
