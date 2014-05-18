@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1Allocation.html">Allocation</a>() {}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    T* New(Args&amp;&amp;... args);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    T* <a class="code" href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">New</a>(Args&amp;&amp;... args);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Delete</a>(<span class="keywordtype">void</span>* alloc);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
@@ -129,45 +129,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Allocator mGeneralAllocator;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;T* Allocation::New(Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    T* mem = <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(mGeneralAllocator).allocate(1);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(mGeneralAllocator).construct(mem, args...);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    DestructionCallback* cb = <span class="keyword">typename</span> Allocator::rebind&lt;DestructionCallback&gt;::other(mGeneralAllocator).allocate(1);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;DestructionCallback&gt;::other(mGeneralAllocator).construct(cb);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    *cb = boost::bind(&amp;Allocation::Delete&lt;T&gt;, <span class="keyword">this</span>, &amp;mGeneralAllocator, mem);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">   55</a></span>&#160;T* <a class="code" href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">Allocation::New</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    T* mem = <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(mGeneralAllocator).allocate(1);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    DestructionCallback* cb = <span class="keyword">typename</span> Allocator::rebind&lt;DestructionCallback&gt;::other(mGeneralAllocator).allocate(1);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;DestructionCallback&gt;::other(mGeneralAllocator).construct(cb);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    sAllocTrack.StartTrack(mem, cb);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    *cb = boost::bind(&amp;Allocation::Delete&lt;T&gt;, <span class="keyword">this</span>, &amp;mGeneralAllocator, mem);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> mem;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Allocation::Delete</a>(Allocator* allocator, T* ptr)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(*allocator).destroy(ptr);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(*allocator).deallocate(ptr, 1);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">//end namespace</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ALLOCATION_H_ */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    sAllocTrack.StartTrack(mem, cb);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// construction of the memory MUST be the last statement in</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">//case it triggers its own delete</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(mGeneralAllocator).construct(mem, args...);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> mem;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Allocation::Delete</a>(Allocator* allocator, T* ptr)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(*allocator).destroy(ptr);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">typename</span> Allocator::rebind&lt;T&gt;::other(*allocator).deallocate(ptr, 1);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">//end namespace</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ALLOCATION_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="ttc" id="classCross_1_1AllocTracker_html"><div class="ttname"><a href="classCross_1_1AllocTracker.html">Cross::AllocTracker&lt; DestructionCallback &gt;</a></div></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a56da9f2fd428eca9348defc43c0a728f"><div class="ttname"><a href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Cross::Allocation::Delete</a></div><div class="ttdeci">void Delete(void *alloc)</div><div class="ttdoc">deallocate memory created from allocate </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:20</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html"><div class="ttname"><a href="classCross_1_1Allocation.html">Cross::Allocation</a></div><div class="ttdoc">A service that provides allocation support for flow-based entities. This can create/destroy objects f...</div><div class="ttdef"><b>Definition:</b> Allocation.h:25</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a8f954a8b40fc0f98c80647acf7bb0138"><div class="ttname"><a href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Cross::Allocation::Get</a></div><div class="ttdeci">static Allocation * Get(Context *ctx)</div><div class="ttdoc">helper for getting the allocation context that will prevent/hide the need for static casts...</div><div class="ttdef"><b>Definition:</b> Allocation.cpp:37</div></div>
 <div class="ttc" id="classCross_1_1Service_html"><div class="ttname"><a href="classCross_1_1Service.html">Cross::Service</a></div><div class="ttdoc">A base class for services that provides support for service keys that index into contexts. </div><div class="ttdef"><b>Definition:</b> Service.h:19</div></div>
+<div class="ttc" id="classCross_1_1Allocation_html_a3f589af1596571b6e5f6e9f5b4ab6ef6"><div class="ttname"><a href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">Cross::Allocation::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;...args)</div><div class="ttdoc">construct some object of type T with args as parameters to the constructor. </div><div class="ttdef"><b>Definition:</b> Allocation.h:55</div></div>
 <div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 18 2014 12:53:43 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

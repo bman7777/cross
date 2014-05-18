@@ -107,54 +107,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classCross_1_1ModuleWrapper.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCross_1_1ModuleWrapper.html">ModuleWrapper</a> : <span class="keyword">public</span> <a class="code" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCross_1_1ModuleWrapper.html">ModuleWrapper</a>(P* p=NULL) :</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        mModule(NULL),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        mParam(p),</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        mContext(NULL)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCross_1_1ModuleWrapper.html">ModuleWrapper</a>()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>(mModule)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Allocation::Get</a>(mContext)-&gt;<a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Delete</a>(mModule);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> Run(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1Continuer.html">Continuer</a>* cnt=NULL)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// TODO: should this be allowed?  should destruction be async?</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>(mModule)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Allocation::Get</a>(mContext)-&gt;<a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Delete</a>(mModule);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        mContext = ctx;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        mModule = <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Allocation::Get</a>(mContext)-&gt;New&lt;M&gt;(mContext, cnt, mParam);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    M* mModule;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    P* mParam;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classCross_1_1Context.html">Context</a>* mContext;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classCross_1_1ModuleWrapper.html">ModuleWrapper</a>(P* p=NULL) : mParam(p) {}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCross_1_1ModuleWrapper.html#a72fdf4ce03b981e9164471ec93e3c94d">~ModuleWrapper</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCross_1_1ModuleWrapper.html#ae44240cc94bed183542113c076a8b7d9">Run</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1Continuer.html">Continuer</a>* cnt=NULL);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    P* mParam;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">typedef</span> std::pair&lt;M*, Context*&gt; ModulePair;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> boost::container::list&lt;ModulePair&gt; ModuleTrackList;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ModuleTrackList mModuleList;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> M, <span class="keyword">class</span> P&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classCross_1_1ModuleWrapper.html#a72fdf4ce03b981e9164471ec93e3c94d">   46</a></span>&#160;<a class="code" href="classCross_1_1ModuleWrapper.html#a72fdf4ce03b981e9164471ec93e3c94d">ModuleWrapper&lt;M, P&gt;::~ModuleWrapper</a>()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">typename</span> ModuleTrackList::iterator i = mModuleList.begin(); i != mModuleList.end(); i++)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Allocation::Get</a>(i-&gt;second)-&gt;<a class="code" href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Delete</a>(i-&gt;first);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> M, <span class="keyword">class</span> P&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classCross_1_1ModuleWrapper.html#ae44240cc94bed183542113c076a8b7d9">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCross_1_1ModuleWrapper.html#ae44240cc94bed183542113c076a8b7d9">ModuleWrapper&lt;M, P&gt;::Run</a>(<a class="code" href="classCross_1_1Context.html">Context</a>* ctx, <a class="code" href="classCross_1_1Continuer.html">Continuer</a>* cnt)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    ModulePair p;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    p.first = <a class="code" href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Allocation::Get</a>(ctx)-&gt;<a class="code" href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">New</a>&lt;M&gt;(ctx, cnt, mParam);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    p.second = ctx;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // MODULE_WRAPPER_H_</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    mModuleList.push_back(p);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // MODULE_WRAPPER_H_</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a56da9f2fd428eca9348defc43c0a728f"><div class="ttname"><a href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Cross::Allocation::Delete</a></div><div class="ttdeci">void Delete(void *alloc)</div><div class="ttdoc">deallocate memory created from allocate </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:20</div></div>
+<div class="ttc" id="classCross_1_1ModuleWrapper_html_ae44240cc94bed183542113c076a8b7d9"><div class="ttname"><a href="classCross_1_1ModuleWrapper.html#ae44240cc94bed183542113c076a8b7d9">Cross::ModuleWrapper::Run</a></div><div class="ttdeci">void Run(Context *ctx, Continuer *cnt=NULL)</div><div class="ttdoc">run a module by allocating an internal module and also track its memory for later cleanup ...</div><div class="ttdef"><b>Definition:</b> ModuleWrapper.h:59</div></div>
 <div class="ttc" id="classCross_1_1IModuleWrapper_html"><div class="ttname"><a href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a></div><div class="ttdoc">A wrapper for runtime modules that can perform some task or service according to their function...</div><div class="ttdef"><b>Definition:</b> IModuleWrapper.h:19</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a8f954a8b40fc0f98c80647acf7bb0138"><div class="ttname"><a href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Cross::Allocation::Get</a></div><div class="ttdeci">static Allocation * Get(Context *ctx)</div><div class="ttdoc">helper for getting the allocation context that will prevent/hide the need for static casts...</div><div class="ttdef"><b>Definition:</b> Allocation.cpp:37</div></div>
 <div class="ttc" id="classCross_1_1ModuleWrapper_html"><div class="ttname"><a href="classCross_1_1ModuleWrapper.html">Cross::ModuleWrapper</a></div><div class="ttdoc">A functional wrapper for runtime modules that can perform some task or service according to their fun...</div><div class="ttdef"><b>Definition:</b> ModuleWrapper.h:26</div></div>
+<div class="ttc" id="classCross_1_1ModuleWrapper_html_a72fdf4ce03b981e9164471ec93e3c94d"><div class="ttname"><a href="classCross_1_1ModuleWrapper.html#a72fdf4ce03b981e9164471ec93e3c94d">Cross::ModuleWrapper::~ModuleWrapper</a></div><div class="ttdeci">virtual ~ModuleWrapper()</div><div class="ttdoc">destruct the module wrapper and cleanup all modules that have been allocated from this ...</div><div class="ttdef"><b>Definition:</b> ModuleWrapper.h:46</div></div>
+<div class="ttc" id="classCross_1_1Allocation_html_a3f589af1596571b6e5f6e9f5b4ab6ef6"><div class="ttname"><a href="classCross_1_1Allocation.html#a3f589af1596571b6e5f6e9f5b4ab6ef6">Cross::Allocation::New</a></div><div class="ttdeci">T * New(Args &amp;&amp;...args)</div><div class="ttdoc">construct some object of type T with args as parameters to the constructor. </div><div class="ttdef"><b>Definition:</b> Allocation.h:55</div></div>
 <div class="ttc" id="classCross_1_1Continuer_html"><div class="ttname"><a href="classCross_1_1Continuer.html">Cross::Continuer</a></div><div class="ttdoc">Continuer triggers the next part of a flow with an error, if applicable. Various classes can implemen...</div><div class="ttdef"><b>Definition:</b> Continuer.h:22</div></div>
 <div class="ttc" id="classCross_1_1Context_html"><div class="ttname"><a href="classCross_1_1Context.html">Cross::Context</a></div><div class="ttdoc">Context holds details about location of flow that are hidden to concrete implementation. Context is also a container for services. </div><div class="ttdef"><b>Definition:</b> Context.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 18 2014 12:53:43 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -26,39 +26,44 @@ template <class M, class P=void>
 class ModuleWrapper : public IModuleWrapper
 {
 public:
-    ModuleWrapper(P* p=NULL) :
-        mModule(NULL),
-        mParam(p),
-        mContext(NULL)
-    {
-    }
-
-    virtual ~ModuleWrapper()
-    {
-        if(mModule)
-        {
-            Allocation::Get(mContext)->Delete(mModule);
-        }
-    }
+    ModuleWrapper(P* p=NULL) : mParam(p) {}
+    virtual ~ModuleWrapper();
 
 protected:
-    void Run(Context* ctx, Continuer* cnt=NULL)
-    {
-        // TODO: should this be allowed?  should destruction be async?
-        if(mModule)
-        {
-            Allocation::Get(mContext)->Delete(mModule);
-        }
-
-        mContext = ctx;
-        mModule = Allocation::Get(mContext)->New<M>(mContext, cnt, mParam);
-    }
+    void Run(Context* ctx, Continuer* cnt=NULL);
 
 private:
-    M* mModule;
     P* mParam;
-    Context* mContext;
+
+    typedef std::pair<M*, Context*> ModulePair;
+    typedef boost::container::list<ModulePair> ModuleTrackList;
+    ModuleTrackList mModuleList;
 };
+
+/// \brief destruct the module wrapper and cleanup all modules
+///         that have been allocated from this
+template <class M, class P>
+ModuleWrapper<M, P>::~ModuleWrapper()
+{
+    for(typename ModuleTrackList::iterator i = mModuleList.begin(); i != mModuleList.end(); i++)
+    {
+        Allocation::Get(i->second)->Delete(i->first);
+    }
+}
+
+/// \brief run a module by allocating an internal module
+///         and also track its memory for later cleanup
+/// \param ctx - context to run/allocate with
+/// \param cnt - continuer to use when module is done
+template <class M, class P>
+void ModuleWrapper<M, P>::Run(Context* ctx, Continuer* cnt)
+{
+    ModulePair p;
+    p.first = Allocation::Get(ctx)->New<M>(ctx, cnt, mParam);
+    p.second = ctx;
+
+    mModuleList.push_back(p);
+}
 
 }
 

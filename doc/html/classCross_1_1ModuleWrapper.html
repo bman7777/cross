@@ -118,11 +118,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e7497718493b3112d375ba6f0a3c4dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e7497718493b3112d375ba6f0a3c4dd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ModuleWrapper</b> (P *p=NULL)</td></tr>
 <tr class="separator:a8e7497718493b3112d375ba6f0a3c4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72fdf4ce03b981e9164471ec93e3c94d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72fdf4ce03b981e9164471ec93e3c94d"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1ModuleWrapper.html#a72fdf4ce03b981e9164471ec93e3c94d">~ModuleWrapper</a> ()</td></tr>
+<tr class="memdesc:a72fdf4ce03b981e9164471ec93e3c94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">destruct the module wrapper and cleanup all modules that have been allocated from this <br/></td></tr>
+<tr class="separator:a72fdf4ce03b981e9164471ec93e3c94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae44240cc94bed183542113c076a8b7d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae44240cc94bed183542113c076a8b7d9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL)</td></tr>
+<tr class="memitem:ae44240cc94bed183542113c076a8b7d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1ModuleWrapper.html#ae44240cc94bed183542113c076a8b7d9">Run</a> (<a class="el" href="classCross_1_1Context.html">Context</a> *ctx, <a class="el" href="classCross_1_1Continuer.html">Continuer</a> *cnt=NULL)</td></tr>
+<tr class="memdesc:ae44240cc94bed183542113c076a8b7d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">run a module by allocating an internal module and also track its memory for later cleanup  <a href="#ae44240cc94bed183542113c076a8b7d9">More...</a><br/></td></tr>
 <tr class="separator:ae44240cc94bed183542113c076a8b7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -131,13 +135,61 @@ class Cross::ModuleWrapper&lt; M, P &gt;</h3>
 
 <p>A functional wrapper for runtime modules that can perform some task or service according to their function. ModuleWrappers also contain a UUID that can uniquely identify them as a module. </p>
 <dl class="section date"><dt>Date</dt><dd>Oct 4, 2013 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae44240cc94bed183542113c076a8b7d9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class M , class P &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCross_1_1ModuleWrapper.html">Cross::ModuleWrapper</a>&lt; M, P &gt;::Run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Continuer.html">Continuer</a> *&#160;</td>
+          <td class="paramname"><em>cnt</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>run a module by allocating an internal module and also track its memory for later cleanup </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>- context to run/allocate with </td></tr>
+    <tr><td class="paramname">cnt</td><td>- continuer to use when module is done </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCross_1_1IModuleWrapper.html">Cross::IModuleWrapper</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Context/<a class="el" href="ModuleWrapper_8h_source.html">ModuleWrapper.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 16 2014 08:51:41 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 18 2014 12:53:43 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

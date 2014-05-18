@@ -48,11 +48,13 @@ private:
     Allocator mGeneralAllocator;
 };
 
+/// \brief construct some object of type T with args as parameters to
+///         the constructor.
+/// \param args - arguments passed to the constructor being called
 template <class T, typename... Args>
 T* Allocation::New(Args&&... args)
 {
     T* mem = typename Allocator::rebind<T>::other(mGeneralAllocator).allocate(1);
-    typename Allocator::rebind<T>::other(mGeneralAllocator).construct(mem, args...);
 
     DestructionCallback* cb = typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).allocate(1);
     typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).construct(cb);
@@ -61,9 +63,16 @@ T* Allocation::New(Args&&... args)
 
     sAllocTrack.StartTrack(mem, cb);
 
+    // construction of the memory MUST be the last statement in
+    //case it triggers its own delete
+    typename Allocator::rebind<T>::other(mGeneralAllocator).construct(mem, args...);
+
     return mem;
 }
 
+/// \brief destruct some object that was allocated using New
+/// \param allocator - the allocator used to construct this object
+/// \param ptr - a pointer to the memory being deallocated
 template <class T>
 void Allocation::Delete(Allocator* allocator, T* ptr)
 {
