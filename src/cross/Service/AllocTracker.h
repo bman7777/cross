@@ -1,8 +1,11 @@
 /****************************************************************/
-/// \class cross::AllocTracker.h
-/// \ingroup /home/brian/Documents/projects/cross/src/cross/Service/AllocTracker.h
+/// \class Cross::AllocTracker
+/// \ingroup Service
 /// \date May 15, 2014
-/// \brief TODO
+/// \brief Track info about the allocations that are coming and
+///         going from the allocation service.  These should be
+///         considered private to the rest of the system and just
+///         used internal by allocation service(s).
 /****************************************************************/
 
 #ifndef ALLOCTRACKER_H_
@@ -28,12 +31,21 @@ private:
     TrackList mAllocs;
 };
 
+/// \brief start tracking a ptr and some info related
+///         to that ptr.  This will be tracked for the
+///         lifetime of the ptr.
+/// \param ptr - pointer to some allocation
+/// \param info - some info tracked with ptr
 template <class T>
 void AllocTracker<T>::StartTrack(void* ptr, T* info)
 {
     mAllocs[ptr] = info;
 }
 
+/// \brief stop tracking a ptr and retrieve some info
+///         related to that ptr.
+/// \param ptr - pointer to some allocation
+/// return info - some info tracked with ptr from starttrack()
 template <class T>
 T* AllocTracker<T>::EndTrack(void* ptr)
 {

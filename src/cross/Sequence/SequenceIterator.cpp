@@ -58,7 +58,7 @@ void SequenceIterator::Continue(Context* ctx, ErrorCode e)
 {
     if(mDirectionStrategy)
     {
-        mCurrentProgress = mDirectionStrategy->GetNextNode(mCurrentProgress->Connect(), e);
+        mCurrentProgress = mDirectionStrategy->GetNextNode(mCurrentProgress, e);
     }
 
     bool pendingRun = false;

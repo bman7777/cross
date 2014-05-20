@@ -92,23 +92,98 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Cross::AllocTracker&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Track info about the allocations that are coming and going from the allocation service. These should be considered private to the rest of the system and just used internal by allocation service(s).  
+ <a href="classCross_1_1AllocTracker.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="AllocTracker_8h_source.html">AllocTracker.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a28c1a835d35f408101e399d9f6b61cf6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28c1a835d35f408101e399d9f6b61cf6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>StartTrack</b> (void *ptr, T *info)</td></tr>
+<tr class="memitem:a28c1a835d35f408101e399d9f6b61cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocTracker.html#a28c1a835d35f408101e399d9f6b61cf6">StartTrack</a> (void *ptr, T *info)</td></tr>
+<tr class="memdesc:a28c1a835d35f408101e399d9f6b61cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">start tracking a ptr and some info related to that ptr. This will be tracked for the lifetime of the ptr.  <a href="#a28c1a835d35f408101e399d9f6b61cf6">More...</a><br/></td></tr>
 <tr class="separator:a28c1a835d35f408101e399d9f6b61cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97f4fd3129e080eaaf76788283a9c436"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97f4fd3129e080eaaf76788283a9c436"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>EndTrack</b> (void *ptr)</td></tr>
+<tr class="memitem:a97f4fd3129e080eaaf76788283a9c436"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1AllocTracker.html#a97f4fd3129e080eaaf76788283a9c436">EndTrack</a> (void *ptr)</td></tr>
+<tr class="memdesc:a97f4fd3129e080eaaf76788283a9c436"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop tracking a ptr and retrieve some info related to that ptr.  <a href="#a97f4fd3129e080eaaf76788283a9c436">More...</a><br/></td></tr>
 <tr class="separator:a97f4fd3129e080eaaf76788283a9c436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br/>
+class Cross::AllocTracker&lt; T &gt;</h3>
+
+<p>Track info about the allocations that are coming and going from the allocation service. These should be considered private to the rest of the system and just used internal by allocation service(s). </p>
+<dl class="section date"><dt>Date</dt><dd>May 15, 2014 </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a97f4fd3129e080eaaf76788283a9c436"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T * <a class="el" href="classCross_1_1AllocTracker.html">Cross::AllocTracker</a>&lt; T &gt;::EndTrack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>stop tracking a ptr and retrieve some info related to that ptr. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>- pointer to some allocation return info - some info tracked with ptr from starttrack() </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a28c1a835d35f408101e399d9f6b61cf6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCross_1_1AllocTracker.html">Cross::AllocTracker</a>&lt; T &gt;::StartTrack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start tracking a ptr and some info related to that ptr. This will be tracked for the lifetime of the ptr. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>- pointer to some allocation </td></tr>
+    <tr><td class="paramname">info</td><td>- some info tracked with ptr </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Service/<a class="el" href="AllocTracker_8h_source.html">AllocTracker.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 12:53:43 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 18 2014 13:05:31 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

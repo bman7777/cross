@@ -45,6 +45,9 @@ private:
 
     static AllocTracker<DestructionCallback> sAllocTrack;
 
+    typedef std::allocator<DestructionCallback> TrackingAllocator;
+    static TrackingAllocator sTrackAllocator;
+
     Allocator mGeneralAllocator;
 };
 
@@ -56,8 +59,8 @@ T* Allocation::New(Args&&... args)
 {
     T* mem = typename Allocator::rebind<T>::other(mGeneralAllocator).allocate(1);
 
-    DestructionCallback* cb = typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).allocate(1);
-    typename Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).construct(cb);
+    DestructionCallback* cb = sTrackAllocator.allocate(1);
+    sTrackAllocator.construct(cb);
 
     *cb = boost::bind(&Allocation::Delete<T>, this, &mGeneralAllocator, mem);
 

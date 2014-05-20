@@ -1,5 +1,5 @@
 Contextual Reliance on Sequences/Services (Cross)
-=======
+=================================================
 
 The challenge of most large software systems is-
 
@@ -22,9 +22,8 @@ TODOs
 -------
 * Write more unit tests
 * Add more documentation
-* Fill out allocator service (and make sure all deletes/news use it)
-* make allocator actually come from specified pools of memory
-* Use google test features to detect memory leaks
+* make allocator actually come from specified pools of memory (use boost fast pool for context/seqnode)
 * make sure context/services can be customized per module/sequence/junction
 * analyze performance
-
+* investigate running lib in web server and connecting from website
+* consistently use boost or std ( abstracted away as much as possible )

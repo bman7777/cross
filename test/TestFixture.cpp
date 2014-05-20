@@ -102,7 +102,7 @@ void LapCountJunction::Run(Cross::Context* ctx, Cross::Continuer* cnt)
 	else
 	{
 		// this will stop us from looping forever
-		Connect()->ClearConnections();
+		ClearConnections();
 
 		cnt->Continue(ctx, Cross::ERR_NONE);
 	}

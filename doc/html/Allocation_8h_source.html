@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    *cb = boost::bind(&amp;Allocation::Delete&lt;T&gt;, <span class="keyword">this</span>, &amp;mGeneralAllocator, mem);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    sAllocTrack.StartTrack(mem, cb);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    sAllocTrack.<a class="code" href="classCross_1_1AllocTracker.html#a28c1a835d35f408101e399d9f6b61cf6">StartTrack</a>(mem, cb);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// construction of the memory MUST be the last statement in</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">//case it triggers its own delete</span></div>
@@ -162,6 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="ttc" id="classCross_1_1AllocTracker_html"><div class="ttname"><a href="classCross_1_1AllocTracker.html">Cross::AllocTracker&lt; DestructionCallback &gt;</a></div></div>
+<div class="ttc" id="classCross_1_1AllocTracker_html_a28c1a835d35f408101e399d9f6b61cf6"><div class="ttname"><a href="classCross_1_1AllocTracker.html#a28c1a835d35f408101e399d9f6b61cf6">Cross::AllocTracker::StartTrack</a></div><div class="ttdeci">void StartTrack(void *ptr, T *info)</div><div class="ttdoc">start tracking a ptr and some info related to that ptr. This will be tracked for the lifetime of the ...</div><div class="ttdef"><b>Definition:</b> AllocTracker.h:40</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a56da9f2fd428eca9348defc43c0a728f"><div class="ttname"><a href="classCross_1_1Allocation.html#a56da9f2fd428eca9348defc43c0a728f">Cross::Allocation::Delete</a></div><div class="ttdeci">void Delete(void *alloc)</div><div class="ttdoc">deallocate memory created from allocate </div><div class="ttdef"><b>Definition:</b> Allocation.cpp:20</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html"><div class="ttname"><a href="classCross_1_1Allocation.html">Cross::Allocation</a></div><div class="ttdoc">A service that provides allocation support for flow-based entities. This can create/destroy objects f...</div><div class="ttdef"><b>Definition:</b> Allocation.h:25</div></div>
 <div class="ttc" id="classCross_1_1Allocation_html_a8f954a8b40fc0f98c80647acf7bb0138"><div class="ttname"><a href="classCross_1_1Allocation.html#a8f954a8b40fc0f98c80647acf7bb0138">Cross::Allocation::Get</a></div><div class="ttdeci">static Allocation * Get(Context *ctx)</div><div class="ttdoc">helper for getting the allocation context that will prevent/hide the need for static casts...</div><div class="ttdef"><b>Definition:</b> Allocation.cpp:37</div></div>
@@ -171,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 12:53:43 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 18 2014 13:05:31 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

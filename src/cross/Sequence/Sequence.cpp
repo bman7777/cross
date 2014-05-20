@@ -71,7 +71,7 @@ bool Sequence::AddConnection(SeqNode*& out, SeqNode* in, Direction d)
     {
         if(mRoot)
         {
-            isNew = mRoot->Connect()->AddConnection(out, in, d);
+            isNew = mRoot->AddConnection(out, in, d);
         }
         else
         {
@@ -102,7 +102,7 @@ bool Sequence::AddConnection(SeqNode*& out, IModuleWrapper* m, Direction d)
     {
         if(mRoot)
         {
-            isNew = mRoot->Connect()->AddConnection(out, m, d);
+            isNew = mRoot->AddConnection(out, m, d);
         }
         else
         {
@@ -134,7 +134,7 @@ bool Sequence::AddConnection(SeqNode*& out, SeqStream* s, Direction d)
     {
         if(mRoot)
         {
-            isNew = mRoot->Connect()->AddConnection(out, s->GetHead(), d);
+            isNew = mRoot->AddConnection(out, s->GetHead(), d);
         }
         else
         {

@@ -38,8 +38,6 @@ private:
     SeqNode* mRoot;
     Context* mContext;
     bool mIntraConnect;
-
-    friend class Allocation;
 };
 
 }

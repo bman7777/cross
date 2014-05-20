@@ -33,7 +33,6 @@ public:
 
     virtual ~SeqStream();
 
-    Context* GetContext() const { return mContext; }
     SeqNode* GetCurrent() const { return mCurrentNode; }
     SeqNode* GetHead() const { return mHead; }
 

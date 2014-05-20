@@ -20,7 +20,7 @@ class Context;
 class Continuer;
 class IModuleWrapper;
 
-class SeqNode : protected SeqConnect
+class SeqNode : public SeqConnect
 {
 public:
     explicit SeqNode(Context* ctx, IModuleWrapper* module = NULL);
@@ -29,13 +29,15 @@ public:
 
     virtual void Run(Context* ctx, Continuer* cnt);
     virtual bool operator==(IModuleWrapper* mod) const;
-    SeqConnect* Connect() { return this; }
-    Context* GetContext() const { return SeqConnect::GetContext(); }
 
 protected:
     IModuleWrapper* GetModule() const { return mModule; }
 
 private:
+    // do not support SeqNode copying
+    SeqNode(const SeqNode& other);
+    SeqNode& operator=(const SeqNode& other);
+
     IModuleWrapper* mModule;
 };
 

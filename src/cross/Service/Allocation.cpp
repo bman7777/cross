@@ -14,6 +14,7 @@ namespace Cross
 {
 
 AllocTracker<Allocation::DestructionCallback> Allocation::sAllocTrack;
+Allocation::TrackingAllocator Allocation::sTrackAllocator;
 
 /// \brief deallocate memory created from allocate
 /// \param alloc - the previously allocated ptr
@@ -24,8 +25,8 @@ void Allocation::Delete(void* alloc)
     {
         (*cb)();
 
-        Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).destroy(cb);
-        Allocator::rebind<DestructionCallback>::other(mGeneralAllocator).deallocate(cb, 1);
+        sTrackAllocator.destroy(cb);
+        sTrackAllocator.deallocate(cb, 1);
     }
 }
 

@@ -58,7 +58,7 @@ void Junction::Run(Context* ctx, Continuer* cnt)
     SeqNode* node;
     if(mStrategy)
     {
-        node = mStrategy->GetNextNode(mRoot->Connect(), ERR_NONE);
+        node = mStrategy->GetNextNode(mRoot, ERR_NONE);
     }
 
     RunContext::BeginRun(ctx, cnt, node);
