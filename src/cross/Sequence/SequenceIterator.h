@@ -17,11 +17,13 @@ namespace Cross
 {
 
 class SeqNode;
+class SeqStream;
 class IDirectionStrategy;
 
 class SequenceIterator : public Continuer
 {
 public:
+    SequenceIterator(SeqStream* root, IDirectionStrategy* strat = NULL);
     SequenceIterator(SeqNode* root, IDirectionStrategy* strat = NULL);
     virtual ~SequenceIterator();
 

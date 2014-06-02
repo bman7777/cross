@@ -147,16 +147,16 @@ SeqStream& SeqStream::operator>>(IModuleWrapper& module)
 ///         head, if one exists.
 /// \param node - a node passed by user to be pushed
 /// \return the current progress of the stream
-SeqStream& SeqStream::operator<<(SeqNode& node)
+SeqStream& SeqStream::operator<<(SeqNode& n)
 {
     if(!mHead)
     {
-        mHead = &node;
+        mHead = &n;
         mCurrentNode = mHead;
     }
     else
     {
-        mCurrentNode->AddConnection(mCurrentNode, &node, DIR_BACKWARD);
+        mCurrentNode->AddConnection(mCurrentNode, &n, DIR_BACKWARD);
     }
     return *this;
 }
@@ -166,56 +166,38 @@ SeqStream& SeqStream::operator<<(SeqNode& node)
 ///         head, if one exists.
 /// \param node - a node passed by user to be pushed
 /// \return the current progress of the stream
-SeqStream& SeqStream::operator>>(SeqNode& node)
+SeqStream& SeqStream::operator>>(SeqNode& n)
 {
     if(!mHead)
     {
-        mHead = &node;
+        mHead = &n;
         mCurrentNode = mHead;
     }
     else
     {
-        mCurrentNode->AddConnection(mCurrentNode, &node, DIR_FORWARD);
+        mCurrentNode->AddConnection(mCurrentNode, &n, DIR_FORWARD);
     }
     return *this;
 }
 
-/// \brief backwards push to the stream that appends a
-///         sequence based on the state of the current node
-///         and the head, if one exists.
-/// \param seq - a sequence passed by user to be pushed
+/// \brief backwards push to the stream that appends a junction
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param junction - a junction passed by user to be pushed
 /// \return the current progress of the stream
-SeqStream& SeqStream::operator<<(Sequence& seq)
+SeqStream& SeqStream::operator<<(Junction& j)
 {
-    if(!mHead)
-    {
-        mHead = &seq;
-        mCurrentNode = mHead;
-    }
-    else
-    {
-        mCurrentNode->AddConnection(mCurrentNode, &seq, DIR_BACKWARD);
-    }
-    return *this;
+    return operator<<(static_cast<SeqNode&>(j));
 }
 
-/// \brief forwards push to the stream that appends a
-///         sequence based on the state of the current node
-///         and the head, if one exists.
-/// \param seq - a sequence passed by user to be pushed
+/// \brief forwards push to the stream that appends a junction
+///         based on the state of the current node and the
+///         head, if one exists.
+/// \param junction - a junction passed by user to be pushed
 /// \return the current progress of the stream
-SeqStream& SeqStream::operator>>(Sequence& seq)
+SeqStream& SeqStream::operator>>(Junction& j)
 {
-    if(!mHead)
-    {
-        mHead = &seq;
-        mCurrentNode = mHead;
-    }
-    else
-    {
-        mCurrentNode->AddConnection(mCurrentNode, &seq, DIR_FORWARD);
-    }
-    return *this;
+    return operator>>(static_cast<SeqNode&>(j));
 }
 
 /// \brief backwards push of another stream that appends to

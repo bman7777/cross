@@ -23,7 +23,7 @@ TEST_F(ModuleTest, GlobalService)
 
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
-    SequenceIterator iter(a.GetHead());
+    SequenceIterator iter(&a);
     iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("a+b+c+", mTestString);
@@ -51,7 +51,7 @@ TEST_F(ModuleTest, LocalizedService)
 
     CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
 
-    SequenceIterator iter(a.GetHead());
+    SequenceIterator iter(&a);
     iter.Run(&mCtx, &complete);
 
     EXPECT_EQ("a+b+c+a-b-c-a+b+c+", mTestString);

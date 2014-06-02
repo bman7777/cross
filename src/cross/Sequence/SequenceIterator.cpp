@@ -10,6 +10,7 @@
 #include "cross/Context/Continuer.h"
 #include "cross/Context/Context.h"
 #include "cross/Sequence/AutoDirectionStrategy.h"
+#include "cross/Sequence/SeqStream.h"
 #include "cross/Sequence/Sequence.h"
 #include "cross/Sequence/SequenceIterator.h"
 #include "cross/Service/Allocation.h"
@@ -19,8 +20,30 @@ namespace Cross
 
 /// \brief construct the sequence iterator so it can be used to
 ///         traverse the sequence tree.
-/// \param root - the sequence node that will serve as a start
-///         for traversal
+/// \param root - the sequence stream that will be traversed
+/// \param strategy - decision-maker for path selection as we run
+SequenceIterator::SequenceIterator(SeqStream* root, IDirectionStrategy* strat) :
+    mCurrentProgress(root->GetHead()),
+    mDirectionStrategy(strat),
+    mOwnsDirectionStrategy(false),
+    mIsRunning(false),
+    mCompletedContinuer(NULL),
+    mContext(NULL)
+{
+    if(mCurrentProgress)
+    {
+        if(mDirectionStrategy == NULL)
+        {
+            mOwnsDirectionStrategy = true;
+            mDirectionStrategy = Allocation::Get(mContext)->New<AutoDirectionStrategy>(DIR_FORWARD);
+        }
+    }
+}
+
+/// \brief construct the sequence iterator so it can be used to
+///         traverse the sequence tree.
+/// \param root - the sequence node that will serve as the start
+///         of the traversal
 /// \param strategy - decision-maker for path selection as we run
 SequenceIterator::SequenceIterator(SeqNode* root, IDirectionStrategy* strat) :
     mCurrentProgress(root),

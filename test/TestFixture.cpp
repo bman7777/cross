@@ -85,7 +85,7 @@ AdjustSpecialChar::~AdjustSpecialChar()
 /// \param numLaps - how many laps to run
 /// \param ctx - context to use
 LapCountJunction::LapCountJunction(int numLaps, Cross::Context* ctx) :
-	Cross::Junction(NULL, ctx), mNumLaps(numLaps), mCurrLap(0)
+    Cross::Junction(NULL, ctx), mNumLaps(numLaps), mCurrLap(0)
 {
 }
 
@@ -94,18 +94,18 @@ LapCountJunction::LapCountJunction(int numLaps, Cross::Context* ctx) :
 /// \param cnt - continuer to use when all laps are done
 void LapCountJunction::Run(Cross::Context* ctx, Cross::Continuer* cnt)
 {
-	if(mCurrLap < mNumLaps)
-	{
-		mCurrLap++;
-		Junction::Run(ctx, cnt);
-	}
-	else
-	{
-		// this will stop us from looping forever
-		ClearConnections();
+    if(mCurrLap < mNumLaps)
+    {
+        mCurrLap++;
+        Junction::Run(ctx, cnt);
+    }
+    else
+    {
+        // this will stop us from looping forever
+        ClearConnections();
 
-		cnt->Continue(ctx, Cross::ERR_NONE);
-	}
+        cnt->Continue(ctx, Cross::ERR_NONE);
+    }
 }
 
 /// \brief constructor for the ModuleTest fixture that will be

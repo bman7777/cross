@@ -24,7 +24,7 @@ class SeqNode : public SeqConnect
 {
 public:
     explicit SeqNode(Context* ctx, IModuleWrapper* module = NULL);
-    explicit SeqNode(Context* ctx, SeqNode* node);
+    SeqNode(Context* ctx, SeqNode* node);
     virtual ~SeqNode() {}
 
     virtual void Run(Context* ctx, Continuer* cnt);

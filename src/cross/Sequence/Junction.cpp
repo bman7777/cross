@@ -84,42 +84,22 @@ SeqStream& Junction::operator>>(IModuleWrapper& module)
     return *iter;
 }
 
-/// \brief append a node to the junction
+/// \brief append a junction to the junction
 /// \param which node to append
-SeqStream& Junction::operator<<(SeqNode& node)
+SeqStream& Junction::operator<<(Junction& j)
 {
     StreamTrackList::iterator iter = mStreamTracker.emplace(mStreamTracker.end(), GetContext());
-    *iter<<*mRoot<<SeqStream::Push<<node;
+    *iter<<*mRoot<<SeqStream::Push<<j;
 
     return *iter;
 }
 
-/// \brief append a node to the junction
+/// \brief append a junction to the junction
 /// \param which node to append
-SeqStream& Junction::operator>>(SeqNode& node)
+SeqStream& Junction::operator>>(Junction& j)
 {
     StreamTrackList::iterator iter = mStreamTracker.emplace(mStreamTracker.end(), GetContext());
-    *iter>>*mRoot>>SeqStream::Push>>node;
-
-    return *iter;
-}
-
-/// \brief append a sequence to the junction
-/// \param which sequence to append
-SeqStream& Junction::operator<<(Sequence& sequence)
-{
-    StreamTrackList::iterator iter = mStreamTracker.emplace(mStreamTracker.end(), GetContext());
-    *iter<<*mRoot<<SeqStream::Push<<sequence;
-
-    return *iter;
-}
-
-/// \brief append a sequence to the junction
-/// \param which sequence to append
-SeqStream& Junction::operator>>(Sequence& sequence)
-{
-    StreamTrackList::iterator iter = mStreamTracker.emplace(mStreamTracker.end(), GetContext());
-    *iter>>*mRoot>>SeqStream::Push>>sequence;
+    *iter>>*mRoot>>SeqStream::Push>>j;
 
     return *iter;
 }

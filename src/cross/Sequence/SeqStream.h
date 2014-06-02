@@ -14,6 +14,7 @@
 
 #include <stack>
 #include "cross/Context/Context.h"
+#include "cross/Sequence/Junction.h"
 
 namespace Cross
 {
@@ -45,14 +46,15 @@ public:
     SeqStream& operator<<(IModuleWrapper& module);
     SeqStream& operator>>(IModuleWrapper& module);
 
-    SeqStream& operator<<(SeqNode& node);
-    SeqStream& operator>>(SeqNode& node);
-
-    SeqStream& operator<<(Sequence& seq);
-    SeqStream& operator>>(Sequence& seq);
+    SeqStream& operator<<(Junction& junction);
+    SeqStream& operator>>(Junction& junction);
 
     SeqStream& operator<<(SeqStream& stream);
     SeqStream& operator>>(SeqStream& stream);
+
+protected:
+    SeqStream& operator<<(SeqNode& node);
+    SeqStream& operator>>(SeqNode& node);
 
 private:
     SeqNode* mCurrentNode;
@@ -64,6 +66,8 @@ private:
 
     typedef std::stack<Sequence*> SeqStack;
     SeqStack mStack;
+
+    friend class Junction;
 };
 
 }

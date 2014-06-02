@@ -29,11 +29,8 @@ public:
     virtual SeqStream& operator<<(IModuleWrapper& module);
     virtual SeqStream& operator>>(IModuleWrapper& module);
 
-    virtual SeqStream& operator<<(SeqNode& node);
-    virtual SeqStream& operator>>(SeqNode& node);
-
-    virtual SeqStream& operator<<(Sequence& seq);
-    virtual SeqStream& operator>>(Sequence& seq);
+    virtual SeqStream& operator<<(Junction& junction);
+    virtual SeqStream& operator>>(Junction& junction);
 
     virtual SeqStream& operator<<(SeqStream& stream);
     virtual SeqStream& operator>>(SeqStream& stream);
