@@ -115,6 +115,9 @@ Collaboration diagram for Cross::SequenceIterator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2c46de3b7a3176a5f0f04a3e06ba78ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#a2c46de3b7a3176a5f0f04a3e06ba78ac">SequenceIterator</a> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *root, <a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *strat=NULL)</td></tr>
+<tr class="memdesc:a2c46de3b7a3176a5f0f04a3e06ba78ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the sequence iterator so it can be used to traverse the sequence tree.  <a href="#a2c46de3b7a3176a5f0f04a3e06ba78ac">More...</a><br/></td></tr>
+<tr class="separator:a2c46de3b7a3176a5f0f04a3e06ba78ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5325d9b01a22f784035069e205a6e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SequenceIterator.html#a7b5325d9b01a22f784035069e205a6e7">SequenceIterator</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *root, <a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *strat=NULL)</td></tr>
 <tr class="memdesc:a7b5325d9b01a22f784035069e205a6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct the sequence iterator so it can be used to traverse the sequence tree.  <a href="#a7b5325d9b01a22f784035069e205a6e7">More...</a><br/></td></tr>
 <tr class="separator:a7b5325d9b01a22f784035069e205a6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +139,41 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><p>Iterate through sequence nodes and run each one in turn. When the end of the node sequence has been reached call the continuer. </p>
 <dl class="section date"><dt>Date</dt><dd>Jan 6, 2014 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2c46de3b7a3176a5f0f04a3e06ba78ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cross::SequenceIterator::SequenceIterator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCross_1_1IDirectionStrategy.html">IDirectionStrategy</a> *&#160;</td>
+          <td class="paramname"><em>strat</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>construct the sequence iterator so it can be used to traverse the sequence tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>- the sequence stream that will be traversed </td></tr>
+    <tr><td class="paramname">strategy</td><td>- decision-maker for path selection as we run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7b5325d9b01a22f784035069e205a6e7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +201,7 @@ Protected Member Functions</h2></td></tr>
 <p>construct the sequence iterator so it can be used to traverse the sequence tree. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td>- the sequence node that will serve as a start for traversal </td></tr>
+    <tr><td class="paramname">root</td><td>- the sequence node that will serve as the start of the traversal </td></tr>
     <tr><td class="paramname">strategy</td><td>- decision-maker for path selection as we run </td></tr>
   </table>
   </dd>
@@ -259,7 +297,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 13:05:31 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 21 2014 12:41:20 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

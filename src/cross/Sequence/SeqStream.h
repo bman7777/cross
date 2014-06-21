@@ -66,8 +66,6 @@ private:
 
     typedef std::stack<Sequence*> SeqStack;
     SeqStack mStack;
-
-    friend class Junction;
 };
 
 }

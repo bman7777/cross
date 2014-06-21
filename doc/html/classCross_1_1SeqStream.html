@@ -89,6 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classCross_1_1SeqStream-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Cross::SeqStream Class Reference</div>  </div>
@@ -123,9 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2bdc4efb1823b0a2812b4e9684ce69c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#ae2bdc4efb1823b0a2812b4e9684ce69c">operator=</a> (const <a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;other)</td></tr>
 <tr class="memdesc:ae2bdc4efb1823b0a2812b4e9684ce69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">equals operator for stream. Functions much like the copy constructor but allows common syntax.  <a href="#ae2bdc4efb1823b0a2812b4e9684ce69c">More...</a><br/></td></tr>
 <tr class="separator:ae2bdc4efb1823b0a2812b4e9684ce69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f4c735bd97fe1c8479e3748b1f4ea78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f4c735bd97fe1c8479e3748b1f4ea78"></a>
-<a class="el" href="classCross_1_1Context.html">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetContext</b> () const </td></tr>
-<tr class="separator:a8f4c735bd97fe1c8479e3748b1f4ea78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c5f0e13ffb2cc9fc61946ff476d816"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19c5f0e13ffb2cc9fc61946ff476d816"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a19c5f0e13ffb2cc9fc61946ff476d816">~SeqStream</a> ()</td></tr>
+<tr class="memdesc:a19c5f0e13ffb2cc9fc61946ff476d816"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for a sequence stream that is responsible for cleaning up all node allocations that occurred in the process of stream building. <br/></td></tr>
+<tr class="separator:a19c5f0e13ffb2cc9fc61946ff476d816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae853818cab9183a0f081ed618ee9b92d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae853818cab9183a0f081ed618ee9b92d"></a>
 <a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetCurrent</b> () const </td></tr>
 <tr class="separator:ae853818cab9183a0f081ed618ee9b92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,18 +146,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ce0b1fb141605653119112670e8d190"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a1ce0b1fb141605653119112670e8d190">operator&gt;&gt;</a> (<a class="el" href="classCross_1_1IModuleWrapper.html">IModuleWrapper</a> &amp;module)</td></tr>
 <tr class="memdesc:a1ce0b1fb141605653119112670e8d190"><td class="mdescLeft">&#160;</td><td class="mdescRight">forwards push to the stream that appends a module based on the state of the current node and the head, if one exists.  <a href="#a1ce0b1fb141605653119112670e8d190">More...</a><br/></td></tr>
 <tr class="separator:a1ce0b1fb141605653119112670e8d190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a65859d3bdf59f0e4996a37ecf45e47dc">operator&lt;&lt;</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;node)</td></tr>
-<tr class="memdesc:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">backwards push to the stream that appends a node based on the state of the current node and the head, if one exists.  <a href="#a65859d3bdf59f0e4996a37ecf45e47dc">More...</a><br/></td></tr>
-<tr class="separator:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#abf9cc17e313dfc0a95cdffee0ad720ed">operator&gt;&gt;</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;node)</td></tr>
-<tr class="memdesc:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">forwards push to the stream that appends a node based on the state of the current node and the head, if one exists.  <a href="#abf9cc17e313dfc0a95cdffee0ad720ed">More...</a><br/></td></tr>
-<tr class="separator:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a749d868fa75b74dd4a850e5a96630cf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a749d868fa75b74dd4a850e5a96630cf0">operator&lt;&lt;</a> (<a class="el" href="classCross_1_1Sequence.html">Sequence</a> &amp;seq)</td></tr>
-<tr class="memdesc:a749d868fa75b74dd4a850e5a96630cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">backwards push to the stream that appends a sequence based on the state of the current node and the head, if one exists.  <a href="#a749d868fa75b74dd4a850e5a96630cf0">More...</a><br/></td></tr>
-<tr class="separator:a749d868fa75b74dd4a850e5a96630cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af253063d24b604095fbc7a249a3742d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#af253063d24b604095fbc7a249a3742d0">operator&gt;&gt;</a> (<a class="el" href="classCross_1_1Sequence.html">Sequence</a> &amp;seq)</td></tr>
-<tr class="memdesc:af253063d24b604095fbc7a249a3742d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">forwards push to the stream that appends a sequence based on the state of the current node and the head, if one exists.  <a href="#af253063d24b604095fbc7a249a3742d0">More...</a><br/></td></tr>
-<tr class="separator:af253063d24b604095fbc7a249a3742d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f9266885d82af5787c07b1ed01293e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#af5f9266885d82af5787c07b1ed01293e">operator&lt;&lt;</a> (<a class="el" href="classCross_1_1Junction.html">Junction</a> &amp;junction)</td></tr>
+<tr class="memdesc:af5f9266885d82af5787c07b1ed01293e"><td class="mdescLeft">&#160;</td><td class="mdescRight">backwards push to the stream that appends a junction based on the state of the current node and the head, if one exists.  <a href="#af5f9266885d82af5787c07b1ed01293e">More...</a><br/></td></tr>
+<tr class="separator:af5f9266885d82af5787c07b1ed01293e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e95a642c414f0b82d5d91f67be4d91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a73e95a642c414f0b82d5d91f67be4d91">operator&gt;&gt;</a> (<a class="el" href="classCross_1_1Junction.html">Junction</a> &amp;junction)</td></tr>
+<tr class="memdesc:a73e95a642c414f0b82d5d91f67be4d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">forwards push to the stream that appends a junction based on the state of the current node and the head, if one exists.  <a href="#a73e95a642c414f0b82d5d91f67be4d91">More...</a><br/></td></tr>
+<tr class="separator:a73e95a642c414f0b82d5d91f67be4d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af13dfa1e27e94e4541b1de6a1e6bfc16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#af13dfa1e27e94e4541b1de6a1e6bfc16">operator&lt;&lt;</a> (<a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;stream)</td></tr>
 <tr class="memdesc:af13dfa1e27e94e4541b1de6a1e6bfc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">backwards push of another stream that appends to the current stream based on the state of the current node and the head, if one exists.  <a href="#af13dfa1e27e94e4541b1de6a1e6bfc16">More...</a><br/></td></tr>
 <tr class="separator:af13dfa1e27e94e4541b1de6a1e6bfc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +167,15 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Push<
 <tr class="memitem:aa58787340dc6bcde1b6bf2b89cd9c047"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa58787340dc6bcde1b6bf2b89cd9c047"></a>
 static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</b> = 0x909</td></tr>
 <tr class="separator:aa58787340dc6bcde1b6bf2b89cd9c047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#a65859d3bdf59f0e4996a37ecf45e47dc">operator&lt;&lt;</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;node)</td></tr>
+<tr class="memdesc:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">backwards push to the stream that appends a node based on the state of the current node and the head, if one exists.  <a href="#a65859d3bdf59f0e4996a37ecf45e47dc">More...</a><br/></td></tr>
+<tr class="separator:a65859d3bdf59f0e4996a37ecf45e47dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCross_1_1SeqStream.html#abf9cc17e313dfc0a95cdffee0ad720ed">operator&gt;&gt;</a> (<a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;node)</td></tr>
+<tr class="memdesc:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">forwards push to the stream that appends a node based on the state of the current node and the head, if one exists.  <a href="#abf9cc17e313dfc0a95cdffee0ad720ed">More...</a><br/></td></tr>
+<tr class="separator:abf9cc17e313dfc0a95cdffee0ad720ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The construction of a sequence can be made using modules, junction, and other sequences. This is the user's entry point for construction with a very readable interface for forward/backward directions that is customarily used in the world of streams. </p>
@@ -369,49 +374,24 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</
 
 </div>
 </div>
-<a class="anchor" id="a65859d3bdf59f0e4996a37ecf45e47dc"></a>
+<a class="anchor" id="af5f9266885d82af5787c07b1ed01293e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Junction.html">Junction</a> &amp;&#160;</td>
+          <td class="paramname"><em>j</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>backwards push to the stream that appends a node based on the state of the current node and the head, if one exists. </p>
+<p>backwards push to the stream that appends a junction based on the state of the current node and the head, if one exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td>- a node passed by user to be pushed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the current progress of the stream </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a749d868fa75b74dd4a850e5a96630cf0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCross_1_1Sequence.html">Sequence</a> &amp;&#160;</td>
-          <td class="paramname"><em>seq</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>backwards push to the stream that appends a sequence based on the state of the current node and the head, if one exists. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">seq</td><td>- a sequence passed by user to be pushed </td></tr>
+    <tr><td class="paramname">junction</td><td>- a junction passed by user to be pushed </td></tr>
   </table>
   </dd>
 </dl>
@@ -437,6 +417,39 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>- a stream passed by user to be pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the current progress of the stream </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a65859d3bdf59f0e4996a37ecf45e47dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>backwards push to the stream that appends a node based on the state of the current node and the head, if one exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>- a node passed by user to be pushed </td></tr>
   </table>
   </dd>
 </dl>
@@ -518,49 +531,24 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</
 
 </div>
 </div>
-<a class="anchor" id="abf9cc17e313dfc0a95cdffee0ad720ed"></a>
+<a class="anchor" id="a73e95a642c414f0b82d5d91f67be4d91"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&gt;&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1Junction.html">Junction</a> &amp;&#160;</td>
+          <td class="paramname"><em>j</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>forwards push to the stream that appends a node based on the state of the current node and the head, if one exists. </p>
+<p>forwards push to the stream that appends a junction based on the state of the current node and the head, if one exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td>- a node passed by user to be pushed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the current progress of the stream </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="af253063d24b604095fbc7a249a3742d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCross_1_1Sequence.html">Sequence</a> &amp;&#160;</td>
-          <td class="paramname"><em>seq</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>forwards push to the stream that appends a sequence based on the state of the current node and the head, if one exists. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">seq</td><td>- a sequence passed by user to be pushed </td></tr>
+    <tr><td class="paramname">junction</td><td>- a junction passed by user to be pushed </td></tr>
   </table>
   </dd>
 </dl>
@@ -593,6 +581,39 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</
 
 </div>
 </div>
+<a class="anchor" id="abf9cc17e313dfc0a95cdffee0ad720ed"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCross_1_1SeqStream.html">SeqStream</a> &amp; Cross::SeqStream::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCross_1_1SeqNode.html">SeqNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>forwards push to the stream that appends a node based on the state of the current node and the head, if one exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>- a node passed by user to be pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the current progress of the stream </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/<a class="el" href="SeqStream_8h_source.html">SeqStream.h</a></li>
 <li>/home/brian/Documents/projects/cross/src/cross/Sequence/SeqStream.cpp</li>
@@ -600,7 +621,7 @@ static const Command&#160;</td><td class="memItemRight" valign="bottom"><b>Pop</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 13:05:31 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 21 2014 12:41:20 for Cross by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

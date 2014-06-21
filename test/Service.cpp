@@ -30,7 +30,8 @@ TEST_F(ModuleTest, GlobalService)
     EXPECT_EQ(ERR_NONE, mTestError);
 }
 
-/// \brief General test to confirm a service can be globally accessible
+/// \brief General test to confirm a service can be localized to
+///         only part of a stream
 TEST_F(ModuleTest, LocalizedService)
 {
     using namespace Cross;
@@ -57,4 +58,29 @@ TEST_F(ModuleTest, LocalizedService)
     EXPECT_EQ("a+b+c+a-b-c-a+b+c+", mTestString);
     EXPECT_EQ(ERR_NONE, mTestError);
 }
+
+/// \brief Confirm a duplicated service uses the most recent
+///         registration of the service
+TEST_F(ModuleTest, DuplicateService)
+{
+    using namespace Cross;
+
+    SpecialChar specialChar(&mCtx, '+');
+    mCtx.RegisterService(typeid(SpecialChar), &specialChar);
+
+    SpecialChar anotherSpecialChar(&mCtx, '-');
+    mCtx.RegisterService(typeid(SpecialChar), &anotherSpecialChar);
+
+    SeqStream a;
+    a>>mA>>mB>>mC;
+
+    CallbackContinuer complete(boost::bind(&ModuleTest::ErrorStorage, this, _1));
+
+    SequenceIterator iter(&a);
+    iter.Run(&mCtx, &complete);
+
+    EXPECT_EQ("a-b-c-", mTestString);
+    EXPECT_EQ(ERR_NONE, mTestError);
+}
+
 

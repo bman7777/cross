@@ -8,7 +8,7 @@ var searchData=
   ['seqstream',['SeqStream',['../classCross_1_1SeqStream.html',1,'Cross']]],
   ['sequence',['Sequence',['../classCross_1_1Sequence.html',1,'Cross']]],
   ['sequence',['Sequence',['../classCross_1_1Sequence.html#a729d9aaf030a718a69cdf5003a93fb35',1,'Cross::Sequence']]],
-  ['sequenceiterator',['SequenceIterator',['../classCross_1_1SequenceIterator.html#a7b5325d9b01a22f784035069e205a6e7',1,'Cross::SequenceIterator']]],
+  ['sequenceiterator',['SequenceIterator',['../classCross_1_1SequenceIterator.html#a2c46de3b7a3176a5f0f04a3e06ba78ac',1,'Cross::SequenceIterator::SequenceIterator(SeqStream *root, IDirectionStrategy *strat=NULL)'],['../classCross_1_1SequenceIterator.html#a7b5325d9b01a22f784035069e205a6e7',1,'Cross::SequenceIterator::SequenceIterator(SeqNode *root, IDirectionStrategy *strat=NULL)']]],
   ['sequenceiterator',['SequenceIterator',['../classCross_1_1SequenceIterator.html',1,'Cross']]],
   ['service',['Service',['../classCross_1_1Service.html',1,'Cross']]],
   ['starttrack',['StartTrack',['../classCross_1_1AllocTracker.html#a28c1a835d35f408101e399d9f6b61cf6',1,'Cross::AllocTracker']]]
